@@ -68,6 +68,9 @@
    <div id="splash-container"></div>
    
    <script>
+        // Set cursor to pointer on the entire container as extra insurance
+        document.getElementById('splash-container').style.cursor = 'pointer';
+
         // Add click event to the entire splash container
         document.getElementById('splash-container').addEventListener('click', function() {
             // Redirect to the home page
