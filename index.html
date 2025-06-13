@@ -77,24 +77,18 @@
             window.location.href = 'home.html';
         });
         
-        // Optional: Add keyboard support (Enter key)
+        // Keyboard support (Enter key)
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 window.location.href = 'home.html';
             }
         });
+
+        // Touch support for mobile devices
+        document.getElementById('splash-container').addEventListener('touchend', function() {
+            window.location.href = 'home.html';
+        });
     </script>
 </body>
-<!-- <body>
-<center>
-<br><br><br><br>
-	<table>
-	<tr><td>PRUEBA 1</td></tr>
-	<tr><td>el primer día de trabajo</td></tr>
-	</table>
-<br><br>
-
-</center>
-</body> -->
 
 </html>
