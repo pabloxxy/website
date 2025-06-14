@@ -44,8 +44,7 @@ html, body {
   align-items: center;
   background: #000;     /* Black background */
   overflow: hidden;       /* Hide any overflow */
-  position: relative;     /* Needed for absolute child positioning */
-  cursor: pointer; 
+  position: relative;     /* Needed for absolute child positioning */ 
 }
 
 #splash-video {
@@ -53,7 +52,7 @@ html, body {
   max-height: 100%;       /* Prevent exceeding container height */
   width: auto;            /* Maintain aspect ratio */
   height: auto;           /* Maintain aspect ratio */
-  background: #000;     /* Black background for video element */
+  cursor: pointer;
 }
 
 
@@ -242,5 +241,107 @@ html, body {
 
 
 
+/* New color palette */
+:root {
+  --medio: #a3a3a3;
+  --claro: #ffffffd8;
+  --blanco: #ffffff;
+}
+
+/* Home page specific styles */
+body.home-page {
+  background-color: #000000;
+  color: var(--blanco);
+}
+
+.home-page h2 {
+  color: var(--medio);
+  margin-bottom: 20px;
+}
+
+.home-page p {
+  margin: 10px 0;
+}
+
+.home-page .italic {
+  color: var(--claro);
+  font-style: italic;
+}
+
+.home-page .second-font {
+  margin-top: 40px;
+  padding-top: 20px;
+}
 
 
+
+/* Info Icon Styles */
+#info-icon-container {
+    position: absolute;
+    top: 100px;
+    right: 125px;
+    z-index: 20;
+    cursor: help;
+}
+
+#info-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+#info-icon:hover {
+    opacity: 1;
+}
+
+#info-tooltip {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    max-width: 285px;
+    background-color: rgba(255, 255, 255, 0.35);
+    color: #000000;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'AlegreyaSans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: justify;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+#info-icon-container:hover #info-tooltip {
+    display: block;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 100%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+
+
+/* Mobile-friendly adjustments */
+@media (max-width: 768px) {
+    #info-icon-container {
+        top: 15px;
+        right: 15px;
+    }
+    
+    #info-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #info-tooltip {
+        width: min(250px, 85vw);
+        font-size: 13px;
+        padding: 12px;
+    }
+}
