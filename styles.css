@@ -46,24 +46,23 @@ body {
 
 /* Splash */
 #splash-container {
-  width: 100%;
-  height: 100%;
-  background: #000;
+  width: 100vw;           /* Full viewport width */
+  height: 100vh;          /* Full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: relative;
+  background: #000;       /* Black background */
+  overflow: hidden;       /* Hide any overflow */
+  position: relative;     /* Needed for absolute child positioning */
 }
 
 #splash-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  max-width: 100%;        /* Prevent exceeding container width */
+  max-height: 100%;       /* Prevent exceeding container height */
+  width: auto;            /* Maintain aspect ratio */
+  height: auto;           /* Maintain aspect ratio */
+  background: #000;       /* Black background for video element */
 }
 
 
