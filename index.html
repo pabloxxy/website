@@ -32,6 +32,16 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
+    <!-- Info Icon -->
+    <div id="info-icon-container">
+            <img id="info-icon" src="images/info-icon.png" alt="Information">
+            <div id="info-tooltip">
+                This is the probability density function (plotted on the complex plane) of the Empirical Spectral Distribution of a 5x5 matrix with two random entries. Another one of its entries is moving through time over the unit circle of the complex plane. Click on the video to continue to home page. You can see more of this project on the "Random Matrices" section.
+            </div>
+    </div>
+   
+    <!-- Video de fondo -->
    <div id="splash-container">
         <video id="splash-video" autoplay loop muted playsinline preload="auto">
             <source src="images/triblob12magma.mp4" type="video/mp4">
@@ -40,12 +50,12 @@
    </div>
    
    <script>
-        // Force cursor refresh on container
-        const container = document.getElementById('splash-container');
-        container.style.cursor = 'pointer';   
+        // // Force cursor refresh on video
+        // const video = document.getElementById('splash-video');
+        // video.style.cursor = 'pointer';   
         
         // Add click event to the entire splash container
-        document.getElementById('splash-container').addEventListener('click', function() {
+        document.getElementById('splash-video').addEventListener('click', function() {
             // Redirect to the home page
             window.location.href = 'home.html';
         });
@@ -58,7 +68,7 @@
         });
 
         // Touch support for mobile devices
-        document.getElementById('splash-container').addEventListener('touchend', function() {
+        document.getElementById('splash-video').addEventListener('touchend', function() {
             window.location.href = 'home.html';
         });
 
