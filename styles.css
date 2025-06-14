@@ -1,0 +1,256 @@
+/* styles.css */
+
+ body {
+      font-family: 'Alegreya Sans', sans-serif;
+      text-align: center;
+    }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table {
+  height: 50%;
+  border: 1px solid gray;
+}
+
+td {
+  text-align: center;
+  padding: 25px;
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'AlegreyaSans', sans-serif;
+  font-size: 24pt;
+  color: #000;
+  text-align: center;
+}
+
+/* Create a class for the SECOND typeface */
+.second-font {
+  font-family: 'Lora';
+}
+.italic {
+  font-style: italic;
+}
+
+/* Splash */
+#splash-container {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+#splash-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+
+/* Lora font */
+/* Regular (400) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bold (700) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Italic (400) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Bold Italic (700) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/* Medium (500) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Medium Italic (500) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+/* SemiBold (600) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* SemiBold Italic (600) */
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/Lora-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+
+
+/* AlegreyaSans font */
+/* Regular (400) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Italic (400) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Thin Italic (100) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+/* Thin (100) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+/* Medium Italic (500) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+/* Medium (500) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Light Italic 300) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+/* Light 300) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* Extra Bold Italic 800) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-ExtraBoldItalic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+/* Extra Bold 800) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bold Italic 700) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/* Bold 700) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Black Italic 900) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* Black 900) */
+@font-face {
+  font-family: 'AlegreyaSans';
+  src: url('fonts/AlegreyaSans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+
+

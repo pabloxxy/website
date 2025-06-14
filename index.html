@@ -29,49 +29,7 @@
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
-	<style>
-	 * { font-family: verdana; font-size: 10pt; COLOR: gray; }
-	 b { font-weight: bold; }
-	 table { height: 50%; border: 1px solid gray;}
-	 td { text-align: center; padding: 25;}
-
-    /* Reset default browser styles */
-    * { margin: 0; padding: 0; box-sizing: border-box;}
-
-    /* Make html and body take full height */
-    html, body {
-        height: 100%;
-        width: 100%;
-        overflow: hidden; /* Prevent scrolling */
-    }
-   
-    /* Splash container styling */
-    #splash-container {
-        width: 100%;
-        height: 100%;
-        background: #000; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        position: relative;
-    }
-
-    /* Video styling */
-    #splash-video {
-        /* Video will cover the container while maintaining aspect ratio */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Cover entire container */
-        z-index: 1;
-    }
-    
-	</style>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
    <div id="splash-container">
