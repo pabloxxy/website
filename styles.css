@@ -51,8 +51,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  background: #000;       /* Black background */
+  background: #000;     /* Black background */
   overflow: hidden;       /* Hide any overflow */
   position: relative;     /* Needed for absolute child positioning */
 }
@@ -62,7 +61,8 @@ body {
   max-height: 100%;       /* Prevent exceeding container height */
   width: auto;            /* Maintain aspect ratio */
   height: auto;           /* Maintain aspect ratio */
-  background: #000;       /* Black background for video element */
+  background: #000;     /* Black background for video element */
+  cursor: pointer;
 }
 
 

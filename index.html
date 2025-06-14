@@ -34,7 +34,6 @@
 <body>
    <div id="splash-container">
         <video id="splash-video" autoplay loop muted playsinline>
-            <!-- Replace with your actual video file -->
             <source src="images/triblob12magma.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -42,9 +41,6 @@
    
    <script>
         const splashContainer = document.getElementById('splash-container');
-
-        // Set cursor to pointer on the container
-        splashContainer.style.cursor = 'pointer';
 
         // Add click event to the entire splash container
         document.getElementById('splash-container').addEventListener('click', function() {
@@ -64,23 +60,6 @@
             window.location.href = 'home.html';
         });
 
-        // Handle video aspect ratio dynamically
-        function resizeVideo() {
-            const videoRatio = video.videoWidth / video.videoHeight;
-            const containerRatio = splashContainer.clientWidth / splashContainer.clientHeight;
-            
-            if (containerRatio > videoRatio) {
-                video.style.width = '100%';
-                video.style.height = 'auto';
-            } else {
-                video.style.width = 'auto';
-                video.style.height = '100%';
-            }
-        }
-
-         // Initial resize
-        video.addEventListener('loadedmetadata', resizeVideo);
-        window.addEventListener('resize', resizeVideo);
     </script>
 </body>
 
