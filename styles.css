@@ -1,11 +1,5 @@
 /* styles.css */
 
- body {
-      font-family: 'Alegreya Sans', sans-serif;
-      text-align: center;
-    }
-
-
 * {
   margin: 0;
   padding: 0;
@@ -27,9 +21,6 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-
-body {
   font-family: 'AlegreyaSans', sans-serif;
   font-size: 24pt;
   color: #000;
@@ -54,6 +45,7 @@ body {
   background: #000;     /* Black background */
   overflow: hidden;       /* Hide any overflow */
   position: relative;     /* Needed for absolute child positioning */
+  cursor: pointer; 
 }
 
 #splash-video {
@@ -62,7 +54,6 @@ body {
   width: auto;            /* Maintain aspect ratio */
   height: auto;           /* Maintain aspect ratio */
   background: #000;     /* Black background for video element */
-  cursor: pointer;
 }
 
 

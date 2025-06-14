@@ -33,15 +33,17 @@
 </head>
 <body>
    <div id="splash-container">
-        <video id="splash-video" autoplay loop muted playsinline>
+        <video id="splash-video" autoplay loop muted playsinline preload="auto">
             <source src="images/triblob12magma.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
    </div>
    
    <script>
-        const splashContainer = document.getElementById('splash-container');
-
+        // Force cursor refresh on container
+        const container = document.getElementById('splash-container');
+        container.style.cursor = 'pointer';   
+        
         // Add click event to the entire splash container
         document.getElementById('splash-container').addEventListener('click', function() {
             // Redirect to the home page
