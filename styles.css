@@ -517,7 +517,11 @@ body.home-page {
         /* Placeholder styling */
         .chakra-textarea[name="text"]::placeholder {
          font-style: italic !important;
-         color: #94a3b8 !important;
+         color: var(--medio) !important;
+        }
+        #author.chakra-input::placeholder {
+         font-style: italic !important;
+         color: var(--medio) !important; /* Change to your desired color */
         }
         /* Focus state */
         .chakra-textarea[name="text"]:focus {
