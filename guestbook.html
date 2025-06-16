@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pablo de la Fuente - Guestbook</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="60x60" href="images/favicon/apple-touch-icon-60x60.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="76x76" href="images/favicon/apple-touch-icon-76x76.png" />
+   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-196x196.png" sizes="196x196" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" />
+   <link rel="icon" type="image/png" href="images/favicon/favicon-128.png" sizes="128x128" />
+   <link rel="shortcut icon" href="images/favicon/favicon.ico">
+   <meta name="application-name" content="&nbsp;"/>
+   <meta name="msapplication-TileColor" content="#FFFFFF" />
+   <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png" />
+   <meta name="msapplication-square70x70logo" content="images/favicon/mstile-70x70.png" />
+   <meta name="msapplication-square150x150logo" content="images/favicon/mstile-150x150.png" />
+   <meta name="msapplication-wide310x150logo" content="images/favicon/mstile-310x150.png" />
+   <meta name="msapplication-square310x310logo" content="images/favicon/mstile-310x310.png" />
+
+</head>
+
+
+<body class="home-page">
+    <!-- Navigation Button -->
+    <button class="back-button" onclick="window.location.href='home.html'">←</button>
+    
+    <div class="guestbook-container">
+        <div class="guestbook-header">
+            <h2>Guestbook</h2>
+            <p>Leave a message to share your thoughts.</p>
+            <p> I'd love to hear from you! </p>
+        </div>
+        
+        <!-- Memorista Guestbook Component -->
+        <x-memorista api-key="0a3da654-2ffb-4b56-9d83-b9ca88b097e5"></x-memorista>
+    </div>
+    
+    <!-- Memorista Script -->
+    <script crossorigin src="https://unpkg.com/@memorista/client-ui@2/dist/index.bundle.js"></script>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // Override global overflow settings
+            document.documentElement.style.overflow = 'auto';
+            document.body.style.overflow = 'auto';
+
+
+            // Wait a moment for the custom elements to be defined
+            setTimeout(() => {
+                // Style the form container
+                const formContainer = document.querySelector('x-memorista').shadowRoot.querySelector('.container');
+                if(formContainer) {
+                    formContainer.style.backgroundColor = 'transparent';
+                    formContainer.style.padding = '0';
+                    formContainer.style.border = 'none';
+                }
+                
+                // Style the input fields
+                const inputs = document.querySelector('x-memorista').shadowRoot.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.style.backgroundColor = 'rgba(0, 0, 0, 1)';
+                    input.style.color = '#fff';
+                    input.style.border = '1px solid var(--medio)';
+                    input.style.borderRadius = '4px';
+                    input.style.padding = '10px';
+                    input.style.marginBottom = '15px';
+                });
+                
+                // Style the submit button
+                const submitButton = document.querySelector('x-memorista').shadowRoot.querySelector('button');
+                if(submitButton) {
+                    submitButton.style.backgroundColor = 'var(--medio)';
+                    submitButton.style.color = '#fffff';
+                    submitButton.style.border = 'none';
+                    submitButton.style.borderRadius = '4px';
+                    submitButton.style.padding = '10px 20px';
+                    submitButton.style.cursor = 'pointer';
+                    submitButton.style.fontWeight = 'normal';
+                    submitButton.style.transition = 'background-color 0.3s';
+                    
+                    submitButton.addEventListener('mouseover', () => {
+                        submitButton.style.backgroundColor = '#0000';
+                    });
+                    
+                    submitButton.addEventListener('mouseout', () => {
+                        submitButton.style.backgroundColor = 'var(--medio)';
+                    });
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
