@@ -423,18 +423,19 @@ body.home-page {
             }
             
             .guestbook-header h2 {
-                font-size: 2rem;
+                font-size: 1rem;
             }
         }
 
-        /* Memorista submit button */
+        /* Submit button */
         .chakra-button[type="submit"] {
           background-color: var(--medio) !important; 
           color: white !important;
-          border-radius: 8px !important;
-          padding: 12px 24px !important;
+          padding: 0px 24px !important;
           font-weight: bold !important;
           transition: all 0.3s ease !important;
+          font-size: 24px;
+          height: 1.75rem;
         }
         /* Hover state */
         .chakra-button[type="submit"]:not([disabled]):hover {
@@ -533,32 +534,51 @@ body.home-page {
         }
 
         /* Fecha */
-        .css-xdp1c1 .css-1h8gyx6 {
+        .css-1h8gyx6 {
           font-family: "Alegreya Sans", sans-serif !important;
-          font-size: 16px !important;
-          color: #000000 !important;
-          letter-spacing: 0.75px !important;
+          font-size: 14px !important;
+          color: #ffffff !important;
         }
+        /* Caja de la fecha */
+        .css-xdp1c1 {
+          background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
 
         /* Nombre del autor */
         .css-1p39fmf {
           font-family: "Lora" !important;
           font-size: 28px !important;
-          font-weight: 300;
-          text-align: left;
+          font-weight: 300 !important;
+          text-align: left !important;
         }
 
         /* Texto del comentario */
         .css-itvw0n {
           font-family: "Alegreya Sans", sans-serif !important;
           font-size: 20px !important;
-          text-align: justify;
+          text-align: justify !important;
+        }
+
+        /* Botón que dice You  */
+        .css-3aky8n {
+          text-transform: lowercase !important;
+          font-family: "Lora" !important;
+          font-style: normal !important;
+          font-size: 20px !important; 
+          color: #000000 !important;
+        }
+        /* Caja de que se guardó el mensaje */
+        .css-d2zjbc {
+        font-family: "Alegreya Sans", sans-serif !important;
+        color: #000000 !important;
+        border-radius: 20px;
         }
 
 
 /* Guestbook link */
 .guestbook-link {
-  font-family: "Alegreya Sans", sans-serif !important;
+  font-family: "Alegreya Sans", sans-serif;
   margin: 20px 0;
   font-size: 1.2em;
 }
