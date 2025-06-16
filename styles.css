@@ -575,20 +575,24 @@ body.home-page {
         border-radius: 20px;
         }
 
+        /* Quitar un point tip feo */
+        [aria-describedby^="tooltip-"] {
+          pointer-events: none !important;
+        }
 
-/* Guestbook link */
-.guestbook-link {
-  font-family: "Alegreya Sans", sans-serif;
-  margin: 20px 0;
-  font-size: 1.2em;
-}
+        /* Guestbook link */
+        .guestbook-link {
+        font-family: "Alegreya Sans", sans-serif;
+        margin: 20px 0;
+        font-size: 1.2em;
+        }
 
-.guestbook-link a {
-  text-decoration: none;
-  color: #0066cc;
-  font-weight: bold;
-}
+        .guestbook-link a {
+        text-decoration: none;
+        color: #0066cc;
+        font-weight: bold;
+        }
 
-.guestbook-link a:hover {
-  text-decoration: underline;
-}
+        .guestbook-link a:hover {
+        text-decoration: underline;
+        }
