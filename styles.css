@@ -1,19 +1,15 @@
-/* styles.css */
+/* ============================================
+   ORGANIZED CSS STRUCTURE - styles.css
+   ============================================ */
+
+/* ============================================
+   1. RESET & BASE STYLES
+   ============================================ */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-table {
-  height: 50%;
-  border: 1px solid gray;
-}
-
-td {
-  text-align: center;
-  padding: 25px;
 }
 
 
@@ -27,32 +23,17 @@ html, body {
   text-align: center;
 }
 
+
+/* ============================================
+   3. TYPOGRAPHY & FONT FACES
+   ============================================ */
+
 /* Create a class for the SECOND typeface */
 .second-font {
   font-family: 'Lora';
 }
 .italic {
   font-style: italic;
-}
-
-/* Splash */
-#splash-container {
-  width: 100vw;           /* Full viewport width */
-  height: 100vh;          /* Full viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000;     /* Black background */
-  overflow: hidden;       /* Hide any overflow */
-  position: relative;     /* Needed for absolute child positioning */ 
-}
-
-#splash-video {
-  max-width: 100%;        /* Prevent exceeding container width */
-  max-height: 100%;       /* Prevent exceeding container height */
-  width: auto;            /* Maintain aspect ratio */
-  height: auto;           /* Maintain aspect ratio */
-  cursor: pointer;
 }
 
 
@@ -240,6 +221,31 @@ html, body {
 }
 
 
+/* ============================================
+   4. LAYOUT COMPONENTS
+   ============================================ */
+
+
+/* Splash */
+#splash-container {
+  width: 100vw;           /* Full viewport width */
+  height: 100vh;          /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;     /* Black background */
+  overflow: hidden;       /* Hide any overflow */
+  position: relative;     /* Needed for absolute child positioning */ 
+}
+
+#splash-video {
+  max-width: 100%;        /* Prevent exceeding container width */
+  max-height: 100%;       /* Prevent exceeding container height */
+  width: auto;            /* Maintain aspect ratio */
+  height: auto;           /* Maintain aspect ratio */
+  cursor: pointer;
+}
+
 
 /* New color palette */
 :root {
@@ -248,10 +254,15 @@ html, body {
   --blanco: #ffffff;
 }
 
+
+/* ============================================
+   5. NAVIGATION & MENU
+   ============================================ */
+
 /* Home page specific styles */
 body.home-page {
   background-color: #000000;
-  color: var(--blanco);
+  color: #ffffff;
 }
 
 .home-page h2 {
@@ -348,7 +359,9 @@ body.home-page {
 
 
 
-
+/* ============================================
+   6. GUESTBOOK STYLES
+   ============================================ */
 /* Guestbook specific styles */
         .guestbook-container {
             max-width: 800px;
@@ -378,7 +391,12 @@ body.home-page {
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
+/* ============================================
+   7. COMPONENT OVERRIDES (Third-party API)
+   ============================================ */
+
+/* Memorista guestbook component overrides */
         /* Style for the Memorista component */
         x-memorista {
             display: block;
@@ -767,6 +785,7 @@ body.home-page::after{
   font-size: 1rem;
   position: relative;
   padding-bottom: 2px;
+  margin-right: 10px;
 }
 
 .guestbook-footer a::after {
@@ -788,12 +807,6 @@ body.home-page::after{
 .guestbook-footer a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-
-/* Remove old font testing sections */
-.primary-font-section,
-.second-font {
-  display: none;
 }
 
 /* Mobile adjustments for new layout */
