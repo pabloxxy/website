@@ -870,11 +870,12 @@ body.home-page::after{
   .site-wrapper {
     padding: 10px;
     justify-content: flex-start;
+    padding-bottom: 60px;
   }
 
   /* Adjust guestbook footer */
   .guestbook-footer {
-    position: relative;
+    position: sticky;
     text-align: center;
     padding: 20px 0;
   }
