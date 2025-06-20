@@ -773,7 +773,7 @@ body.home-page::after{
   font-family: 'Lora', serif;
   text-align: right;
   padding: 20px;
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   z-index: 100;
@@ -809,27 +809,7 @@ body.home-page::after{
   transform-origin: left;
 }
 
-/* Mobile adjustments for new layout */
-@media (max-width: 768px) {
-  .main-menu a {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-  }
-  
-  .counter-wrapper {
-    top: 10px;
-    right: 10px;
-  }
-}
 
-@media (max-width: 480px) {
-  .main-menu a {
-    font-size: clamp(2rem, 7vw, 4rem);
-  }
-  
-  .guestbook-footer a {
-    font-size: 1rem;
-  }
-}
 
 
 /* MOBILE */
