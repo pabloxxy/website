@@ -18,77 +18,36 @@
 
 </head>
 
-
 <body class="home-page">
     <!-- Navigation Button -->
     <button class="back-button" onclick="window.location.href='home.html'">←</button>
     
     <div class="guestbook-container">
-        <div class="guestbook-header">
-            <h2>Guestbook</h2>
-            <p>Leave a message to share your thoughts.</p>
-            <p> I'd love to hear from you! </p>
+        <div class="guestbook-content">
+            <div class="guestbook-header">
+                <h2>Guestbook</h2>
+                <p>Leave a message to share your thoughts.</p>
+                <p> I'd love to hear from you! </p>
+            </div>
+            
+            <!-- This is where the form will appear -->
+            <x-memorista api-key="0a3da654-2ffb-4b56-9d83-b9ca88b097e5"></x-memorista>
         </div>
         
-        <!-- Memorista Guestbook Component -->
-        <x-memorista api-key="0a3da654-2ffb-4b56-9d83-b9ca88b097e5"></x-memorista>
+        <!-- This is where the comments will appear -->
+        <div></div>
     </div>
-    
-    <!-- Memorista Script -->
-    <script crossorigin src="https://unpkg.com/@memorista/client-ui@2/dist/index.bundle.js"></script>
-
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
             // Override global overflow settings
             document.documentElement.style.overflow = 'auto';
             document.body.style.overflow = 'auto';
-
-
-            // Wait a moment for the custom elements to be defined
-            setTimeout(() => {
-                // Style the form container
-                const formContainer = document.querySelector('x-memorista').shadowRoot.querySelector('.container');
-                if(formContainer) {
-                    formContainer.style.backgroundColor = 'transparent';
-                    formContainer.style.padding = '0';
-                    formContainer.style.border = 'none';
-                }
-                
-                // Style the input fields
-                const inputs = document.querySelector('x-memorista').shadowRoot.querySelectorAll('input, textarea');
-                inputs.forEach(input => {
-                    input.style.backgroundColor = 'rgba(0, 0, 0, 1)';
-                    input.style.color = '#fff';
-                    input.style.border = '1px solid var(--medio)';
-                    input.style.borderRadius = '4px';
-                    input.style.padding = '10px';
-                    input.style.marginBottom = '15px';
-                });
-                
-                // Style the submit button
-                const submitButton = document.querySelector('x-memorista').shadowRoot.querySelector('button');
-                if(submitButton) {
-                    submitButton.style.backgroundColor = 'var(--medio)';
-                    submitButton.style.color = '#fffff';
-                    submitButton.style.border = 'none';
-                    submitButton.style.borderRadius = '4px';
-                    submitButton.style.padding = '10px 20px';
-                    submitButton.style.cursor = 'pointer';
-                    submitButton.style.fontWeight = 'normal';
-                    submitButton.style.transition = 'background-color 0.3s';
-                    
-                    submitButton.addEventListener('mouseover', () => {
-                        submitButton.style.backgroundColor = '#0000';
-                    });
-                    
-                    submitButton.addEventListener('mouseout', () => {
-                        submitButton.style.backgroundColor = 'var(--medio)';
-                    });
-                }
-            }, 1000);
         });
     </script>
+
+    <!-- Memorista Script -->
+    <script crossorigin src="https://unpkg.com/@memorista/client-ui@2/dist/index.bundle.js"></script>
+    
 </body>
 </html>
