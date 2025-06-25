@@ -316,7 +316,6 @@ body.home-page {
     background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     padding: 15px;
-    border-radius: 4px;
     font-family: 'AlegreyaSans', sans-serif;
     font-size: 14px;
     font-weight: 300;
@@ -368,7 +367,7 @@ body.home-page {
             margin: 40px auto;
             padding: 30px;
             background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
+            /* border-radius: 12px; */
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(4px);
         }
@@ -401,7 +400,7 @@ body.home-page {
         x-memorista {
             display: block;
             background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
+            border-radius: 0px;
             padding: 20px;
             margin-top: 20px;
             font-family: 'AlegreyaSans', sans-serif;
@@ -409,25 +408,7 @@ body.home-page {
             font-size: 0.75em;
         }
         
-        /* Navigation button */
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-family: 'AlegreyaSans', sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            z-index: 10;
-            line-height: 1rem;
-        }
         
-        .back-button:hover {
-            border: 2px solid var(--medio)
-        }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -497,7 +478,7 @@ body.home-page {
           font-family: "Alegreya Sans", sans-serif !important;
           font-size: 20px !important;
           padding: 12px 16px !important;
-          border-radius: 8px !important;
+          border-radius: 0px !important;
           border: 2px solid var(--medio) !important;
           transition: all 0.3s ease !important;
         }
@@ -520,7 +501,7 @@ body.home-page {
           font-family: "Alegreya Sans", sans-serif !important;
           font-size: 20px !important;
           padding: 12px 16px !important;
-          border-radius: 8px !important;
+          border-radius: 0px !important;
           border: 2px solid var(--medio) !important;
           line-height: 1.6 !important;
           min-height: 150px !important; /* Initial height */
@@ -586,7 +567,7 @@ body.home-page {
         .css-d2zjbc {
           font-family: "Alegreya Sans", sans-serif !important;
           color: #000000 !important;
-          border-radius: 20px;
+          border-radius: 0px !important;
         }
 
         /* Quitar un point tip feo */
@@ -636,6 +617,81 @@ body.home-page {
           overflow: hidden;
         }
 
+/* ============================================
+   8. GIF BACK BUTTON IN GUESTBOOK
+   ============================================ */
+.gif-back-button {
+  position: fixed;
+  top: 20px;
+  left: 60px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  transition: all 0.1s ease;
+  border: 2px solid transparent;
+}
+
+.gif-back-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gif-back-button:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .gif-back-button {
+    top: 15px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ============================================
+   9. GUESTBOOK GIF IN MENU
+   ============================================ */
+
+.guestbook-footer {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.guestbook-gif {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.guestbook-gif img {
+    height: 120px; /* Adjust as needed */
+    width: auto;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.guestbook-gif:hover img {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .guestbook-gif img {
+        height: 80px;
+    }
+    
+    .guestbook-footer {
+        justify-content: center; /* Center on mobile */
+        padding: 15px 0;
+    }
+}
         
 /* ====================== */
 /* NEW CENTERED MENU STYLES */
@@ -750,7 +806,6 @@ body.home-page::after{
   backdrop-filter: blur(4px);
   color: rgba(255, 255, 255, 1);
   padding: 0.6em 0.4em;
-  border-radius: 30px;
   text-decoration: none;
 }
 .main-menu a:hover::after {
@@ -758,46 +813,7 @@ body.home-page::after{
   transform-origin: center;
 }
 
-/* Guestbook footer */
-.guestbook-footer {
-  font-family: 'Lora', serif;
-  text-align: right;
-  padding: 20px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-}
 
-.guestbook-footer a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  font-size: 1rem;
-  position: relative;
-  padding-bottom: 2px;
-  margin-right: 10px;
-}
-
-.guestbook-footer a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.5);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.guestbook-footer a:hover {
-  color: #ffffff;
-}
-.guestbook-footer a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
 
 
 
@@ -863,12 +879,6 @@ body.home-page::after{
     padding-bottom: 60px;
   }
 
-  /* Adjust guestbook footer */
-  .guestbook-footer {
-    position: fixed;
-    text-align: center;
-    padding: 20px 0;
-  }
 
   /* Adjust counter position */
   .counter-wrapper {
