@@ -20,6 +20,21 @@
 </head>
 <body class="home-page">
 
+<!-- Add this section -->
+<header class="about-header">
+  <div class="about-content">
+    <p><span class="about-name">Pablo de la Fuente</span> 
+    is a mathematician and artist exploring the intersection of 
+    random matrices, probability, and creative expression. Lorem 
+    ipsum dolor sit amet consectetur adipisicing elit. Distinctio sequi 
+    vel molestias voluptatem placeat accusamus voluptatum dignissimos 
+    earum sunt autem veritatis accusantium aliquid at voluptatibus...
+    and writes in third person when necessary. </p>
+  </div>
+  <div class="cursor-image">
+    <img src="images/pablo-small.webp" alt="Pablo">
+  </div>
+</header>
 <!-- Visit counter
 <div class="counter-wrapper">
   <div id="sfcmby5pgpnk4wddkszdt9sep2zdefm129t"></div>
@@ -52,7 +67,23 @@
         <img src="images/gifs/utility/guestbook1.gif" alt="Sign my guestbook">
     </a>
 </footer>
-
 </body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const nameElement = document.querySelector('.about-name');
+    const cursorImage = document.querySelector('.cursor-image');
+    
+    nameElement.addEventListener('mousemove', function(e) {
+      cursorImage.style.display = 'block';
+      cursorImage.style.left = (e.pageX + 15) + 'px';
+      cursorImage.style.top = (e.pageY + 15) + 'px';
+    });
+    
+    nameElement.addEventListener('mouseout', function() {
+      cursorImage.style.display = 'none';
+    });
+  });
+</script>
 
 </html>
