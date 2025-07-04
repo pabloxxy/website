@@ -1,8 +1,4 @@
 /* ============================================
-   ORGANIZED CSS STRUCTURE - styles.css
-   ============================================ */
-
-/* ============================================
    1. RESET & BASE STYLES
    ============================================ */
 
@@ -624,7 +620,7 @@ body.home-page {
   position: fixed;
   top: 40px;
   left: 60px;
-  z-index: 10;
+  z-index: 100;
   width: 80px;
   height: 80px;
   transition: all 0.1s ease;
@@ -691,7 +687,9 @@ body.home-page {
         justify-content: center; /* Center on mobile */
     }
 }
-        
+ 
+
+
 /* ====================== */
 /* NEW CENTERED MENU STYLES */
 /* ====================== */
@@ -740,6 +738,7 @@ body.home-page::after{
   max-width: 900px;
   margin: 0 auto;
   margin-left: 7.5%;
+  margin-top: 2.5%;
 }
 .main-menu a {
   display: block;
@@ -925,3 +924,131 @@ body.home-page::after{
   }
 }
 
+
+/* ============================================
+   11. SPECTRA GALLERY STYLES
+   ============================================ */
+
+.spectra-page {
+  background-color: #000;
+  position: relative;
+  min-height: 100vh;
+}
+
+.spectra-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    url('images/fondos/histogramDisk3.webp') center/cover no-repeat;
+  z-index: -1;
+}
+
+.gallery-container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  height: 80vh;
+  max-height: 700px;
+  margin: 8vh auto 0;
+  z-index: 5;
+}
+
+.image-wrapper {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  cursor: pointer;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  will-change: z-index;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* Light border */
+  background: #000000; 
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensure entire image is visible */
+  object-position: center;
+}
+
+
+.image-wrapper.active {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.5); /* Brighter border when active */
+  background: rgba(0, 0, 0, 0.9); /* Darker background when active */
+}
+
+.image-wrapper.active img {
+  filter: brightness(1.2); /* Slight brightness boost */
+}
+
+/* Spectra text footer/header */
+#spectra-text {
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  text-align: left;
+  font-family: 'Lora';
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 50;
+  transition: all 0.5s ease;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+body.spectra-page.scrolled #spectra-text {
+  top: 20px;
+  bottom: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Adjust gallery position when scrolled */
+body.spectra-page.scrolled .gallery-container {
+  margin-top: 12vh;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .gallery-container {
+    height: 60vh;
+    margin-top: 15vh;
+  }
+  
+  .image-wrapper {
+    width: 90%;
+    height: 90%;
+  }
+  
+  /* Adjust positions for mobile */
+  .gallery-container .image-wrapper:nth-child(1) {
+    top: -10px;
+    left: -20px;
+  }
+  
+  .gallery-container .image-wrapper:nth-child(2) {
+    top: 5px;
+    left: -5px;
+  }
+  
+  .gallery-container .image-wrapper:nth-child(3) {
+    top: -5px;
+    left: 15px;
+  }
+  
+  .gallery-container .image-wrapper:nth-child(4) {
+    top: 8px;
+    left: -10px;
+  }
+  
+  .gallery-container .image-wrapper:nth-child(5) {
+    top: -8px;
+    left: 10px;
+  }
+}
