@@ -964,7 +964,8 @@ body.home-page::after{
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   will-change: z-index;
-  border: 2px solid rgba(255, 255, 255, 0.2); /* Light border */
+  border: 15px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-style: ridge;
   background: #000000; 
 }
 
