@@ -19,10 +19,20 @@
      });
    </script>
 
-   <!-- Preload critical resources -->
-   <link rel="preload" href="images/triblob12magma.mp4" as="video" type="video/mp4">
+   <!-- Preload fonts -->
    <link rel="preload" href="fonts/Lora/Lora-Regular.ttf" as="font" type="font/ttf" crossorigin>
    <link rel="preload" href="fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
+
+   
+    <!-- Preload video -->
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+      const video = document.createElement('video');
+      video.src = 'images/triblob12magma.mp4';
+      video.preload = 'auto';
+      document.body.appendChild(video);
+     });
+    </script>
 
 </head>
 <body>
