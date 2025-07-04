@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Pablo de la Fuente - Spectra</title>
+  <link rel="shortcut icon" href="images/favicon/favicon.ico">
+  <script>
+    fetch('favicon.html')
+      .then(response => response.text())
+      .then(data => {
+        document.head.insertAdjacentHTML('afterbegin', data);
+      });
+  </script>
+</head>
+
+<body class="spectra-page">
+
+  <!-- Background image -->
+  <div class="spectra-background"></div>
+
+  <!-- Back button -->
+  <a href="home.html" class="gif-back-button">
+    <img src="images/gifs/utility/back1.gif" alt="Back to Home">
+  </a>
+
+  <!-- Gallery container -->
+  <div class="gallery-container">
+    <!-- Image 1 -->
+    <div class="image-wrapper active" style="z-index: 5; top: 20px; left: -30px;">
+      <img src="images/spectra/matrix1.webp" alt="Gaussian Ensemble">
+    </div>
+    
+    <!-- Image 2 -->
+    <div class="image-wrapper" style="z-index: 4; top: -30px; left: 150px;">
+      <img src="images/spectra/matrix2.webp" alt="Circular Law">
+    </div>
+    
+    <!-- Image 3 -->
+    <div class="image-wrapper" style="z-index: 3; top: 60px; left: 300px;">
+      <img src="images/spectra/matrix3.webp" alt="Semicircle Law">
+    </div>
+    
+    <!-- Image 4 -->
+    <div class="image-wrapper" style="z-index: 2; top: 150px; left: 200px;">
+      <img src="images/spectra/matrix4.webp" alt="Tridiagonal Models">
+    </div>
+    
+    <!-- Image 5 -->
+    <div class="image-wrapper" style="z-index: 1; top: 100px; left: 60px;">
+      <img src="images/spectra/matrix5.webp" alt="Sparse Matrices">
+    </div>
+
+
+   <div id="spectra-text">Visualizing the spectra of random matrices</div>
+  </div>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const wrappers = document.querySelectorAll('.image-wrapper');
+    let topZIndex = 5; // Starting max z-index value
+    
+    // Initialize z-index values
+    wrappers.forEach((wrapper, i) => {
+      wrapper.style.zIndex = 5 - i; // 5,4,3,2,1
+    });
+    
+    wrappers.forEach(wrapper => {
+      wrapper.addEventListener('click', function() {
+        // Remove active class from all
+        wrappers.forEach(w => w.classList.remove('active'));
+        
+        // Add active class to clicked
+        this.classList.add('active');
+        
+        // Get current z-index
+        const currentZ = parseInt(this.style.zIndex);
+        
+        // Only update if not already on top
+        if (currentZ < topZIndex) {
+          // Increase top index and assign to clicked element
+          topZIndex++;
+          this.style.zIndex = topZIndex;
+        }
+      });
+    });
+  });
+
+</script>
+
+
+</body>
+</html>
