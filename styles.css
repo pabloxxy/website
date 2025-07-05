@@ -964,8 +964,8 @@ body.home-page::after{
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   will-change: z-index;
-  border: 15px solid rgba(255, 255, 255, 0.3); /* Light border */
-  border-style: ridge;
+  border: 20px solid rgba(255, 255, 255, 0.4); /* Light border */
+  border-style: ridge; /* Está súper camp este estilo */
   background: #000000; 
 }
 
@@ -979,8 +979,7 @@ body.home-page::after{
 
 .image-wrapper.active {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.5); /* Brighter border when active */
-  background: rgba(0, 0, 0, 0.9); /* Darker background when active */
+  border-color: rgba(255, 255, 255, 0.7); /* Brighter border when active */
 }
 
 .image-wrapper.active img {
