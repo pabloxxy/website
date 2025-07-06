@@ -15,23 +15,14 @@ html, body {
   overflow: hidden;
   font-family: 'AlegreyaSans', sans-serif;
   font-size: 24pt;
-  color: #000;
+  color: #000000;
   text-align: center;
 }
 
 
 /* ============================================
-   3. TYPOGRAPHY & FONT FACES
+   3. FONT FACES
    ============================================ */
-
-/* Create a class for the SECOND typeface */
-.second-font {
-  font-family: 'Lora';
-}
-.italic {
-  font-style: italic;
-}
-
 
 /* Lora font */
 /* Regular (400) */
@@ -947,18 +938,17 @@ body.home-page::after{
 }
 
 .gallery-container {
-  position: relative;
-  width: 80%;
-  max-width: 1000px;
-  height: 80vh;
-  max-height: 700px;
-  margin: 8vh auto 0;
+  position: absolute;
+  top: 5vmin;        /* Responsive margin based on smaller viewport dimension */
+  left: 30vmin;
+  right: 30vmin;
+  bottom: 20vmin;
   z-index: 5;
 }
 
 .image-wrapper {
   position: absolute;
-  width: 70%;
+  width: 60%;
   height: auto;
   cursor: pointer;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -986,33 +976,25 @@ body.home-page::after{
   filter: brightness(1.2); /* Slight brightness boost */
 }
 
-/* Spectra text footer/header */
-#spectra-text {
+
+#spectra-header {
   position: fixed;
   bottom: 0px;
   right: 20px;
-  text-align: left;
   font-family: 'Lora';
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   z-index: 50;
   transition: all 0.5s ease;
   padding: 30px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
+  pointer-events: none; /* Prevents blocking clicks */
 }
 
-body.spectra-page.scrolled #spectra-text {
-  top: 20px;
-  bottom: auto;
-  background: rgba(0, 0, 0, 0.6);
-}
 
-/* Adjust gallery position when scrolled */
-body.spectra-page.scrolled .gallery-container {
-  margin-top: 12vh;
+/* Allow scrolling on spectra page */
+body.spectra-page {
+  overflow: auto;
 }
-
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
