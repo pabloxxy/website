@@ -21,7 +21,7 @@
 <body class="home-page">
 
 <!-- Add this section -->
-<header class="about-header">
+<div class="about-header">
   <div class="about-content">
     <p><span class="about-name">Pablo de la Fuente</span> 
     is a mathematician and artist exploring the intersection of 
@@ -29,12 +29,13 @@
     He completed his B.Sc. in Mathematics at UNAM under the supervision of Prof. Laura Eslava. 
     Distinctio sequi vel molestias voluptatem placeat accusamus voluptatum dignissimos 
     earum sunt autem veritatis accusantium aliquid at voluptatibus...
-    and writes in third person when necessary. </p>
+    and writes in third person when necessary.</p>
+    <br>In this website you can find <br> more information about </br>
   </div>
   <div class="cursor-image">
     <img src="images/pablo-small.webp" alt="Pablo">
   </div>
-</header>
+</div>
 <!-- Visit counter
 <div class="counter-wrapper">
   <div id="sfcmby5pgpnk4wddkszdt9sep2zdefm129t"></div>
@@ -77,7 +78,7 @@
     
     nameElement.addEventListener('mousemove', function(e) {
       cursorImage.style.display = 'block';
-      cursorImage.style.left = (e.pageX + 15) + 'px';
+      cursorImage.style.left = (e.pageX - 28) + 'px';
       cursorImage.style.top = (e.pageY + 15) + 'px';
     });
     
