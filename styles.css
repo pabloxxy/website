@@ -725,11 +725,11 @@ body.home-page::after{
 
 /* Menu styling */
 .main-menu {
-  text-align: center;
+  text-align: left;
   max-width: 900px;
   margin: 0 auto;
   margin-left: 7.5%;
-  margin-top: 2.5%;
+  margin-top: 7.5%;
 }
 .main-menu a {
   display: block;
@@ -784,7 +784,7 @@ body.home-page::after{
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
   color: rgba(255, 255, 255, 1);
-  padding: 0.4em 0.3em;
+  padding: 2% 2%;
 }
 
 
@@ -801,15 +801,6 @@ body.home-page::after{
     margin-bottom: 15px;
   }
 
-  /* Reset all special margins */
-  .main-menu .Pablo,
-  .main-menu .matrices,
-  .main-menu .probability,
-  .main-menu .art,
-  .main-menu .etc {
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-  }
 
   /* Adjust font sizes */
   .main-menu a {
@@ -861,7 +852,7 @@ body.home-page::after{
 
 
 /* ============================================
-   10. ABOUT HEADER STYLES
+   10. "ABOUT" HEADER STYLES
    ============================================ */
 .about-header {
   position: fixed;
@@ -869,25 +860,22 @@ body.home-page::after{
   left: 40px;
   width: 100%;
   padding: 20px, 20px;
-  background: rgba(0, 0, 0, 0);
   z-index: 0;
   text-align: left;
   color: rgba(255, 255, 255, 0.6); 
 }
 
 .about-content {
-  max-width: fit-content;
-  margin-left: 20px;
-  margin-right: 150px;
+  margin-left: 1.5%;
+  margin-right: 8%;
+  margin-top: 1%;
   font-family: 'AlegreyaSans', sans-serif;
   font-size: 0.75rem;
-  line-height: 1.75;
 }
 
 .about-name {
-  position: relative;
   cursor: default;
-  color: var(--blanco);
+  color: #ffffff;
 }
 
 .cursor-image {
@@ -985,9 +973,7 @@ body.home-page::after{
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
   z-index: 50;
-  transition: all 0.5s ease;
   padding: 30px;
-  pointer-events: none; /* Prevents blocking clicks */
 }
 
 
