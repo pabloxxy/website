@@ -21,7 +21,7 @@ html, body {
 
 
 /* ============================================
-   3. FONT FACES
+   2. FONT FACES
    ============================================ */
 
 /* Lora font */
@@ -209,7 +209,7 @@ html, body {
 
 
 /* ============================================
-   4. LAYOUT COMPONENTS
+   3. SPLASH PAGE
    ============================================ */
 
 
@@ -239,36 +239,6 @@ html, body {
   --medio: #a3a3a3;
   --claro: #ffffffd8;
   --blanco: #ffffff;
-}
-
-
-/* ============================================
-   5. NAVIGATION & MENU
-   ============================================ */
-
-/* Home page specific styles */
-body.home-page {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.home-page h2 {
-  color: var(--medio);
-  margin-bottom: 20px;
-}
-
-.home-page p {
-  margin: 10px 0;
-}
-
-.home-page .italic {
-  color: var(--claro);
-  font-style: italic;
-}
-
-.home-page .second-font {
-  margin-top: 40px;
-  padding-top: 20px;
 }
 
 
@@ -346,7 +316,7 @@ body.home-page {
 
 
 /* ============================================
-   6. GUESTBOOK STYLES
+   4. GUESTBOOK STYLES
    ============================================ */
 /* Guestbook specific styles */
         .guestbook-container {
@@ -379,7 +349,7 @@ body.home-page {
         }
 
 /* ============================================
-   7. COMPONENT OVERRIDES (Third-party API)
+   5. COMPONENT OVERRIDES (Memorista API)
    ============================================ */
 
 /* Memorista guestbook component overrides */
@@ -605,7 +575,7 @@ body.home-page {
         }
 
 /* ============================================
-   8. GIF BACK BUTTON IN GUESTBOOK
+   6. GIF BACK BUTTON IN GUESTBOOK
    ============================================ */
 .gif-back-button {
   position: fixed;
@@ -640,7 +610,7 @@ body.home-page {
 }
 
 /* ============================================
-   9. GUESTBOOK and CD GIF IN MENU
+   7. GUESTBOOK and CD GIF IN MENU
    ============================================ */
 
 .guestbook-footer {
@@ -695,9 +665,9 @@ body.home-page {
 }
 
 
-/* ====================== */
-/* NEW CENTERED MENU STYLES */
-/* ====================== */
+/* ====================== 
+      8. MAIN MENU           
+   ====================== */
 
 /* Reset body styles for new layout */
 body.home-page {
@@ -736,6 +706,7 @@ body.home-page::after{
   justify-content:space-evenly;
   align-items: center;
   min-height: 100vh;
+  max-width: 1512px;
 }
 
 /* Menu styling */
@@ -809,7 +780,7 @@ body.home-page::after{
 
 
 /* ============================================
-   10. "ABOUT" HEADER STYLES
+   9. "ABOUT" HEADER STYLES
    ============================================ */
 .about-header {
   position: fixed;
@@ -851,7 +822,7 @@ body.home-page::after{
 
 
 /* ============================================
-   11. SPECTRA GALLERY STYLES
+   10. SPECTRA GALLERY STYLES
    ============================================ */
 
 .spectra-page {
