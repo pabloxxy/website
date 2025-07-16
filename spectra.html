@@ -22,6 +22,16 @@
     <img src="images/gifs/utility/back1.gif" alt="Back to Home">
   </a>
 
+  <!-- Add this after the back button -->
+<div class="sidebar">
+  <a class="sidebar-button active" data-section="gallery">Gallery</a>
+  <a href="#" class="sidebar-button" data-section="about">About</a>
+  <a href="#" class="sidebar-button" data-section="code">Code</a>
+  <a href="#" class="sidebar-button" data-section="semicircle">Semicircle Law</a>
+</div>
+
+
+
   <!-- Gallery container -->
   <div class="gallery-container">
     <!-- Image 1 -->
@@ -88,6 +98,21 @@
 
 <div id="spectra-header">Visualizing the spectra of random matrices</div>
 
+<!-- Add this before the closing body tag -->
+<script>
+  // Sidebar button functionality
+  document.querySelectorAll('.sidebar-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Remove active class from all buttons
+      document.querySelectorAll('.sidebar-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Add active class to clicked button
+      this.classList.add('active');
+    });
+  });
+</script>  
 
 </body>
 </html>
