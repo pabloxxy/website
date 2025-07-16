@@ -805,11 +805,12 @@ body.home-page::after{
 
 .gallery-container {
   position: absolute;
-  top: 5vmin;        /* Responsive margin based on smaller viewport dimension */
-  left: 30vmin;
-  right: 30vmin;
+  top: 7vmin;       
+  right: 25vmin;
   bottom: 20vmin;
+  left: 30vmin;
   z-index: 5;
+  margin-left: 10vmin;
 }
 
 .image-wrapper {
@@ -956,4 +957,57 @@ body.spectra-page {
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 1000;
+}
+
+/* ============================================
+   13. SIDEBAR MENU STYLES
+   ============================================ */
+
+.sidebar {
+  position: fixed;
+  left: 30px;
+  top: 230px; /* Positioned below the back button */
+  width: 165px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 25px 15px 25px 15px;
+}
+
+.sidebar-button {
+  display: block;
+  padding: 5px 10px;
+  background: #000;
+  border: 7px ridge rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'AlegreyaSans', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebar-button:hover, .sidebar-button.active {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Adjust the gallery container for desktop */
+.gallery-container {
+  left: 250px; /* Make room for sidebar */
+}
+
+/* On mobile, hide the sidebar and reset the gallery container */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .gallery-container {
+    left: 5vmin !important;
+    right: 5vmin !important;
+  }
 }
