@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="styles.css">
   <title> Pablo de la Fuente - Poetry </title>
    
   <!-- Include favicon -->
@@ -17,20 +17,55 @@
   </script> 
 </head>
 
-<body>
-  <div>
-    <p>You can always contact me by e-mail in the following address:</p>
-    <p>pablodelafuente[at]ciencias.unam.mx</p>
-    <p>If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
+<body class="home-page">
+
+  <a href="home" class="gif-back-button">
+      <img src="images/gifs/utility/back1.gif" alt="Back to home">
+  </a>
+    
+  <div class="email-container">
+    <p>You can always contact me by e-mail at the following address:</p>
+    <p id="email" class="email-address">pablodelafuente[at]ciencias.unam.mx</p>
+    <p class="email-note">If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
   </div>
+
+  <!-- Notification element -->
+  <div id="notification" class="notification">Email copied!</div>
 
   <div>
     <p>El menú debe tener, al menos:</p>
     <ol>
       <li>Contact</li>
+      <li>CV/Resumé</li>
       <li>About this site: this site is always under construction. Tal vez hablar sobre Olia Lialina.</li>
       <li>Links a otras páginas de amigos, matemáticos, artistas, etc. https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters y https://art.teleportacia.org/observation/vernacular/links.html</li>
     </ol>
   </div>
+   
+  <!-- Una notifiación al hacer click y copiar el email -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailElement = document.getElementById('email');
+      const notification = document.getElementById('notification');
+
+      emailElement.addEventListener('click', function() {
+        // Replace [at] with @ and copy to clipboard
+        const emailText = emailElement.innerText.replace('[at]', '@');
+        navigator.clipboard.writeText(emailText).then(() => {
+          // Show notification
+          notification.style.display = 'block';
+          notification.style.opacity = '1';
+          
+          // Hide after 2 seconds with fade out
+          setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+              notification.style.display = 'none';
+            }, 500); // matches the transition time
+          }, 2000);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
