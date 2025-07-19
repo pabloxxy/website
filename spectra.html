@@ -25,43 +25,100 @@
   <!-- Sidebar -->
 <div class="sidebar">
   <a class="sidebar-button active" data-section="gallery">Gallery</a>
-  <a href="#" class="sidebar-button" data-section="about">About</a>
-  <a href="#" class="sidebar-button" data-section="code">Code</a>
-  <a href="#" class="sidebar-button" data-section="semicircle">Semicircle Law</a>
+  <a class="sidebar-button" data-section="about">About</a>
+  <a class="sidebar-button" data-section="code">Code</a>
+  <a class="sidebar-button" data-section="semicircle">Semicircle Law</a>
 </div>
 
 
+<div id="content-sections">
 
-  <!-- Gallery container -->
-  <div class="gallery-container">
+  <!-- Gallery Section (default visible) -->
+  <section id="gallery" class="content-section">
+   <div class="gallery-container">
+
     <!-- Image 1 -->
     <div class="image-wrapper active" style="z-index: 5; top: 10%; left: 0%;">
       <img src="images/spectra/matrix1.webp" alt="Gaussian Ensemble">
     </div>
-    
     <!-- Image 2 -->
     <div class="image-wrapper" style="z-index: 4; top: 0%; left: 20%;">
       <img src="images/spectra/matrix2.webp" alt="Circular Law">
-    </div>
-    
+    </div>  
     <!-- Image 3 -->
     <div class="image-wrapper" style="z-index: 3; bottom: 15%; right: 0%;">
       <img src="images/spectra/matrix3.webp" alt="Semicircle Law">
     </div>
-    
     <!-- Image 4 -->
     <div class="image-wrapper" style="z-index: 2; bottom: 0%; right: 10%;">
       <img src="images/spectra/matrix4.webp" alt="Tridiagonal Models">
-    </div>
-    
+    </div> 
     <!-- Image 5 -->
     <div class="image-wrapper" style="z-index: 1; bottom: 5%; left: 10%;">
       <img src="images/spectra/matrix5.webp" alt="Sparse Matrices">
     </div>
 
-  </div>
+   </div>
+
+   <div id="spectra-header">Visualizing the spectra of random matrices</div>
+  </section>
 
 
+  <!-- About Section (initially hidden) -->
+  <section id="about" class="content-section" style="display:none;">
+    <div class="about-content">
+      <h2>About Spectra</h2>
+      <p>Your about content here...</p>
+    </div>
+  </section>
+  
+  <!-- Code Section (initially hidden) -->
+  <section id="code" class="content-section" style="display:none;">
+    <div class="code-content">
+      <h2>Code Implementation</h2>
+      <p>Code content here...</p>
+    </div>
+  </section>
+  
+  <!-- Semicircle Section (initially hidden) -->
+  <section id="semicircle" class="content-section" style="display:none;">
+    <div class="semicircle-content">
+      <h2>Semicircle Law</h2>
+      <p>Semicircle law content here...</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- Script for side menu -->
+<script>
+// Sidebar navigation functionality
+document.querySelectorAll('.sidebar-button').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Get target section from data attribute
+    const targetSection = this.dataset.section;
+    
+    // Hide all sections
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    
+    // Show target section
+    document.getElementById(targetSection).style.display = 'block';
+    
+    // Update active button
+    document.querySelectorAll('.sidebar-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    this.classList.add('active');
+  });
+});
+</script>
+
+
+ <!-- Script for gallery -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const wrappers = document.querySelectorAll('.image-wrapper');
@@ -95,24 +152,6 @@
 
 </script>
 
-
-<div id="spectra-header">Visualizing the spectra of random matrices</div>
-
-
-<script>
-  // Sidebar button functionality
-  document.querySelectorAll('.sidebar-button').forEach(button => {
-    button.addEventListener('click', function(e) {
-      e.preventDefault();
-      // Remove active class from all buttons
-      document.querySelectorAll('.sidebar-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      // Add active class to clicked button
-      this.classList.add('active');
-    });
-  });
-</script>  
 
 </body>
 </html>

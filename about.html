@@ -19,36 +19,93 @@
 
 <body class="home-page">
 
- <!-- Sidebar -->
- <div class="sidebar">
-   <a class="sidebar-button active" data-section="Contact">Contact</a>
-   <a href="#" class="sidebar-button" data-section="CV">CV</a>
-   <a href="#" class="sidebar-button" data-section="About this site">About this site</a>
-   <a href="#" class="sidebar-button" data-section="Links">Links</a>
- </div>
-
+ <!-- Back button -->
   <a href="home" class="gif-back-button">
       <img src="images/gifs/utility/back1.gif" alt="Back to home">
   </a>
-    
-  <div class="email-container">
-    <p>You can always contact me by e-mail at the following address:</p>
-    <p id="email" class="email-address">pablodelafuente[at]ciencias.unam.mx</p>
-    <p class="email-note">If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
+
+ <!-- Sidebar -->
+ <div class="sidebar">
+   <a class="sidebar-button active" data-section="contact">Contact</a>
+   <a class="sidebar-button" data-section="cv">CV</a>
+   <a class="sidebar-button" data-section="site">About this site</a>
+   <a class="sidebar-button" data-section="links">Links</a>
+ </div>
+
+
+ <div id="content-sections">
+
+  <!-- Contact Section (default visible) -->
+  <section id="contact" class="content-section">
+    <div class="email-container">
+      <p>You can always contact me by e-mail at the following address:</p>
+      <p id="email" class="email-address">pablodelafuente[at]ciencias.unam.mx</p>
+      <p class="email-note">If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
   </div>
 
   <!-- Notification element -->
   <div id="notification" class="notification">Email copied!</div>
+  </section>
 
-  <div>
-    <p>El menú debe tener, al menos:</p>
-    <ol>
-      <li>Contact</li>
-      <li>CV/Resumé</li>
-      <li>About this site: this site is always under construction. Tal vez hablar sobre Olia Lialina.</li>
-      <li>Links a otras páginas de amigos, matemáticos, artistas, etc. https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters y https://art.teleportacia.org/observation/vernacular/links.html</li>
-    </ol>
-  </div>
+
+  <!-- CV Section (initially hidden) -->
+  <section id="cv" class="content-section" style="display:none;">
+    <div class="cv-content">
+      <h2>CV</h2>
+      <p>CV content here...</p>
+    </div>
+  </section>
+  
+  <!-- Site Section (initially hidden) -->
+  <section id="site" class="content-section" style="display:none;">
+    <div class="site-content">
+      <h2>About this site</h2>
+      <p>About this site: this site is always under construction. Tal vez hablar sobre Olia Lialina.</p>
+    </div>
+  </section>
+  
+  <!-- Links Section (initially hidden) -->
+  <section id="links" class="content-section" style="display:none;">
+    <div class="links-content">
+    <h2>Links</h2>
+    <p>Links a otras páginas de amigos, matemáticos, artistas, etc.
+       https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters 
+        y https://art.teleportacia.org/observation/vernacular/links.html</p>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- Script for side menu -->
+<script>
+// Sidebar navigation functionality
+document.querySelectorAll('.sidebar-button').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Get target section from data attribute
+    const targetSection = this.dataset.section;
+    
+    // Hide all sections
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    
+    // Show target section
+    document.getElementById(targetSection).style.display = 'block';
+    
+    // Update active button
+    document.querySelectorAll('.sidebar-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    this.classList.add('active');
+  });
+});
+</script>
+
+
+  
    
   <!-- Una notifiación al hacer click y copiar el email -->
    <script>
@@ -75,5 +132,7 @@
       });
     });
   </script>
+
 </body>
+
 </html>
