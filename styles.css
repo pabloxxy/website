@@ -629,7 +629,7 @@ html, body {
 .CD {
   position: relative;
   text-align: center;
-  margin: 28vh 0 0; /* Push below viewport */
+  margin: 30vh 0 0; /* Push below viewport */
 }
 
 .CD-gif img {
@@ -1048,5 +1048,71 @@ body.spectra-page {
   .gallery-container {
     left: 5vmin !important;
     right: 5vmin !important;
+  }
+}
+
+
+/* ============================================
+   14. LICENSE CONTAINER STYLES
+   ============================================ */
+.license-container {
+  position: absolute;
+  bottom: 0%;
+  left: 2%;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 50px; 
+  overflow: hidden;
+}
+
+.cc-button {
+  display: inline-block;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.cc-button img {
+  padding-top: 5px;
+  height: 40px;
+  width: auto;
+  opacity: 0.7;
+}
+
+.license-text {
+  position: relative;
+  left: -100%; /* Start hidden behind button */
+  opacity: 0;
+  transition: all 0.2s;
+  font-family: 'AlegreyaSans', sans-serif;
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  padding: 0px 10px 5px 30px;
+  margin-left: -25px; /* Overlap button area */
+}
+
+.license-container:hover .license-text {
+  left: 0; /* Slide out to visible position */
+  opacity: 1;
+}
+
+.cc-button:hover img {
+  opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .license-container {
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    bottom: 10px;
+    justify-content: center;
+  }
+  
+  .license-text {
+    white-space: normal; /* Allow wrapping on mobile */
+    max-width: 200px;
   }
 }
