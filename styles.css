@@ -937,6 +937,7 @@ body.spectra-page {
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
   transform: scale(1.05);
+  cursor: copy;
 }
 
 .email-note {
