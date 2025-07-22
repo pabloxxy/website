@@ -13,6 +13,11 @@
         document.head.insertAdjacentHTML('afterbegin', data);
       });
   </script>
+
+  <!-- mathjax.org - La cosa que compila notación matemática -->
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 
 <body class="home-page">
@@ -68,7 +73,10 @@
   <section id="about" class="content-section" style="display:none;">
     <div class="aboutspectra-content">
       <h2>About Spectra</h2>
-      <p>Your about content here...</p>
+      <p>
+      The empirical spectral distribution for a matrix \(M\) of size \(n\times n\) is defined as the probability measure
+      \[ \mu(M) = \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i(M)}\]
+      </p>
     </div>
   </section>
   
