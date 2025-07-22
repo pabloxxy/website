@@ -1093,8 +1093,8 @@ body.spectra-page {
   margin-left: -25px; /* Overlap button area */
 }
 
-.license-container:hover .license-text {
-  left: 0; /* Slide out to visible position */
+.cc-button:hover + .license-text {
+  left: 0;
   opacity: 1;
 }
 
@@ -1113,7 +1113,13 @@ body.spectra-page {
   }
   
   .license-text {
-    white-space: normal; /* Allow wrapping on mobile */
+    white-space: normal;
     max-width: 200px;
+  }
+
+  /* Update mobile hover rule */
+  .cc-button:hover + .license-text {
+    left: 0;
+    opacity: 1;
   }
 }
