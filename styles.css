@@ -563,8 +563,8 @@ html, body {
   z-index: 100;
   width: 80px;
   height: 80px;
-  transition: all 0.1s ease;
   border: 2px solid transparent;
+  transition: all 0.25s ease;
 }
 
 .gif-back-button img {
@@ -823,7 +823,7 @@ body.home-page::after{
 .image-wrapper {
   position: absolute;
   width: 60%;
-  height: auto;
+  height: 69%;
   cursor: pointer;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -831,12 +831,13 @@ body.home-page::after{
   border: 20px solid rgba(255, 255, 255, 0.4); /* Light border */
   border-style: ridge; /* Está súper camp este estilo */
   background: #000000; 
+  
 }
 
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit:cover; /* Ensure entire image is visible */
+  object-fit: cover; /* Ensure entire image is visible */
   object-position: center;
 }
 
