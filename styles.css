@@ -813,9 +813,9 @@ body.home-page::after{
 .gallery-container {
   position: absolute;
   top: 7vmin;       
-  right: 25vmin;
-  bottom: 20vmin;
-  left: 30vmin;
+  right: 20vmin;
+  bottom: 18vmin;
+  left: 27vmin;
   z-index: 5;
   margin-left: 10vmin;
 }
