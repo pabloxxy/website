@@ -1128,3 +1128,10 @@ body.spectra-page {
     opacity: 1;
   }
 }
+
+  /* ============================================
+   15. PDF de la Tesis 
+   ============================================ */
+   .pdfobject-container { 
+      height: 600px; 
+    }
