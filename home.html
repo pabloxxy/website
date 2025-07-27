@@ -96,13 +96,13 @@
     const cursorImage = document.querySelector('.cursor-image');
     
     nameElement.addEventListener('mousemove', function(e) {
-      cursorImage.style.display = 'block';
+      cursorImage.classList.add('visible');
       cursorImage.style.left = (e.pageX - 28) + 'px';
       cursorImage.style.top = (e.pageY + 15) + 'px';
     });
     
     nameElement.addEventListener('mouseout', function() {
-      cursorImage.style.display = 'none';
+      cursorImage.classList.remove('visible');
     });
   });
 </script>
