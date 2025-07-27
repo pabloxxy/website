@@ -792,10 +792,13 @@ body.home-page::after{
 
 .cursor-image {
   position: absolute;
-  display: none;
+  display: block;
   width: 120px;
   height: auto;
   pointer-events: none;
+  z-index: 1000;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease; /* Fade transition */
 }
 
 .cursor-image img {
@@ -803,7 +806,9 @@ body.home-page::after{
   height: auto;
 }
 
-
+.cursor-image.visible {
+  opacity: 1; 
+}
 
 
 /* ============================================
