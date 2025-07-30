@@ -441,6 +441,7 @@ html, body {
           border-radius: 0px !important;
           border: 2px solid var(--medio) !important;
           transition: all 0.3s ease !important;
+          color: white !important;
         }
         /* Placeholder styling */
         .chakra-input[name="author"]::placeholder {
@@ -465,6 +466,7 @@ html, body {
           border: 2px solid var(--medio) !important;
           line-height: 1.6 !important;
           min-height: 150px !important; /* Initial height */
+          color: white !important;
         }
         /* Placeholder styling */
         .chakra-textarea[name="text"]::placeholder {
@@ -473,7 +475,7 @@ html, body {
         }
         #author.chakra-input::placeholder {
          font-style: italic !important;
-         color: var(--medio) !important; /* Change to your desired color */
+         color: var(--medio) !important; 
         }
         /* Focus state */
         .chakra-textarea[name="text"]:focus {
