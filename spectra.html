@@ -44,23 +44,23 @@
 
     <!-- Image 1 -->
     <div class="image-wrapper active" style="z-index: 5; top: 10%; left: 0%;">
-      <img src="images/spectra/matrix1.webp" alt="Gaussian Ensemble">
+      <img src="images/spectra/matrix1.webp" alt="?">
     </div>
     <!-- Image 2 -->
     <div class="image-wrapper" style="z-index: 4; top: 0%; left: 20%;">
-      <img src="images/spectra/matrix2.webp" alt="Circular Law">
+      <img src="images/spectra/matrix2.webp" alt="?">
     </div>  
     <!-- Image 3 -->
     <div class="image-wrapper" style="z-index: 3; bottom: 15%; right: 0%;">
-      <img src="images/spectra/matrix3.webp" alt="Semicircle Law">
+      <img src="images/spectra/matrix3.webp" alt="?">
     </div>
     <!-- Image 4 -->
     <div class="image-wrapper" style="z-index: 2; bottom: 0%; right: 10%;">
-      <img src="images/spectra/matrix4.webp" alt="Tridiagonal Models">
+      <img src="images/spectra/matrix4.webp" alt="?">
     </div> 
     <!-- Image 5 -->
     <div class="image-wrapper" style="z-index: 1; bottom: 5%; left: 10%;">
-      <img src="images/spectra/matrix5.webp" alt="Sparse Matrices">
+      <img src="images/spectra/matrix5.webp" alt="?">
     </div>
 
    </div>
@@ -87,18 +87,26 @@
       <p>Code content here...</p>
     </div>
   </section>
+ 
   
   <!-- Semicircle Section (initially hidden) -->
   <section id="semicircle" class="content-section" style="display:none;">
-    <div class="semicircle-content">
+   <div class="semicircle-container">
+
+    <!-- Left Column: Explanation -->
+    <div class="semicircle-text aboutspectra-content">
       <h2>Semicircle Law</h2>
-      <p>Semicircle law content here...</p>
-      <div id="my-pdf"></div> 
+      <p>Wigner's semicircle law describes the eigenvalue distribution of large random matrices... </p>
     </div>
-
-
-    <script src="https://unpkg.com/pdfobject"></script>
-    <script>PDFObject.embed("Tesis.pdf", "#my-pdf");</script>
+    
+    <!-- Right Column: PDF -->
+    <div class="semicircle-pdf aboutspectra-content">
+      <div id="my-pdf"></div>
+    </div>
+   </div>
+  
+   <script src="https://unpkg.com/pdfobject"></script>
+   <script>PDFObject.embed("Tesis.pdf", "#my-pdf");</script>
   </section>
 </div>
 
