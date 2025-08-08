@@ -645,7 +645,6 @@ html, body {
 }
 .catsax-gif img {
   height: 20vh; /* Adjust size as needed */
-  transition: all 0.3s ease;
 }
 
 .gorilla {
@@ -655,7 +654,6 @@ html, body {
 }
 .gorilla-gif img {
   height: 22vh; /* Adjust size as needed */
-  transition: all 0.3s ease;
 }
 
 .dolphin {
@@ -665,9 +663,25 @@ html, body {
 }
 .dolphin-gif img {
   height: 30vh; /* Adjust size as needed */
-  transition: all 0.3s ease;
 }
 
+.buscaminas {
+  position: absolute;
+  text-align: center;
+  margin: 153vh 150vh; /* Push below viewport */
+}
+.buscaminas-gif img {
+  height: 30vh; /* Adjust size as needed */
+}
+
+.comehere {
+  position: absolute;
+  text-align: center;
+  margin: 120vh 112vh; /* Push below viewport */
+}
+.comehere-gif img {
+  height: 100%; /* Adjust size as needed */
+}
 
 /* ====================== 
    8. MAIN MENU           
@@ -1197,4 +1211,66 @@ body.spectra-page {
   .semicircle-pdf .pdfobject-container {
     height: 400px;
   }
+}
+
+/* ============================================
+   16. CONTACT PAGE GIFS
+   ============================================ */
+.gif-contact {
+  position: fixed;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.gif-contact.gif1 {
+  top: 5vh;
+  left: 13vw;
+  width: 12vw;
+}
+.gif-contact.gif2 {
+  bottom: 0vh;
+  right: 0vw;
+  width: 380px;
+}
+.gif-contact.gif3 {
+  bottom: 17vh;
+  left: 45vw;
+  width: 220px;
+}
+.gif-contact.gif4 {
+  top: 15vh;
+  left: 54vw;
+  width: 128px;
+}
+.gif-contact.gif5 {
+  top: 34vh;
+  right: 12vw;
+  width: 150px;
+}
+.gif-contact.gif6 {
+  bottom: 33vh;
+  left: 20vw;
+  width: 100px;
+}
+.gif-contact.gif7 {
+  top: 2vh;
+  right: 2vw;
+  width: 150px;
+}
+.gif-contact.gif8 {
+  top: 10vh;
+  left: 45vw;
+  width: 80px;
+}
+.gif-contact.gif9 {
+  bottom: 2vh;
+  left: 20vw;
+  width: 240px;
+}
+
+
+
+.gif-contact img {
+  width: 100%;
+  height: auto;
 }
