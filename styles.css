@@ -952,9 +952,6 @@ body.spectra-page {
   }
 }
 
-/* ============================================
-   11. "ABOUT" STYLES
-   ============================================ */
 
 /* ============================================
    12. EMAIL STYLES
@@ -969,6 +966,7 @@ body.spectra-page {
   color: rgba(255, 255, 255, 0.8);
   font-family: 'AlegreyaSans', sans-serif;
   text-align: center;
+  z-index: 100;
 }
 
 .email-address {
