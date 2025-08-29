@@ -20,7 +20,7 @@
   </script>
 </head>
 
-<body class="home-page">
+<body class="home-page" style="overflow: hidden;">
 
   <!-- Back button -->
   <a href="home" class="gif-back-button">
@@ -139,40 +139,168 @@ document.querySelectorAll('.sidebar-button').forEach(button => {
 </script>
 
 
- <!-- Script for gallery -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     const wrappers = document.querySelectorAll('.image-wrapper');
-    let topZIndex = 5; // Starting max z-index value
+    const galleryContainer = document.querySelector('.gallery-container');
+    let topZIndex = 5;
+    let isDragging = false;
+    let currentWrapper = null;
+    let startX, startY, initialX, initialY, usesBottom, usesRight;
     
-    // Initialize z-index values
+    // Initialize z-index values and convert all positions to left/top
     wrappers.forEach((wrapper, i) => {
-      wrapper.style.zIndex = 5 - i; // 5,4,3,2,1
+        wrapper.style.zIndex = 5 - i;
+        wrapper.style.cursor = 'grab';
+        
+        // Convert any bottom/right positioning to left/top
+        convertPositionToLeftTop(wrapper);
     });
     
-    wrappers.forEach(wrapper => {
-      wrapper.addEventListener('click', function() {
-        // Remove active class from all
-        wrappers.forEach(w => w.classList.remove('active'));
+    // Function to convert bottom/right positioning to left/top
+    function convertPositionToLeftTop(wrapper) {
+        const style = window.getComputedStyle(wrapper);
+        const galleryRect = galleryContainer.getBoundingClientRect();
+        const wrapperRect = wrapper.getBoundingClientRect();
         
-        // Add active class to clicked
-        this.classList.add('active');
-        
-        // Get current z-index
-        const currentZ = parseInt(this.style.zIndex);
-        
-        // Only update if not already on top
-        if (currentZ < topZIndex) {
-          // Increase top index and assign to clicked element
-          topZIndex++;
-          this.style.zIndex = topZIndex;
+        // Convert bottom to top
+        if (style.bottom !== 'auto') {
+            const bottomValue = parseFloat(style.bottom);
+            wrapper.style.top = `${((galleryRect.height - wrapperRect.height - bottomValue) / galleryRect.height) * 100}%`;
+            wrapper.style.bottom = 'auto';
         }
-      });
+        
+        // Convert right to left
+        if (style.right !== 'auto') {
+            const rightValue = parseFloat(style.right);
+            wrapper.style.left = `${((galleryRect.width - wrapperRect.width - rightValue) / galleryRect.width) * 100}%`;
+            wrapper.style.right = 'auto';
+        }
+        
+        // Store initial positions
+        wrapper.dataset.initialLeft = wrapper.style.left;
+        wrapper.dataset.initialTop = wrapper.style.top;
+    }
+    
+    // Mouse down event - start dragging
+    wrappers.forEach(wrapper => {
+        wrapper.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            currentWrapper = this;
+            
+            // Get initial positions
+            const galleryRect = galleryContainer.getBoundingClientRect();
+            const wrapperRect = this.getBoundingClientRect();
+            
+            // Calculate relative positions within gallery container
+            startX = e.clientX;
+            startY = e.clientY;
+            
+            // Store initial percentage positions
+            initialX = (wrapperRect.left - galleryRect.left) / galleryRect.width * 100;
+            initialY = (wrapperRect.top - galleryRect.top) / galleryRect.height * 100;
+            
+            // Change cursor to grabbing
+            this.style.cursor = 'grabbing';
+            this.classList.add('dragging');
+            
+            // Bring to front
+            wrappers.forEach(w => w.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update z-index
+            topZIndex++;
+            this.style.zIndex = topZIndex;
+            
+            e.preventDefault();
+        });
     });
-  });
-
+    
+    // Mouse move event - handle dragging
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging || !currentWrapper) return;
+        
+        const galleryRect = galleryContainer.getBoundingClientRect();
+        
+        // Calculate movement delta in percentages
+        const deltaX = ((e.clientX - startX) / galleryRect.width) * 100;
+        const deltaY = ((e.clientY - startY) / galleryRect.height) * 100;
+        
+        // Apply new position
+        currentWrapper.style.left = `${initialX + deltaX}%`;
+        currentWrapper.style.top = `${initialY + deltaY}%`;
+    });
+    
+    // Mouse up event - stop dragging
+    document.addEventListener('mouseup', function() {
+        if (isDragging && currentWrapper) {
+            currentWrapper.style.cursor = 'grab';
+            currentWrapper.classList.remove('dragging');
+        }
+        isDragging = false;
+        currentWrapper = null;
+    });
+    
+    // Touch events for mobile support
+    wrappers.forEach(wrapper => {
+        wrapper.addEventListener('touchstart', function(e) {
+            if (e.touches.length !== 1) return;
+            
+            isDragging = true;
+            currentWrapper = this;
+            
+            const touch = e.touches[0];
+            const galleryRect = galleryContainer.getBoundingClientRect();
+            const wrapperRect = this.getBoundingClientRect();
+            
+            startX = touch.clientX;
+            startY = touch.clientY;
+            
+            initialX = (wrapperRect.left - galleryRect.left) / galleryRect.width * 100;
+            initialY = (wrapperRect.top - galleryRect.top) / galleryRect.height * 100;
+            
+            wrappers.forEach(w => w.classList.remove('active'));
+            this.classList.add('active');
+            
+            topZIndex++;
+            this.style.zIndex = topZIndex;
+            
+            e.preventDefault();
+        });
+    });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (!isDragging || !currentWrapper || e.touches.length !== 1) return;
+        
+        const touch = e.touches[0];
+        const galleryRect = galleryContainer.getBoundingClientRect();
+        
+        const deltaX = ((touch.clientX - startX) / galleryRect.width) * 100;
+        const deltaY = ((touch.clientY - startY) / galleryRect.height) * 100;
+        
+        currentWrapper.style.left = `${initialX + deltaX}%`;
+        currentWrapper.style.top = `${initialY + deltaY}%`;
+        
+        e.preventDefault();
+    });
+    
+    document.addEventListener('touchend', function() {
+        isDragging = false;
+        currentWrapper = null;
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        // Reconvert positions if needed after resize
+        wrappers.forEach(wrapper => {
+            if (!wrapper.dataset.initialLeft || !wrapper.dataset.initialTop) {
+                convertPositionToLeftTop(wrapper);
+            }
+        });
+    });
+});
 </script>
-
 
 </body>
 </html>
