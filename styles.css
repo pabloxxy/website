@@ -641,7 +641,7 @@ html, body {
 .catsax {
   position: absolute;
   text-align: center;
-  margin: 150vh 20vh ; /* Push below viewport */
+  margin: 150vh 30vh ; /* Push below viewport */
 }
 .catsax-gif img {
   height: 20vh; /* Adjust size as needed */
@@ -680,6 +680,71 @@ html, body {
   margin: 120vh 112vh; /* Push below viewport */
 }
 .comehere-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+
+.button1 {
+  position: absolute;
+  text-align: center;
+  margin: 130vh 10vh; /* Push below viewport */
+}
+.button1-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button2 {
+  position: absolute;
+  text-align: center;
+  margin: 135vh 10vh; /* Push below viewport */
+}
+.button2-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button3 {
+  position: absolute;
+  text-align: center;
+  margin: 140vh 10vh; /* Push below viewport */
+}
+.button3-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button4 {
+  position: absolute;
+  text-align: center;
+  margin: 145vh 10vh; /* Push below viewport */
+}
+.button4-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button5 {
+  position: absolute;
+  text-align: center;
+  margin: 150vh 10vh; /* Push below viewport */
+}
+.button5-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button6 {
+  position: absolute;
+  text-align: center;
+  margin: 155vh 10vh; /* Push below viewport */
+}
+.button6-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button7 {
+  position: absolute;
+  text-align: center;
+  margin: 160vh 10vh; /* Push below viewport */
+}
+.button7-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+.button8 {
+  position: absolute;
+  text-align: center;
+  margin: 165vh 10vh; /* Push below viewport */
+}
+.button8-gif img {
   height: 100%; /* Adjust size as needed */
 }
 
