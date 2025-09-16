@@ -641,7 +641,7 @@ html, body {
 .catsax {
   position: absolute;
   text-align: center;
-  margin: 150vh 30vh ; /* Push below viewport */
+  margin: 180vh 55vh ; /* Push below viewport */
 }
 .catsax-gif img {
   height: 20vh; /* Adjust size as needed */
@@ -681,6 +681,24 @@ html, body {
 }
 .comehere-gif img {
   height: 100%; /* Adjust size as needed */
+}
+
+.chair {
+  position: absolute;
+  text-align: center;
+  margin: 187vh 155vh; /* Push below viewport */
+}
+.chair-gif img {
+  height: 100%; /* Adjust size as needed */
+}
+
+.clock {
+  position: absolute;
+  text-align: center;
+  margin: 155vh 22vh; /* Push below viewport */
+}
+.clock-gif img {
+  height: 80%; /* Adjust size as needed */
 }
 
 .button1 {
