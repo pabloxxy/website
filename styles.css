@@ -634,8 +634,8 @@ html, body {
   transition: all 0.3s ease;
 }
 .CD-gif:hover img {
-  transform: scale(1.3);
-  filter: brightness(1.2);
+  transform: scale(1.25);
+  filter: brightness(1.1);
 }
 
 .catsax {
