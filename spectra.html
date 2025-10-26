@@ -71,11 +71,19 @@
 
   <!-- About Section (initially hidden) -->
   <section id="about" class="content-section" style="display:none;">
-    <div class="aboutspectra-content">
+    <div class="spectra-text aboutspectra-content">
       <h2>About Spectra</h2>
       <p>
-      The empirical spectral distribution for a matrix \(M\) of size \(n\times n\) is defined as the probability measure
-      \[ \mu(M) = \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i(M)}\]
+      Let's consider a matrix \(M\) of size \(n\times n\) whose eigenvalues are \( \{\lambda_1, \lambda_2, \cdots, \lambda_n \}.\)
+      We define its empirical spectral distribution as the probability measure
+      \[ \mu = \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i}.\] 
+      We can notice that if \( M\) is a random matrix, i.e. a matrix whose entries are random variables, then \( \mu \) is a random proability measure.
+      We can then naturally define the expectation of \( \mu \), a deterministic probability measure, by the way it interacts with bounded continuous functions. First notice that since \( \mu\)
+      is a random measure then for each bounded continuous function \(f:\mathbb{R}\rightarrow \mathbb{R}\), the integral 
+      \[\int f \; d\mu\] 
+      is a real random variable.
+      We define the expectation of \( \mu\), denoted as \( \mathbb{E}(\mu )\), as the deterministic measure such that for every continuous bounded function \(f:\mathbb{R}\rightarrow \mathbb{R}\)
+      \[ \int f \; d\mathbb{E}(\mu ) = \mathbb{E}\left(\int f \; d\mu\right) .\]
       </p>
     </div>
   </section>
@@ -94,9 +102,24 @@
    <div class="semicircle-container">
 
     <!-- Left Column: Explanation -->
-    <div class="semicircle-text aboutspectra-content">
+    <div class="spectra-text aboutspectra-content">
       <h2>Semicircle Law</h2>
-      <p>Wigner's semicircle law describes the eigenvalue distribution of large random matrices... </p>
+      <p>Wigner's semicircle law describes the eigenvalue distribution of large symmetric random matrices. Let's consider symmetric 
+         matrices of size \(n\times n\) whose entries are independent (modulo the symmetry), centered and have variance \( 1\). Let's denote
+         their necessarily real eigenvalues as 
+         \[ \lambda_1\leq \lambda_2 \leq \cdots \leq \lambda_n. \]
+         Wigner proved that the sequence of their Empirical Spectral Distributions, i.e. the sequence of random measures given by
+         \[ \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i},\] 
+         almost surely converges weakly to a deterministic measure: the semicircle law, whose probability density function is given by 
+         \[ f(x) =
+                  \begin{cases}
+                  \frac{1}{2\pi} \sqrt{4-x^2} & \text{if } |x|\leq 2, \\
+                  0 & \text{if } |x|>2
+                  \end{cases}
+        \]
+        a semicircle centered at \( 0\) of radius \(2 \) and normalized so it is a probability density function.
+      </p>
+
       <p>
         Víctor Pérez Abreu me mandó un mensaje muy lindo cuando leyó mi tesis. Lo quiero guardar aquí. El 14 de septiembre de 2025 a las 21:51 me envió: 
         Buenas noches, Pablo. Hoy pasé una muy buena y placentera tarde leyendo tu tesis. 

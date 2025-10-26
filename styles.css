@@ -905,6 +905,7 @@ body.home-page::after{
   margin-top: 1%;
   font-family: 'AlegreyaSans', sans-serif;
   font-size: 0.75rem;
+  cursor: default;
 }
 
 .about-name {
@@ -1272,7 +1273,7 @@ body.spectra-page {
   align-items: flex-start;
 }
 
-.semicircle-text,
+.spectra-text,
 .semicircle-pdf {
   flex: 1;
   height: 90vh;
