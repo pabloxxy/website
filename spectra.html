@@ -77,13 +77,14 @@
       Let's consider a matrix \(M\) of size \(n\times n\) whose eigenvalues are \( \{\lambda_1, \lambda_2, \cdots, \lambda_n \}.\)
       We define its empirical spectral distribution as the probability measure
       \[ \mu = \frac{1}{n} \sum_{i=1}^n \delta_{\lambda_i}.\] 
-      We can notice that if \( M\) is a random matrix, i.e. a matrix whose entries are random variables, then \( \mu \) is a random probability measure.
-      We can then naturally define the expectation of \( \mu \), a deterministic probability measure, by the way it interacts with bounded continuous functions. First notice that since \( \mu\)
-      is a random measure then for each bounded continuous function \(f:\mathbb{R}\rightarrow \mathbb{R}\), the integral 
+      Notice that if \( M\) is a random matrix, i.e. a matrix whose entries are real random variables, then \( \mu \) is a random probability measure.
+      We can then naturally define the expectation of \( \mu \), a deterministic probability measure, by the way it interacts with bounded continuous functions. 
+      Since \( \mu\) is a random measure then for each bounded continuous function \(f:\mathbb{R}\rightarrow \mathbb{R}\), the integral 
       \[\int f \, d\mu\] 
       is a real random variable.
       We then define the expectation of \( \mu\), denoted as \( \mathbb{E}(\mu )\), as the deterministic measure such that for every continuous bounded function \(f:\mathbb{R}\rightarrow \mathbb{R}\)
       \[ \int f \, d\mathbb{E}(\mu ) = \mathbb{E}\left(\int f \, d\mu\right) .\]
+      The uniqueness of the resulting measure can be rigorously justified by the <a href="https://en.wikipedia.org/wiki/Riesz%E2%80%93Markov%E2%80%93Kakutani_representation_theorem"> Riez-Markov-Kakutani representation theorem</a>.
       </p>
     </div>
   </section>
