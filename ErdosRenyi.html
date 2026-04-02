@@ -14,6 +14,17 @@
       display: block;
     }
   </style>
+
+      <!-- Include favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <script>
+    fetch('favicon.html')
+      .then(response => response.text())
+      .then(data => {
+         document.head.insertAdjacentHTML('afterbegin', data);
+      });
+    </script>
+    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script>
   // Estamos usando el acoplamiento monótono de G_{n,p}. Es decir, simular una uniforme en (0,1) por cada arista y dibujar la arista cuando el parámetro "p" sea mayor que la respectiva uniforme.
