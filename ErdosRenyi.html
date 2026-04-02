@@ -46,6 +46,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   p = createSlider(0, 1, 0.5, 0.01);
   p.position(20, height - 40);
+  p.size(windowWidth - 40);
   
   // Primera muestra
   sample();
@@ -93,6 +94,7 @@ function windowResized() {
 // Cambiar botones si cambia la ventana
 function repositionUI() {
   p.position(20, height - 40);
+  p.size(windowWidth - 40);
   resampleButton.position(20, height - 70);
 
 }
