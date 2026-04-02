@@ -16,88 +16,78 @@
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script>
-// Simulación de Erdős-Renyi con el acoplamiento monótono. 
-// Hay un slider que mueve el parámetro "p" entre 0 y 1.
+  // Estamos usando el acoplamiento monótono de G_{n,p}. Es decir, simular una uniforme en (0,1) por cada arista y dibujar la arista cuando el parámetro "p" sea mayor que la respectiva uniforme.
 
-// Estamos usando el acoplamiento monótono de G_{n,p}. Es decir, simular una uniforme en (0,1) por cada arista y dibujar la arista cuando el parámetro "p" sea mayor que la respectiva uniforme.
-
-
-let n = 12; // número de vértices
-let p; // variable para el slider               
-let E = []; // espacio para guardar las variables de cada arista
-let resampleButton; // variable para el botón
+  let n = 12; // número de vértices
+  let p; // variable para el slider               
+  let E = []; // espacio para guardar las variables de cada arista
+  let resampleButton; // variable para el botón
 
 
-function sample() {
-// Generar una variable aleatoria uniforme por cada arista
+  function sample() {
+  // Generar una variable aleatoria uniforme por cada arista
   for (let i = 0; i < n; i++) {
     E[i] = [];
     for (let j = i+1; j < n; j++) {
       E[i][j] = random(); 
     }
   }  
-  
-}
+  }
 
 
 
-function setup() {
-  
+  function setup() {
+
   createCanvas(windowWidth, windowHeight);
-  p = createSlider(0, 1, 0.5, 0.01);
+  p = createSlider(0, 1, 0.5, 0.0001);
   p.position(20, height - 40);
   p.size(windowWidth - 40);
-  
+
   // Primera muestra
   sample();
-  
+
   // Crear un botón para muestrear
   resampleButton = createButton('Resample');
   resampleButton.position(20, height - 70); 
   resampleButton.mousePressed(sample);
-}
+  }
 
-function draw() {
-  
+  function draw() {
+
   translate(width/2, height/2);  
   background(220);
-  
+
   //Poner los vértices en un círculo  
   let r = min(height, width) / 4;
-  
+
   for (let i = 0; i < n; i++) {
-   fill(0);
-   circle(r * cos((2*PI/n)*i), r * sin((2*PI/n)*i), 10); 
+    fill(0);
+    circle(r * cos((2*PI/n)*i), r * sin((2*PI/n)*i), 10); 
   }
 
   // Cuando p sea mayor que la uniforme, dibujar esa arista.  
   for (let i = 0; i < n; i++) {
     for (let j = i+1; j < n; j++) {
-     if (p.value() >= E[i][j]) {
-       strokeWeight(2);
-       line(r * cos((2*PI/n)*i), r * sin((2*PI/n)*i), r * cos((2*PI/n)*j), r * sin((2*PI/n)*j));
-     } 
+      if (p.value() >= E[i][j]) {
+        strokeWeight(2);
+        line(r * cos((2*PI/n)*i), r * sin((2*PI/n)*i), r * cos((2*PI/n)*j), r * sin((2*PI/n)*j));
+      } 
     }
-   }  
+    }  
 
   // Texto
-  textSize(24);
-  text("p = " + p.value(), -width/2 + 20, -height/2 + 40)
-}
+  textSize(28);
+  // Siempre 2 decimales en el texto para p
+  text("p = " + p.value().toFixed(2), -width/2 + 20, -height/2 + 48)
+  }
 
-// Cambiar el canvas si cambia la ventana
-function windowResized() {
+  // Cambiar el canvas y los botones si cambia la ventana
+  function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  repositionUI();
-}
-
-// Cambiar botones si cambia la ventana
-function repositionUI() {
-  p.position(20, height - 40);
+  p.position(20, windowHeight - 40);
   p.size(windowWidth - 40);
-  resampleButton.position(20, height - 70);
-
-}
+  resampleButton.position(20, windowHeight - 70);
+  }
   </script>
 </head>
 <body>
