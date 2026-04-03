@@ -85,17 +85,14 @@
 
   // Create a container div
   buttonDiv = createDiv();
-  buttonDiv.position(0.5 * windowWidth, 0.5 * windowHeight);
-  buttonDiv.style('width', '50px');
-  buttonDiv.style('height', '50px');
-  buttonDiv.style('position', 'relative');
+  buttonDiv.position(0, 0);
 
   // Create GIF image (hidden initially)
   gifImg = createImg('images/gifs/dice.gif', 'animation');
   gifImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
   gifImg.style('position', 'absolute');
   gifImg.style('top', '0');
-  gifImg.style('left', '0');
+  gifImg.style('right', '0');
   gifImg.style('display', 'none');
   gifImg.parent(buttonDiv);
 
@@ -104,7 +101,7 @@
   pngImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
   pngImg.style('position', 'absolute');
   pngImg.style('top', '0');
-  pngImg.style('left', '0');
+  pngImg.style('right', '0');
   pngImg.style('cursor', 'pointer');
   pngImg.style('display', 'block');
   pngImg.parent(buttonDiv);
@@ -113,7 +110,7 @@
 
   // Technical: Force a repaint after a short delay to ensure the PNG appears
   setTimeout(() => {
-    buttonDiv.position(0.75 * windowWidth, 0.11 * windowHeight);
+    buttonDiv.position(0.9 * windowWidth, 0.11 * windowHeight);
   }, 10);
 
   // First sample
@@ -130,7 +127,7 @@
   p.size(windowWidth - 40);
   pngImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
   gifImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
-  buttonDiv.position(0.75 * windowWidth, 0.11 * windowHeight);
+  buttonDiv.position(0.9 * windowWidth, 0.11 * windowHeight);
   }
 
 
