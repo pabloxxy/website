@@ -83,35 +83,23 @@
   p.position(20, height - 40);
   p.size(windowWidth - 40);
 
-  // Create a container div
-  buttonDiv = createDiv();
-  buttonDiv.position(0, 0);
 
   // Create GIF image (hidden initially)
   gifImg = createImg('images/gifs/dice.gif', 'animation');
   gifImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
   gifImg.style('position', 'absolute');
-  gifImg.style('top', '0');
-  gifImg.style('right', '0');
+  gifImg.position(0.7 * windowWidth, 0.11 * windowHeight);
   gifImg.style('display', 'none');
-  gifImg.parent(buttonDiv);
 
   // Create PNG image (cover)
   pngImg = createImg('images/gifs/dice1.png', 'click to resample');
   pngImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
   pngImg.style('position', 'absolute');
-  pngImg.style('top', '0');
-  pngImg.style('right', '0');
+  pngImg.position(0.7 * windowWidth, 0.11 * windowHeight);
   pngImg.style('cursor', 'pointer');
   pngImg.style('display', 'block');
-  pngImg.parent(buttonDiv);
 
   pngImg.mousePressed(playGifAndResample);
-
-  // Technical: Force a repaint after a short delay to ensure the PNG appears
-  setTimeout(() => {
-    buttonDiv.position(0.9 * windowWidth, 0.11 * windowHeight);
-  }, 10);
 
   // First sample
   sample();
@@ -126,8 +114,9 @@
   p.position(20, windowHeight - 40);
   p.size(windowWidth - 40);
   pngImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
+  pngImg.position(0.7 * windowWidth, 0.11 * windowHeight);
   gifImg.size(0.2 * (364/312) * Math.sqrt(windowHeight * windowWidth), 0.2 * Math.sqrt(windowHeight * windowWidth));
-  buttonDiv.position(0.9 * windowWidth, 0.11 * windowHeight);
+  gifImg.position(0.7 * windowWidth, 0.11 * windowHeight);
   }
 
 
