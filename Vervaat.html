@@ -28,173 +28,173 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script>
   // Based on something called Vervaat transform: 
-// https://arxiv.org/pdf/1310.3889 
-// https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155
+  // https://arxiv.org/pdf/1310.3889 
+  // https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155
 
-// Take the path from 0 to the minimum of a Brownian bridge and switch it with its second part.
-// This is somewhat analogous to what I did on my thesis with Dyck paths.
-
-
-// General variables
-let B; // Brownian Motion in [0,1]
-let U; // Brownian Bridge
-let argminU; // index where the Brownian bridge achieves its minimum
-let n; // Discetization parameter. Time step will be 1/n.
-let currentStepB = 0; // To draw Brownian Bridge
-let scaleY;
-
-// Swapping
-let currentStepHorizontal = 0; // To swap first and second parts
-let isTransforming = false;  // whether button triggered transformation
-let firstOffset = 0;
-let secondOffset = 0;
-let swapSpeed;
-
-// Shifting horizontally
-const upSpeed = 50;
-let isMovingUp = false;
-let currentStepUp = 0;
+  // Take the path from 0 to the minimum of a Brownian bridge and switch it with its second part.
+  // This is somewhat analogous to what I did on my thesis with Dyck paths.
 
 
+  // General variables
+  let B; // Brownian Motion in [0,1]
+  let U; // Brownian Bridge
+  let argminU; // index where the Brownian bridge achieves its minimum
+  let n; // Discetization parameter. Time step will be 1/n.
+  let currentStepB = 0; // To draw Brownian Bridge
+  let scaleY;
 
-function setup() { 
-  createCanvas(windowWidth, windowHeight);
-  n = 5000;
-  B = new Array(n+1).fill(0);
-  U = new Array(n+1).fill(0);
-  V = new Array(n+1).fill(0);
+  // Swapping
+  let currentStepHorizontal = 0; // To swap first and second parts
+  let isTransforming = false;  // whether button triggered transformation
+  let firstOffset = 0;
+  let secondOffset = 0;
+  let swapSpeed;
 
-  
-  // Create a button for transforming the bridge (initially disabled)
-  // In here the speed of swap is also declared. The 70 corresponds to 70 frames.
-  button = createButton('TRANSFORM!!!');
-  button.attribute('disabled', '');
-  button.position(10, 10);      
-  button.mousePressed(() => {
-  if (!isTransforming && currentStepB >= n) {
-    isTransforming = true;
-    swapSpeed = Math.ceil(argminU / 60);
-  }
-});
-
-  sampleB();
-  
-  minU = Math.min(...U);
-  argminU = U.indexOf(minU); //Calculate the time step where minimum of U is first achieved
-  
-  // Set scaling factor so path has some vertical padding and it looks nice
-  scaleY = 0.9 * ((height/2) / (Math.max(...U) - minU));
-  
-  
-  // Vector with time steps for first part
-  firstTimes = new Array(argminU+1).fill(0);
-  for (let i=0; i <= argminU; i++){
-    firstTimes[i] = map(i/n, 0, 1, 0, width);
-  }
-  // Vector with time steps for second part
-  secondTimes = new Array(n-argminU+1).fill(0);
-  for (let i=argminU; i >= argminU & i <= n; i++){
-    secondTimes[i] = map(i/n, 0, 1, 0, width);
-  }
-
-}
+  // Shifting horizontally
+  const upSpeed = 100;
+  let isMovingUp = false;
+  let currentStepUp = 0;
 
 
-function draw() {
-  background(220);
-  
-  // Red line at y=0 for reference
-  stroke(0, 0, 0);      
-  strokeWeight(2);        
-  line(0, height/2, width, height/2);
-  
-  
-  
-  // Draw line segments between consecutive points in bridge
-  strokeWeight(1);
-  
-  for (let i = 1; i <= currentStepB; i++) {
+
+  function setup() { 
+    createCanvas(windowWidth, windowHeight);
+    n = 5000;
+    B = new Array(n+1).fill(0);
+    U = new Array(n+1).fill(0);
+    V = new Array(n+1).fill(0);
+
     
-    // Choose color based on whether we are before/after the minimum point 
-    if (i <= argminU) {
-    stroke(0);  // black for the first part (up to and including the minimum)
-    let x1 = firstTimes[i-1] + firstOffset;
-    let x2 = firstTimes[i] + firstOffset;
-    //Map Brownian bridge values to vertical positions
-    let y1 = height/2 - U[i-1] * scaleY;
-    let y2 = height/2 - U[i] * scaleY;
+    // Create a button for transforming the bridge (initially disabled)
+    // In here the speed of swap is also declared. The 70 corresponds to 70 frames.
+    button = createButton('TRANSFORM!!!');
+    button.attribute('disabled', '');
+    button.position(10, 10);      
+    button.mousePressed(() => {
+    if (!isTransforming && currentStepB >= n) {
+      isTransforming = true;
+      swapSpeed = Math.ceil(argminU / 100);
+    }
+  });
+
+    sampleB();
     
-    line(x1, y1, x2, y2);
-     } else {
-      stroke(200, 30, 60);   // red for the second part
-      let x1 = secondTimes[i-1] + secondOffset;
-      let x2 = secondTimes[i] + secondOffset;
+    minU = Math.min(...U);
+    argminU = U.indexOf(minU); //Calculate the time step where minimum of U is first achieved
+    
+    // Set scaling factor so path has some vertical padding and it looks nice
+    scaleY = 0.9 * ((height/2) / (Math.max(...U) - minU));
+    
+    
+    // Vector with time steps for first part
+    firstTimes = new Array(argminU+1).fill(0);
+    for (let i=0; i <= argminU; i++){
+      firstTimes[i] = map(i/n, 0, 1, 0, width);
+    }
+    // Vector with time steps for second part
+    secondTimes = new Array(n-argminU+1).fill(0);
+    for (let i=argminU; i >= argminU & i <= n; i++){
+      secondTimes[i] = map(i/n, 0, 1, 0, width);
+    }
+
+  }
+
+
+  function draw() {
+    background(220);
+    
+    // Red line at y=0 for reference
+    stroke(0, 0, 0);      
+    strokeWeight(2);        
+    line(0, height/2, width, height/2);
+    
+    
+    
+    // Draw line segments between consecutive points in bridge
+    strokeWeight(1);
+    
+    for (let i = 1; i <= currentStepB; i++) {
+      
+      // Choose color based on whether we are before/after the minimum point 
+      if (i <= argminU) {
+      stroke(0);  // black for the first part (up to and including the minimum)
+      let x1 = firstTimes[i-1] + firstOffset;
+      let x2 = firstTimes[i] + firstOffset;
       //Map Brownian bridge values to vertical positions
       let y1 = height/2 - U[i-1] * scaleY;
       let y2 = height/2 - U[i] * scaleY;
-       
+      
       line(x1, y1, x2, y2);
+      } else {
+        stroke(200, 30, 60);   // red for the second part
+        let x1 = secondTimes[i-1] + secondOffset;
+        let x2 = secondTimes[i] + secondOffset;
+        //Map Brownian bridge values to vertical positions
+        let y1 = height/2 - U[i-1] * scaleY;
+        let y2 = height/2 - U[i] * scaleY;
+        
+        line(x1, y1, x2, y2);
+      }
+    
     }
-  
-  }
-  
-  // Advance the drawing step by step until finished
-  if (currentStepB < n) {
-    currentStepB = currentStepB + 50;
+    
+    // Advance the drawing step by step until finished
+    if (currentStepB < n) {
+      currentStepB = currentStepB + 50;
+    }
+
+    // Apply swapOneStep argminU times inside the draw loop
+    if (isTransforming && (currentStepHorizontal < argminU)) {
+      button.attribute('disabled', '');
+      for (let s = 0; s < swapSpeed && currentStepHorizontal < argminU; s++) {
+        swapOneStep();
+        currentStepHorizontal++;
+      }
+    }
+
+    // Trigger upward shift once swap is complete
+  if (isTransforming && currentStepHorizontal >= argminU) {
+    isTransforming = false;
+    isMovingUp = true;
   }
 
-  // Apply swapOneStep argminU times inside the draw loop
-  if (isTransforming && (currentStepHorizontal < argminU)) {
-    button.attribute('disabled', '');
-    for (let s = 0; s < swapSpeed && currentStepHorizontal < argminU; s++) {
-      swapOneStep();
-      currentStepHorizontal++;
+  if (isMovingUp && currentStepUp < upSpeed) {
+    upOneStep();
+    currentStepUp++;
+  }
+    
+    // Enable button once the bridge is fully drawn
+    if (currentStepB >= n && button.elt.disabled) {
+      button.removeAttribute('disabled');
     }
   }
 
-  // Trigger upward shift once swap is complete
-if (isTransforming && currentStepHorizontal >= argminU) {
-  isTransforming = false;
-  isMovingUp = true;
-}
 
-if (isMovingUp && currentStepUp < upSpeed) {
-  upOneStep();
-  currentStepUp++;
-}
-  
-  // Enable button once the bridge is fully drawn
-  if (currentStepB >= n && button.elt.disabled) {
-    button.removeAttribute('disabled');
-  }
-}
+  function sampleB(){
+    // Simulate Brownian Motion in [0,1] with time step 1/n
+    for (let i=1; i<=n; i++) {
+      B[i] = B[i-1] + (1/sqrt(n)) * randomGaussian();
+    }
 
-
-function sampleB(){
-  // Simulate Brownian Motion in [0,1] with time step 1/n
-  for (let i=1; i<=n; i++) {
-    B[i] = B[i-1] + (1/sqrt(n)) * randomGaussian();
+    //Given B, simulate a Brownian Bridge called U
+    for (let i=1; i<=n; i++) {
+      U[i] = B[i] - (i/n) * B[n];
+    }
   }
 
-  //Given B, simulate a Brownian Bridge called U
-  for (let i=1; i<=n; i++) {
-    U[i] = B[i] - (i/n) * B[n];
+
+  function swapOneStep(){
+    firstOffset += map((n - argminU) / (argminU * n), 0, 1, 0, width);
+    secondOffset -= map((1 / n), 0, 1, 0, width);
   }
-}
 
 
-function swapOneStep(){
-  firstOffset += map((n - argminU) / (argminU * n), 0, 1, 0, width);
-  secondOffset -= map((1 / n), 0, 1, 0, width);
-}
-
-
-function upOneStep(){
-// Move the whole graph up so minU becomes 0.
- for(let i=0; i<= n; i++){
-  U[i] -= minU/upSpeed;  
- }
-}
+  function upOneStep(){
+  // Move the whole graph up so minU becomes 0.
+  for(let i=0; i<= n; i++){
+    U[i] -= minU/upSpeed;  
+  }
+  }
   </script>
 </head>
 <body>
