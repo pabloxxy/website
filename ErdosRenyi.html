@@ -27,18 +27,18 @@
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script>
-  // Estamos usando el acoplamiento monótono de G_{n,p}. Es decir, simular una uniforme en (0,1) por cada arista y dibujar la arista cuando el parámetro "p" sea mayor que la respectiva uniforme.
+  // We are using the montone coupling of G_{n,p}. This means a uniform random variable in (0,1) for every edge and drawing it when parameter "p" is bigger than the respective uniform random variable.
 
-  let n = 12; // número de vértices
-  let p; // variable para el slider               
-  let E = []; // espacio para guardar las variables de cada arista
+  let n = 12; // number of vertices
+  let p; // variable for the slider               
+  let E = []; // to store each edge's random variable
   let buttonDiv, pngImg, gifImg;
   let gifVisible = false;
   let gifTimer;
 
 
   function sample() {
-  // Generar una variable aleatoria uniforme por cada arista
+  // Generate a uniform random variable for every edge
   for (let i = 0; i < n; i++) {
     E[i] = [];
     for (let j = i+1; j < n; j++) {
@@ -108,7 +108,7 @@
 
 
 
-  // Cambiar el canvas y los botones si cambia la ventana
+  // Resize window and UI if browser's window is resized
   function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   p.position(20, windowHeight - 40);
@@ -126,7 +126,7 @@
   translate(width/2, height/2);  
   background(220);
 
-  //Poner los vértices en un círculo  
+  // Place vertices in a circle 
   let r = min(height, width) / 4;
 
   for (let i = 0; i < n; i++) {
@@ -134,7 +134,7 @@
     circle(r * cos((2*PI/n)*i), r * sin((2*PI/n)*i), 10); 
   }
 
-  // Cuando p sea mayor que la uniforme, dibujar esa arista.  
+  // When p is greater than the uniform random variable, draw that edge.
   for (let i = 0; i < n; i++) {
     for (let j = i+1; j < n; j++) {
       if (p.value() >= E[i][j]) {
@@ -144,9 +144,9 @@
     }
     }  
 
-  // Texto
+  // Text
   textSize(28);
-  // Siempre 2 decimales en el texto para p
+  // Always 2 decimals for the value of p
   text("p = " + p.value().toFixed(2), -width/2 + 20, -height/2 + 48)
   }
 
