@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surface of Local Times</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="myDiv" style="width: 100%; height: 100vh;"></div>
+
+    <script>
+        T = 10000;
+        walk = new Int32Array(T + 1);
+        minWalk = walk[0];
+        maxWalk = walk[0];
+
+        // One loop for simulating the walk, and calculating max and min.
+        for (let i = 1; i <= T; i++) {
+            walk[i] = walk[i-1] + (Math.random() < 0.5 ? 1 : -1);
+            if (walk[i] > maxWalk) maxWalk = walk[i];
+            if (walk[i] < minWalk) minWalk = walk[i];
+        }
+
+        // Building an "indicator matrix". Entry ij is 1 if the walk was in state i at time j.
+        // For technical reasons the matrix will be stored "unfolded" as a vector.
+        nStates = maxWalk - minWalk + 1;
+        indicatorMatrix = new Int32Array(nStates * (T + 1));
+        for (let i = 0; i <= T; i++) {
+            // Shift the states so minWalk goes to index 0.
+            // Entry at row r, column j is r * (T+1) + j in the vector.
+            indicatorMatrix[(walk[i] - minWalk) * (T + 1) + i] = 1;
+        }
+
+        // For every state, sweep through time (cumulative sum).
+        for (let r = 0; r < nStates; r++) {
+            for (let j = 1; j <= T; j++) {
+                indicatorMatrix[r * (T + 1) + j] += indicatorMatrix[r * (T + 1) + j - 1];
+            }
+        }
+
+        // Convert to matrix for plotly.
+        matrix = [];
+        for (let r = 0; r < nStates; r++) {
+            matrix[r] = [];
+            for (let j = 0; j <= T; j++) {
+                matrix[r][j] = indicatorMatrix[r * (T + 1) + j];
+            }
+        }
+
+        // Build time and state axes.
+        times = [];
+        for (let j = 0; j <= T; j++) {
+            times[j] = j;
+        }
+
+        states = [];
+        for (let r = 0; r < nStates; r++) {
+            states[r] = minWalk + r;
+        }
+
+        matrixT = [];
+        for (let j = 0; j <= T; j++) {
+         matrixT[j] = [];
+         for (let r = 0; r < nStates; r++) {
+           matrixT[j][r] = matrix[r][j];
+         }
+        }
+
+        // Plot.
+        Plotly.newPlot('myDiv', [{
+            z: matrixT,
+            x: states,
+            y: times,
+            type: 'surface',
+            showscale: false,
+            lighting: {
+                ambient: 0.6,
+                diffuse: 0.8,
+                specular: 1,
+                roughness: 0.3,
+                fresnel: 0.8
+            },
+            lightposition: {
+                x: -50,
+                y: -100,
+                z: 1000
+            }
+        }], {
+            scene: {
+                yaxis: { title: 'Time', autorange: 'reversed' },
+                xaxis: { title: 'State' },
+                zaxis: { title: 'Local time approximation', showticklabels: false  },
+                camera: {
+                            eye:    { x: 0.7, y: 1.8, z: 0.75 },  // position of the camera
+                            center: { x: 0,   y: 0,    z: -0.2 },     // point the camera looks at
+                            up:     { x: 0,   y: 0,    z: 1 }      // which direction is "up"
+                        }
+            }
+            
+        });
+    </script>
+</body>
+</html>
