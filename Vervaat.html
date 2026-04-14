@@ -13,18 +13,42 @@
     canvas {
       display: block;
     }
+
+     /* Info popup: fixed position so it floats above the canvas */
+    #info-box { position: fixed; top: 80px; right: 50px; z-index: 10; }
+
+    /* Style the summary tag as a round + button */
+    #info-box > summary {
+      float: right;               /* pins button to the right */
+      list-style: none;               /* remove default triangle marker */
+      cursor: pointer;
+      background: white;
+      border-radius: 50%;
+      width: 50px; height: 50px;
+      text-align: center; line-height: 50px;
+      font-size: 30px; font-weight: bold;
+      user-select: none;
+    }
+
+    /* The popup panel that appears when open */
+    #info-box > div {
+      margin-top: 50px;
+      margin-right: 50px;
+      background: white;
+      padding: 20px 20px;
+      max-width: 350px;
+      font-size: 15px;
+      line-height: 1.5;
+      overflow: auto;
+    }
+
+    /* When the details panel is open, show × instead of + */
+    #info-box[open] > summary { font-size: 30px; }
+    #info-box[open] > summary::before { content: '×'; }
+    #info-box > summary::before { content: '+'; }
   </style>
 
-      <!-- Include favicon -->
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
-    <script>
-    fetch('favicon.html')
-      .then(response => response.text())
-      .then(data => {
-         document.head.insertAdjacentHTML('afterbegin', data);
-      });
-    </script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
   <script>
   // Based on something called Vervaat transform: 
@@ -48,6 +72,11 @@
 
   function setup() { 
     createCanvas(windowWidth, windowHeight);
+
+    // Un botón para regresar 
+    let homeLink = createA('probability.html', '← Back to simulations');
+    homeLink.position(8, 16);
+
     n = 5000;
     B = new Array(n+1).fill(0);
     U = new Array(n+1).fill(0);
@@ -58,7 +87,7 @@
     // In here the speed of swap is also declared: 100
     button = createButton('TRANSFORM!!!');
     button.attribute('disabled', '');
-    button.position(10, 10);      
+    button.position(20, 60);      
     button.mousePressed(() => {
     if (button.elt.innerText === 'Resample') {
       resample();
@@ -191,5 +220,28 @@
   </script>
 </head>
 <body>
+    <!-- Info button: clicking it opens/closes the explanation panel -->
+<details id="info-box">
+  <summary></summary>
+  <div>
+    <center><b>Simulating a Brownian excursion from a Brownian bridge</b></center>
+    <p>
+    Let's consider \(B_t \) a standard Brownian motion in \([0,1]\). We can think of the process 
+    \[B_1-tB_t \text{ for } t\in[0,1],\]
+    which is called a Brownian bridge, as a Brownian motion conditioned to be \(1\) at time \(t=1\). 
+    As one can imagine, if we are able to simulate Brownian motion (which we are), then a Brownian bridge is simple to simulate.
+    </p>
+    <p>What happens if we further want to condition a Brownian motion to stay positive in \([0,1]\)?</p>
+    <p>This new process, called a Brownian excursion is not so simple to simulate. Here we show one possible way, sometimes called 
+    the <em>Vervaat Transform</em>, to transform a Brownian bridge into a Brownian excursion.</p>
+    <p>
+    Given a Brownian bridge, find its (almost surely unique) minimum. Then cyclically shift to the minimum and we get a Brownian excursion.
+    Equivalently, we can swap the parts before and after the minimum and then translate vertically. The details of why this transformation is indeed
+    a Brownian excursion can be found in Vervaat's article: 
+    <em><a href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155" target="_blank">A relation between Brownian bridge and Brownian excursion (1979)</a></em>
+    </p>
+
+  </div>
+</details>
 </body>
 </html>
