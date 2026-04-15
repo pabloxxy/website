@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title> Pablo de la Fuente - Poetry </title>
+   
+  <!-- Include favicon -->
+  <link rel="shortcut icon" href="images/favicon/favicon.ico">
+  <script>
+    fetch('favicon.html')
+      .then(response => response.text())
+      .then(data => {
+        document.head.insertAdjacentHTML('afterbegin', data);
+      });
+  </script> 
+</head>
+
+<body class="home-page">
+
+ <!-- Back button -->
+  <a href="home" class="gif-back-button">
+      <img src="images/gifs/back1.gif" alt="Back to home">
+  </a>
+
+ <!-- Sidebar -->
+ <div class="sidebar">
+   <a class="sidebar-button active" data-section="contact">Contact</a>
+   <a class="sidebar-button" data-section="cv">CV</a>
+   <a class="sidebar-button" data-section="site">About this site</a>
+   <a class="sidebar-button" data-section="links">Links</a>
+ </div>
+
+
+ <div id="content-sections">
+
+  <!-- Contact Section (default visible) -->
+  <section id="contact" class="content-section">
+    <div class="email-container">
+      <p>You can always contact me by e-mail at the following address:</p>
+      <p id="email" class="email-address">pablodelafuente[at]uvic.ca</p>
+      <p class="email-note">If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
+  </div>
+
+   <!-- Notification element -->
+   <div id="notification" class="notification">Email copied!</div>
+
+    <!-- Gifs -->
+    <div class="gif-contact gif1">
+      <img src="images/gifs/email1.gif" alt="3D model of a computer covered in literal bugs">
+    </div>
+    <div class="gif-contact gif2">
+      <img src="images/gifs/email2.gif" alt="3D model of a computer that is opening and closing and has a smiley face on its screen">
+    </div>
+    <div class="gif-contact gif3">
+      <img src="images/gifs/email3.gif" alt="Two computers connected by a stream of light where one is sharing a letter to the other one">
+    </div>
+    <div class="gif-contact gif4">
+      <img src="images/gifs/email4.gif" alt="Wooden sign swinging and E-MAIL written on it">
+    </div>
+    <div class="gif-contact gif5">
+      <img src="images/gifs/email5.gif" alt="Cartoon cat running while holding a letter with its mouth">
+    </div>
+    <div class="gif-contact gif6">
+      <img src="images/gifs/email6.gif" alt="Cartoon white dove flying while holding a letter">
+    </div>
+    <div class="gif-contact gif7">
+      <img src="images/gifs/email7.gif" alt="Cartoon computer with armas and a face on its screen writing on its own keyboard">
+    </div>
+    <div class="gif-contact gif8">
+      <img src="images/gifs/email8.gif" alt="Rotating AT symbol but it is actually a cat and its tail">
+    </div>
+    <div class="gif-contact gif9">
+      <img src="images/gifs/email9.gif" alt="Rotating blue AT symbol">
+    </div>
+    <div class="gif-contact gif10">
+      <img src="images/gifs/email10.gif" alt="A letter with a cable connecting to an outlet and being electrocuted">
+    </div>
+
+  </section>
+
+
+  <!-- CV Section (initially hidden) -->
+  <section id="cv" class="content-section" style="display:none;">
+    <div class="cv-content">
+      <h2>CV</h2>
+      <p>CV content here...</p>
+    </div>
+  </section>
+  
+  <!-- Site Section (initially hidden) -->
+  <section id="site" class="content-section" style="display:none;">
+    <div class="site-content">
+      <h2>THIS SITE IS ALWAYS UNDER CONSTRUCTION</h2>
+      <p>I want to cite Olia Lialina on her research about the vernacular web:</p>
+      <p>The "Under Construction Sign" is a very strong symbol of the early web. 
+        It reminds us of the great times shortly after the scientists and engineers 
+        finished their work on the Information Highway. Ordinary people came with their 
+        tools and used the chance to build their own roads and junctions. Work was everywhere 
+        and everywhere there was something that wasn't ready, links were leading to nowhere 
+        or to pages that didn't quite exist and there were signs on the pages that warned of 
+        broken connections and the lack of navigation.</p>
+      <p>Step by step people were developing pages into a functioning web and it became less 
+         necessary to warn us, especially using road signs, about missing information. But they 
+         didn't disappear. Instead, "Under Construction" images changed their meaning from a warning 
+         to a promise that this page will grow. The symbol became a hybrid of excuse and invitation. 
+         It could appear on an empty or properly functional site as a sign that the project was growing 
+         and being updated. Often you could see the newer sign, "Always Under Construction." </p>
+
+      <p>En este sitio usé Alegreya como sans-serif y Lora como serif.</p>
+    </div>
+  </section>
+  
+  <!-- Links Section (initially hidden) -->
+  <section id="links" class="content-section" style="display:none;">
+    <div class="links-content">
+    <h2>Links</h2>
+    <p>Links a otras páginas de amigos, matemáticos, artistas, etc.
+       https://thoughts.melonking.net/thoughts/every-site-needs-a-links-page-why-linking-matters 
+        y https://art.teleportacia.org/observation/vernacular/links.html</p>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- Script for side menu -->
+<script>
+// Sidebar navigation functionality
+document.querySelectorAll('.sidebar-button').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Get target section from data attribute
+    const targetSection = this.dataset.section;
+    
+    // Hide all sections
+    document.querySelectorAll('.content-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    
+    // Show target section
+    document.getElementById(targetSection).style.display = 'block';
+    
+    // Update active button
+    document.querySelectorAll('.sidebar-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    this.classList.add('active');
+  });
+});
+</script>
+
+
+  
+   
+  <!-- Una notifiación al hacer click y copiar el email -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const emailElement = document.getElementById('email');
+      const notification = document.getElementById('notification');
+
+      emailElement.addEventListener('click', function() {
+        // Replace [at] with @ and copy to clipboard
+        const emailText = emailElement.innerText.replace('[at]', '@');
+        navigator.clipboard.writeText(emailText).then(() => {
+          // Show notification
+          notification.style.display = 'block';
+          notification.style.opacity = '1';
+          
+          // Hide after 2 seconds with fade out
+          setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => {
+              notification.style.display = 'none';
+            }, 500); // matches the transition time
+          }, 2000);
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

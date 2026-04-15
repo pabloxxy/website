@@ -204,7 +204,7 @@
 
     minU = Math.min(...U);
     argminU = U.indexOf(minU);
-    scaleY = 0.95 * ((height/2) / (Math.max(...U) - minU));
+    scaleY = 0.9 * ((height/2) / (Math.max(...U) - minU));
 
     firstTimes = new Array(argminU+1).fill(0);
     for (let i = 0; i <= argminU; i++) {
