@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vervaat transform</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+
+     /* Info popup: fixed position so it floats above the canvas */
+    #info-box { position: fixed; top: 80px; right: 50px; z-index: 10; }
+
+    /* Style the summary tag as a round + button */
+    #info-box > summary {
+      float: right;               /* pins button to the right */
+      list-style: none;               /* remove default triangle marker */
+      cursor: pointer;
+      background: white;
+      border-radius: 50%;
+      width: 50px; height: 50px;
+      text-align: center; line-height: 50px;
+      font-size: 30px; font-weight: bold;
+      user-select: none;
+    }
+
+    /* The popup panel that appears when open */
+    #info-box > div {
+      margin-top: 50px;
+      margin-right: 50px;
+      background: white;
+      padding: 20px 20px;
+      max-width: 350px;
+      max-height: calc(100vh - 250px);;
+      font-size: 15px;
+      line-height: 1.5;
+      overflow: auto;
+    }
+
+    /* When the details panel is open, show × instead of + */
+    #info-box[open] > summary { font-size: 30px; }
+    #info-box[open] > summary::before { content: '×'; }
+    #info-box > summary::before { content: '+'; }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script>
+  // Based on something called Vervaat transform: 
+  // https://arxiv.org/pdf/1310.3889 
+  // https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155
+
+  // Take the path from 0 to the minimum of a Brownian bridge and switch it with its second part.
+  // This is analogous to what I did on my thesis with Dyck paths.
+
+
+  // General variables
+  let B; // Brownian Motion in [0,1]
+  let U; // Brownian Bridge
+  let argminU; // index where the Brownian bridge achieves its minimum
+  let n; // Discetization parameter. Time step will be 1/n.
+  let scaleY;
+  let swapSpeed;
+  const upSpeed = 100;
+
+
+
+  function setup() { 
+    createCanvas(windowWidth, windowHeight);
+
+    // Un botón para regresar 
+    let homeLink = createA('probability.html', '← Back to simulations');
+    homeLink.position(8, 16);
+
+    n = 5000;
+    B = new Array(n+1).fill(0);
+    U = new Array(n+1).fill(0);
+    V = new Array(n+1).fill(0);
+
+    
+    // Create a button for transforming the bridge (initially disabled)
+    // In here the speed of swap is also declared: 100
+    button = createButton('TRANSFORM!!!');
+    button.attribute('disabled', '');
+    button.position(20, 60);      
+    button.mousePressed(() => {
+    if (button.elt.innerText === 'Resample') {
+      resample();
+    } else if (!isTransforming && currentStepB >= n) {
+      isTransforming = true;
+      swapSpeed = Math.ceil(argminU / 100);
+    }
+    });
+
+    // First run of the code
+    resample();
+  }
+
+
+
+  function draw() {
+    background(220);
+    
+    // Red line at y=0 for reference
+    stroke(0, 0, 0);      
+    strokeWeight(2);        
+    line(0, height/2, width, height/2);
+    
+    // Draw line segments between consecutive points in bridge
+    strokeWeight(1);
+    
+    for (let i = 1; i <= currentStepB; i++) {
+      // Choose color based on whether we are before/after the minimum point 
+      if (i <= argminU) {
+      stroke(0);  // black for the first part (up to and including the minimum)
+      let x1 = firstTimes[i-1] + firstOffset;
+      let x2 = firstTimes[i] + firstOffset;
+      //Map Brownian bridge values to vertical positions
+      let y1 = height/2 - U[i-1] * scaleY;
+      let y2 = height/2 - U[i] * scaleY;
+      
+      line(x1, y1, x2, y2);
+      } else {
+        stroke(200, 30, 60);   // red for the second part
+        let x1 = secondTimes[i-1] + secondOffset;
+        let x2 = secondTimes[i] + secondOffset;
+        //Map Brownian bridge values to vertical positions
+        let y1 = height/2 - U[i-1] * scaleY;
+        let y2 = height/2 - U[i] * scaleY;
+        
+        line(x1, y1, x2, y2);
+      }
+    }
+    
+    // Advance the drawing step by step until finished. 100 is the number of frames for the bridge to be drawn.
+    if (currentStepB < n) {
+      currentStepB = currentStepB + n/100;
+    }
+
+    // Swap one step at a time, argminU times, inside the draw loop
+    if (isTransforming && (currentStepHorizontal < argminU)) {
+      button.attribute('disabled', '');
+      for (let s = 0; s < swapSpeed && currentStepHorizontal < argminU; s++) {
+        firstOffset += map((n - argminU) / (argminU * n), 0, 1, 0, width);
+        secondOffset -= map((1 / n), 0, 1, 0, width);
+        currentStepHorizontal++;
+      }
+    }
+
+    // Trigger upward shift once swap is complete
+  if (isTransforming && currentStepHorizontal >= argminU) {
+    isTransforming = false;
+    isMovingUp = true;
+  }
+
+  if (isMovingUp && currentStepUp < upSpeed) {
+    // Move the whole graph up so minU becomes 0.
+    for(let i=0; i<= n; i++){
+    U[i] -= minU/upSpeed;  
+    }
+    
+    currentStepUp++;
+    if (currentStepUp >= upSpeed) {
+      isMovingUp = false;
+      button.html('Resample');
+      button.removeAttribute('disabled');
+    }
+  }
+    
+    // Enable button once the bridge is fully drawn
+    if (currentStepB >= n && !isTransforming && !isMovingUp && button.elt.disabled) {
+    button.removeAttribute('disabled');
+  }
+  }
+
+
+
+  function resample() {
+    currentStepB = 0;
+    currentStepHorizontal = 0;
+    isTransforming = false;
+    firstOffset = 0;
+    secondOffset = 0;
+    isMovingUp = false;
+    currentStepUp = 0;
+
+    // Simulate Brownian Motion in [0,1] with time step 1/n
+    B[0] = 0;
+    U[0] = 0;
+    for (let i=1; i<=n; i++) {
+      B[i] = B[i-1] + (1/sqrt(n)) * randomGaussian();
+    }
+
+    //Given B, simulate a Brownian Bridge called U
+    for (let i=1; i<=n; i++) {
+      U[i] = B[i] - (i/n) * B[n];
+    }
+
+    minU = Math.min(...U);
+    argminU = U.indexOf(minU);
+    scaleY = 0.9 * ((height/2) / (Math.max(...U) - minU));
+
+    firstTimes = new Array(argminU+1).fill(0);
+    for (let i = 0; i <= argminU; i++) {
+      firstTimes[i] = map(i/n, 0, 1, 0, width);
+    }
+    secondTimes = new Array(n-argminU+1).fill(0);
+    for (let i = argminU; i <= n; i++) {
+      secondTimes[i] = map(i/n, 0, 1, 0, width);
+    }
+
+    button.html('TRANSFORM!!!');
+    button.attribute('disabled', '');
+  }
+  </script>
+</head>
+<body>
+    <!-- Info button: clicking it opens/closes the explanation panel -->
+<details id="info-box">
+  <summary></summary>
+  <div>
+    <center><b>Simulating a Brownian excursion from a Brownian bridge</b></center>
+    <p>
+    Let's consider \(B_t \) a standard Brownian motion in \([0,1]\). We can think of the process 
+    \[B_1-tB_t \text{ for } t\in[0,1],\]
+    which is called a Brownian bridge, as a Brownian motion conditioned to be \(1\) at time \(t=1\). 
+    As one can imagine, if we are able to simulate Brownian motion (which we are), then a Brownian bridge is simple to simulate.
+    </p>
+    <p>What happens if we further want to condition a Brownian motion to stay positive in \([0,1]\)?</p>
+    <p>This new process, called a Brownian excursion is not so simple to simulate. Here we show one possible way, sometimes called 
+    the <em>Vervaat Transform</em>, to transform a Brownian bridge into a Brownian excursion.</p>
+    <p>
+    Given a Brownian bridge, find its (almost surely unique) minimum. Then cyclically shift to the minimum and we get a Brownian excursion.
+    Equivalently, we can swap the parts before and after the minimum and then translate vertically. The details of why this transformation is indeed
+    a Brownian excursion can be found in Vervaat's article: 
+    <em><a href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155" target="_blank">A relation between Brownian bridge and Brownian excursion (1979)</a></em>
+    </p>
+
+  </div>
+</details>
+</body>
+</html>
