@@ -11,22 +11,27 @@
       box-sizing: border-box;
     }
 
+    html {
+      background: #fff;
+    }
+
     body {
-      /* full viewport, clean canvas */
       min-height: 100vh;
-      background: #ff0000;   
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    a {
+      background: #fff;
+      display: block;
+      text-decoration: none;
+    }
+
     video {
-      /* Always stays fully in screen */
       height: min(100vh, 100vw);
       width: min(100vh, 100vw);
-      
-      /* background fallback while loading (matches body) */
-      background-color: #ff0000;
     }
 
   </style>
