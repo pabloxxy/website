@@ -74,7 +74,7 @@
     <script>
         // Everything is inside a function so we can resample
         function run() { 
-            const T = 5000;
+            const T = 4000;
             let walk = new Int32Array(T + 1);
             let minWalk = walk[0];
             let maxWalk = walk[0];
@@ -115,19 +115,19 @@
             // Build time and state axes.
             let times = [];
             for (let j = 0; j <= T; j++) {
-                times[j] = j;
+                times[j] = j/T;
             }
 
             let states = [];
             for (let r = 0; r < nStates; r++) {
-                states[r] = minWalk + r;
+                states[r] = (minWalk + r)/Math.sqrt(T);
             }
 
             let matrixT = [];
             for (let j = 0; j <= T; j++) {
             matrixT[j] = [];
             for (let r = 0; r < nStates; r++) {
-            matrixT[j][r] = matrix[r][j];
+            matrixT[j][r] = matrixT[j][r] = matrix[r][j]/Math.sqrt(T);
             }
             }
 
@@ -158,7 +158,9 @@
                     zaxis: { title: { text: 'Local time' }, showticklabels: false },
                     // Keep the current angle if resampling. If first sample then I chose this nice one.
                     camera: currentCamera || { eye: {x:0.7,y:1.8,z:0.75}, center: {x:0,y:0,z:-0.2}, up: {x:0,y:0,z:1} },
-                    scene: { bgcolor: '#dcdcdc' }
+                    scene: { bgcolor: '#dcdcdc' },
+                    aspectmode: 'manual',
+                    aspectratio: {x:1, y:1, z:1}
                 },
                 paper_bgcolor: '#dcdcdc'       
         }); } 
