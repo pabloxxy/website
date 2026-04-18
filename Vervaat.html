@@ -236,10 +236,23 @@
     <p>This new process, called a Brownian excursion is not so simple to simulate. Here we show one possible way, sometimes called 
     the <em>Vervaat Transform</em>, to transform a Brownian bridge into a Brownian excursion.</p>
     <p>
-    Given a Brownian bridge, find its (almost surely unique) minimum. Then cyclically shift to the minimum and we get a Brownian excursion.
-    Equivalently, we can swap the parts before and after the minimum and then translate vertically. The details of why this transformation is indeed
-    a Brownian excursion can be found in Vervaat's article: 
-    <em><a href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155" target="_blank">A relation between Brownian bridge and Brownian excursion (1979)</a></em>
+    To get a Brownian excursion from a given Brownian bridge, 
+    <ol>
+      <li>Find its (almost surely unique) minimum.</li>
+      <li>Cyclically shift to the minimum</li>
+    </ol>  
+    Equivalently, and this is what we simulate here,
+    <ol>
+      <li>Find its (almost surely unique) minimum.</li>
+      <li>Swap the parts before and after the minimum.</li>
+      <li>Translate vertically.</li>
+    </ol>
+    The details of why this transformation is indeed
+    a Brownian excursion can be found in Vervaat's paper from 1979: 
+    <em><a href="https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2Faop%2F1176995155" target="_blank">A relation between Brownian bridge and Brownian excursion</a>.</em>
+    </p>
+    <p>
+    This transformation is useful, for example, to easily see that the range (max-min) of a Brownian bridge has the same distribution as the maximum of a Brownian excursion.
     </p>
 
   </div>
