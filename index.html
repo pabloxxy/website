@@ -18,6 +18,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     video {
@@ -27,6 +28,10 @@
       
       /* background fallback while loading (matches body) */
       background-color: #fff;
+
+      display: block;
+      object-fit: contain;
+      margin: 0 auto;
     }
 
   </style>
