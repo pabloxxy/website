@@ -33,24 +33,23 @@
 </head>
 <body>
 
-  <!-- 
-    - autoplay: starts immediately (muted required by browsers)
-    - muted: ensures autoplay works in every browser
-    - loop: infinite playback
-    - playsinline: keeps video inside the page on iOS, no fullscreen takeover
-  -->
-  <a href="home.html" style="cursor: pointer;">
-    <video 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-    >
-      <source src="triblob12magma-bnw.mp4" type="video/mp4">
+  <a href="home.html" style="cursor: pointer;" id="animation-link"></a>
+
+  <!-- This finds out if the user is in mobile to load a webp (which autoplays in every browser (even mobile) but is larger) or an mp4 which works better in desktop browsers. -->
+  <script>
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const container = document.getElementById('animation-link');
     
-    </video>
-  </a>
+    if (isMobile) {
+      container.innerHTML = '<img src="images/triblob12magma-bnw.webp">';
+    } else {
+      // - autoplay: starts immediately (muted required by browsers)
+      // - muted: ensures autoplay works in every browser
+      // - loop: infinite playback
+      // - playsinline: keeps video inside the page on iOS, no fullscreen takeover
+      container.innerHTML = '<video autoplay muted loop playsinline preload="auto"><source src="images/triblob12magma-bnw.mp4" type="video/mp4"></video>';
+    }
+  </script>
 
 </body>
 </html>
