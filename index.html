@@ -13,7 +13,7 @@
 
     body {
       /* full viewport, clean canvas */
-      min-height: 100vh;
+      height: 100vh;
       background: #fff;   
       display: flex;
       align-items: center;
@@ -21,20 +21,15 @@
       overflow: hidden;
     }
 
-    video {
+    video, img {
       /* Always stays fully in screen */
       height: min(100vh, 100vw);
-      width: min(100vh, 100vw);
-      
-      /* background fallback while loading (matches body) */
-      background-color: #fff;
     }
-
   </style>
 </head>
 <body>
 
-  <a href="home" style="cursor: pointer;" id="animation-link"></a>
+  <a href="home" id="animation-link"></a>
 
   <!-- This finds out if the user is in mobile to load a .apng (which autoplays in every browser (even mobile) but is larger) or a .mp4 which works better in desktop browsers. -->
   <script>
