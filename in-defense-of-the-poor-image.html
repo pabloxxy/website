@@ -4,14 +4,45 @@
     <meta charset="UTF-8">
     <title>In Defense of the Poor Image</title>
 
+    <style>
+         /* Style for notes and references. Inspired by fivethirtyeight's: https://www.viget.com/articles/of-note-better-text-annotations-for-the-web */
+        .in-note-toggle {
+        display: none;
+        }
+        .in-note-label {
+        display: inline;
+        cursor: pointer;
+        }
+        .in-note-label sup {
+        color: #0066cc;
+        text-decoration: underline;
+        cursor: pointer;
+        vertical-align: baseline;
+        position: relative;
+        top: -0.4em;
+        font-size: 0.85em;
+        line-height: 0;
+        }
+        .in-note-content {
+        display: none;
+        margin: 0.5em 0;
+        padding: 0.5em 0.75em;
+        background: #f4f4f4;
+        border-left: 3px solid #666;
+        }
+        .in-note-toggle:checked ~ .in-note-content {
+        display: block;
+        }
+    </style>
+
 </head>
 <body>
 
     <p><a href="about"> ← Back to About</a></p>
     
-    <center><h1>In Defense of the Poor Image</h1></center>
-    <center><h2>Hito Steyerl</h2></center>
-    <center>as it first appeared in <b>e-flux</b> journal, Issue #10, November 2009</center><br>
+    <h1 align="center">In Defense of the Poor Image</h1></center>
+    <h2 align="center">Hito Steyerl</h2></center>
+    <p align="center">as it first appeared in <b>e-flux</b> journal, Issue #10, November 2009</p><br>
 
     <p>
     The poor image is a copy in motion. Its quality is bad, its resolution substandard. 
@@ -39,25 +70,40 @@
     resistance or stultification. Poor images show the rare, the obvious, and the unbelievable—that is, if we can still manage to decipher it.
     </p><br>
 
-    <center>
+    <div style="text-align: center">
     <image src="images/pile.jpg"><br>
     <small>
     From <a href="https://web.archive.org/web/20091109010254/http://www.daylife.com/photo/04vl98o5Ww5V9">this site</a>, archived by The Internet Archive with the caption: A local official shovels pirated DVDs before destroying them during a campaign in Taiyuan, Shanxi province, April 20, 2008. 
     China, where fake DVDs and designer gear are on sale on most street corners, has made great progress fighting intelectuall property
     piracy but people still have a low awarness of the problem, officials said.
     </small>
-    </center>
+    </div>
 
     <h2>1. Low Resolutions</h2>
     <p>
-    In one of Woody Allen's films the main character is out of focus.<sup><a href="#footnote1" id="reference1">1</a></sup>
-     It's not a technical problem but some sort of disease that has befallen him: his image is consistently blurred. 
-     Since Allen's character is an actor, this becomes a major problem: he is unable to find work. His lack of definition turns into a material problem. 
-     Focus is identified as a class position, a position of ease and privilege, while being out of focus lowers one's value as an image.
+    In one of Woody Allen's films the main character is out of focus.
+    <span>
+        <input type="checkbox" id="fn1" class="in-note-toggle">
+        <label for="fn1" class="in-note-label"><sup>1</sup></label>
+        <span class="in-note-content">
+            <em>Deconstructing Harry</em>, directed by Woody Allen (1997).
+        </span>
+    </span>
+    It's not a technical problem but some sort of disease that has befallen him: his image is consistently blurred. 
+    Since Allen's character is an actor, this becomes a major problem: he is unable to find work. His lack of definition turns into a material problem. 
+    Focus is identified as a class position, a position of ease and privilege, while being out of focus lowers one's value as an image.
     </p>
     <p>
     The contemporary hierarchy of images, however, is not only based on sharpness, but also and primarily on resolution. 
-    Just look at any electronics store and this system, described by Harun Farocki in a notable 2007 interview, becomes immediately apparent.<sup><a href="#footnote2" id="reference2">2</a></sup>
+    Just look at any electronics store and this system, described by Harun Farocki in a notable 2007 interview, becomes immediately apparent.
+    <span>
+        <input type="checkbox" id="fn2" class="in-note-toggle">
+        <label for="fn2" class="in-note-label"><sup>2</sup></label>
+        <span class="in-note-content">
+            “Wer Gemälde wirklich sehen will, geht ja schließlich auch ins Museum,” <em>Frankfurter Allgemeine Zeitung</em>, 
+            June 14, 2007. Conversation between Harun Farocki and Alexander Horwath.
+        </span>
+    </span>
     In the class society of images, cinema takes on the role of a flagship store. In flagship stores high-end products are marketed in an upscale environment. 
     More affordable derivatives of the same images circulate as DVDs, on broadcast television or online, as poor images.
     </p>
@@ -70,10 +116,10 @@
     The cult of film gauge dominated even independent film production. The rich image established its own set of hierarchies, with new technologies offering more and more possibilities to creatively degrade it.
     </p><br>
 
-    <center>
+    <div style="text-align: center">
     <img src="images/brakhage.jpg"><br>
     <small>Nine 35mm film frames from Stan Brakhage's <em>Existence is Song</em>, 1987.</small>
-    </center>
+    </div>
 
     <h2>2. Resurrection (as Poor Images)</h2>
     <p>
@@ -100,48 +146,92 @@
     <p>
     At present, there are at least twenty torrents of Chris Marker's film essays available online. If you want a retrospective, you can have it. But the economy of poor images is about more than just downloads: 
     you can keep the files, watch them again, even reedit or improve them if you think it necessary. And the results circulate. Blurred AVI files of half-forgotten masterpieces are exchanged on semi-secret P2P platforms. 
-    Clandestine cell-phone videos smuggled out of museums are broadcast on YouTube. DVDs of artists' viewing copies are bartered.<sup><a href="#footnote3" id="reference3">3</a></sup>
+    Clandestine cell-phone videos smuggled out of museums are broadcast on YouTube. DVDs of artists' viewing copies are bartered.
+    <span>
+        <input type="checkbox" id="fn3" class="in-note-toggle">
+        <label for="fn3" class="in-note-label"><sup>3</sup></label>
+        <span class="in-note-content">
+            Sven Lütticken's excellent text "<a href="https://www.e-flux.com/journal/08/61380/viewing-copies-on-the-mobility-of-moving-images/" target="_blank">Viewing Copies: On the Mobility of Moving Images</a>,” 
+            in <em>e-flux journal</em>, no. 8 (May 2009), drew my attention to this aspect of poor images.
+        </span>
+    </span>
     Many works of avant-garde, essayistic, and non-commercial cinema have been resurrected as poor images. Whether they like it or not.
     </p>
 
-    <center>
+    <div style="text-align: center">
     <img src="images/lcd.jpg">
-    </center>
+    </div>
 
     <h2>3. Privatization and Piracy</h2>
     <p>
     That rare prints of militant, experimental, and classical works of cinema as well as video art reappear as poor images is significant on another level. 
     Their situation reveals much more than the content or appearance of the images themselves: it also reveals the conditions of their marginalization, 
-    the constellation of social forces leading to their online circulation as poor images.<sup><a href="#footnote4" id="reference4">4</a></sup>
+    the constellation of social forces leading to their online circulation as poor images.
+    <span>
+        <input type="checkbox" id="fn4" class="in-note-toggle">
+        <label for="fn4" class="in-note-label"><sup>4</sup></label>
+        <span class="in-note-content">
+            Thanks to Kodwo Eshun for pointing this out. 
+        </span>
+    </span>
     Poor images are poor because they are not assigned any value within the class society of images—their status as illicit or degraded grants them exemption from its criteria. 
-    Their lack of resolution attests to their appropriation and displacement.<sup><a href="#footnote5" id="reference5">5</a></sup>
+    Their lack of resolution attests to their appropriation and displacement.
+    <span>
+        <input type="checkbox" id="fn5" class="in-note-toggle">
+        <label for="fn5" class="in-note-label"><sup>5</sup></label>
+        <span class="in-note-content">
+        Of course in some cases images with low resolution also appear in mainstream media environments (mainly news), where they are associated with urgency, 
+        immediacy, and catastrophe—and are extremely valuable. See Hito Steyerl, “Documentary Uncertainty,” <em>A Prior</em> 15 (2007).
+        </span>
+    </span>
     </p>
     <p>
     Obviously, this condition is not only connected to the neoliberal restructuring of media production and digital technology; it also has to do with the post-socialist and postcolonial restructuring 
     of nation states, their cultures, and their archives. While some nation states are dismantled or fall apart, new cultures and traditions are invented and new histories created. 
     This obviously also affects film archives—in many cases, a whole heritage of film prints is left without its supporting framework of national culture. 
-    As I once observed in the case of a film museum in Sarajevo, the national archive can find its next life in the form of a video-rental store.<sup><a href="#footnote6" id="reference6">6</a></sup>
+    As I once observed in the case of a film museum in Sarajevo, the national archive can find its next life in the form of a video-rental store.
+    <span>
+        <input type="checkbox" id="fn6" class="in-note-toggle">
+        <label for="fn6" class="in-note-label"><sup>6</sup></label>
+        <span class="in-note-content">
+            Hito Steyerl, "<a href="http://eipcp.net/transversal/0608/steyerl/en" target="_blank">Politics of the Archive: Translations in Film</a>,” <em>Transversal</em> (March 2008). 
+        </span>
+    </span>
     Pirate copies seep out of such archives through disorganized privatization. On the other hand, even the British Library sells off its contents online at astronomical prices.
     </p>
     <p>
     As Kodwo Eshun has noted, poor images circulate partly in the void left by state-cinema organizations who find it too difficult to operate as a 16/35-mm archive 
-    or to maintain any kind of distribution infrastructure in the contemporary era.<sup><a href="#footnote7" id="reference7">7</a></sup>
+    or to maintain any kind of distribution infrastructure in the contemporary era.
+    <span>
+        <input type="checkbox" id="fn7" class="in-note-toggle">
+        <label for="fn7" class="in-note-label"><sup>7</sup></label>
+        <span class="in-note-content">
+            From correspondence with the author via e-mail.
+        </span>
+    </span>
     From this perspective, the poor image reveals the decline and degradation of the film essay, or indeed any experimental and non-commercial cinema, 
     which in many places was made possible because the production of culture was considered a task of the state. Privatization of media production gradually 
     grew more important than state controlled/sponsored media production. But, on the other hand, the rampant privatization of intellectual content, 
     along with online marketing and commodification, also enable piracy and appropriation; it gives rise to the circulation of poor images.
     </p><br>
 
-    <center>
+    <div style="text-align: center">
     <img src="images/marker1.jpg"><br>
     <img src="images/marker2.jpg"><br>
     <small>Chris Marker's virtual home on Second Life, May 29, 2009.</small>
-    </center>
+    </div>
 
     <h2>4. Imperfect Cinema</h2>
     <p>
     The emergence of poor images reminds one of a classic Third Cinema manifesto, <em>For an Imperfect Cinema</em>, by Juan García Espinosa, 
-    written in Cuba in the late 1960s.<sup><a href="#footnote8" id="reference8">8</a></sup>
+    written in Cuba in the late 1960s. 
+    <span>
+        <input type="checkbox" id="fn8" class="in-note-toggle">
+        <label for="fn8" class="in-note-label"><sup>8</sup></label>
+        <span class="in-note-content">
+            Julio García Espinosa, “For an Imperfect Cinema,” trans. Julianne Burton, <em>Jump Cut</em>, no. 20 (1979): 24–26.
+        </span>
+    </span>
     Espinosa argues for an imperfect cinema because, in his words, “perfect cinema—technically and artistically masterful—is almost always reactionary cinema.” 
     The imperfect cinema is one that strives to overcome the divisions of labor within class society. It merges art with life and science, blurring the distinction 
     between consumer and producer, audience and author. It insists upon its own imperfection, is popular but not consumerist, committed without becoming bureaucratic.
@@ -169,30 +259,75 @@
     <p>
     Poor images are thus popular images—images that can be made and seen by the many. They express all the contradictions of the contemporary crowd: 
     its opportunism, narcissism, desire for autonomy and creation, its inability to focus or make up its mind, its constant readiness for transgression and 
-    simultaneous submission.<sup><a href="#footnote9" id="reference9">9</a></sup>
+    simultaneous submission.
+    <span>
+        <input type="checkbox" id="fn9" class="in-note-toggle">
+        <label for="fn9" class="in-note-label"><sup>9</sup></label>
+        <span class="in-note-content">
+           See Paolo Virno, <em>A Grammar of the Multitude: For an Analysis of Contemporary Forms of Life</em> (Cambridge, MA: MIT Press, 2004). 
+        </span>
+    </span>
     Altogether, poor images present a snapshot of the affective condition of the crowd, its neurosis, paranoia, and fear, as well as its craving for intensity, fun, and distraction. 
     The condition of the images speaks not only of countless transfers and reformattings, but also of the countless people who cared enough about them to convert them over and over again, to add subtitles, reedit, or upload them.
     </p>
     <p>
     In this light, perhaps one has to redefine the value of the image, or, more precisely, to create a new perspective for it. Apart from resolution and exchange value, 
     one might imagine another form of value defined by velocity, intensity, and spread. Poor images are poor because they are heavily compressed and travel quickly. 
-    They lose matter and gain speed. But they also express a condition of dematerialization, shared not only with the legacy of conceptual art but above all with contemporary modes of semiotic production.<sup><a href="#footnote10" id="reference10">10</a></sup>
-    Capital's semiotic turn, as described by Felix Guattari,<sup><a href="#footnote11" id="reference11">11</a></sup>
-    plays in favor of the creation and dissemination of compressed and flexible data packages that can be integrated into ever-newer combinations and sequences.<sup><a href="#footnote12" id="reference12">12</a></sup>
+    They lose matter and gain speed. But they also express a condition of dematerialization, shared not only with the legacy of conceptual art but above all with contemporary modes of semiotic production.
+    <span>
+        <input type="checkbox" id="fn10" class="in-note-toggle">
+        <label for="fn10" class="in-note-label"><sup>10</sup></label>
+        <span class="in-note-content">
+           See Alex Alberro, <em>Conceptual Art and the Politics of Publicity</em> (Cambridge, MA: MIT Press, 2003).
+        </span>
+    </span> 
+    Capital's semiotic turn, as described by Felix Guattari,
+    <span>
+        <input type="checkbox" id="fn11" class="in-note-toggle">
+        <label for="fn11" class="in-note-label"><sup>11</sup></label>
+        <span class="in-note-content">
+            See Félix Guattari, “Capital as the Integral of Power Formations,” in <em>Soft Subversions</em> (New York: Semiotext(e), 1996), 202.
+        </span>
+    </span>
+    plays in favor of the creation and dissemination of compressed and flexible data packages that can be integrated into ever-newer combinations and sequences.
+    <span>
+        <input type="checkbox" id="fn12" class="in-note-toggle">
+        <label for="fn12" class="in-note-label"><sup>12</sup></label>
+        <span class="in-note-content">
+            All these developments are discussed in detail in an excellent text by Simon Sheikh, 
+            “<a href="http://www.artandresearch.org.uk/v2n2/sheikh.html">Objects of Study or Commodification of Knowledge? Remarks on Artistic Research</a>,” 
+            <em>Art and Research</em> 2, no. 2 (Spring 2009).
+        </span>
+    </span>
     </p>
 
-    <center>
+    <div style="text-align: center">
     <img src="images/ruff.jpg"><br>
     <small>
     Thomas Ruff, <i>jpeg rl104</i>, 2007.
     </small>
-    </center>
+    </div>
 
     <p>
     This flattening-out of visual content—the concept-in-becoming of the images—positions them within a general informational turn, within economies of knowledge that 
-    tear images and their captions out of context into the swirl of permanent capitalist deterritorialization.[R]
+    tear images and their captions out of context into the swirl of permanent capitalist deterritorialization.
+    <span>
+        <input type="checkbox" id="fn13" class="in-note-toggle">
+        <label for="fn13" class="in-note-label"><sup>13</sup></label>
+        <span class="in-note-content">
+            See also Alan Sekula, “Reading an Archive: Photography between Labour and Capital,” in <em>Visual Culture: The Reader</em>, 
+            ed. Stuart Hall and Jessica Evans (London/New York: Routledge 1999), 181–192.
+        </span>
+    </span>
     The history of conceptual art describes this dematerialization of the art object first as a resistant move against the fetish value of visibility. 
-    Then, however, the dematerialized art object turns out to be perfectly adapted to the semioticization of capital, and thus to the conceptual turn of capitalism.<sup><a href="#footnote13" id="reference13">13</a></sup>
+    Then, however, the dematerialized art object turns out to be perfectly adapted to the semioticization of capital, and thus to the conceptual turn of capitalism.
+    <span>
+        <input type="checkbox" id="fn14" class="in-note-toggle">
+        <label for="fn14" class="in-note-label"><sup>14</sup></label>
+        <span class="in-note-content">
+            See Alberro <em>Conceptual Art and the Politics of Publicity</em>.
+        </span>
+    </span>
     In a way, the poor image is subject to a similar tension. On the one hand, it operates against the fetish value of high resolution. 
     On the other hand, this is precisely why it also ends up being perfectly integrated into an information capitalism thriving on compressed attention spans, 
     on impression rather than immersion, on intensity rather than contemplation, on previews rather than screenings.
@@ -207,12 +342,34 @@
     <p>
     The poor image thus constructs anonymous global networks just as it creates a shared history. It builds alliances as it travels, provokes translation or mistranslation, and creates new publics and debates. 
     By losing its visual substance it recovers some of its political punch and creates a new aura around it. This aura is no longer based on the permanence of the “original,” but on the transience of the copy. 
-    It is no longer anchored within a classical public sphere mediated and supported by the frame of the nation state or corporation, but floats on the surface of temporary and dubious data pools.<sup><a href="#footnote14" id="reference14">14</a></sup>
+    It is no longer anchored within a classical public sphere mediated and supported by the frame of the nation state or corporation, but floats on the surface of temporary and dubious data pools.
+    <span>
+        <input type="checkbox" id="fn15" class="in-note-toggle">
+        <label for="fn15" class="in-note-label"><sup>15</sup></label>
+        <span class="in-note-content">
+            The Pirate Bay even seems to have tried acquiring the extraterritorial oil platform of Sealand in order to install its servers there. See Jan Libbenga, 
+            "<a href="https://www.theregister.com/2007/01/12/pirate_bay_buys_island">The Pirate Bay plans to buy Sealand</a>," The Register, January 12, 2007.
+        </span>
+    </span>
     By drifting away from the vaults of cinema, it is propelled onto new and ephemeral screens stitched together by the desires of dispersed spectators.
     </p>
     <p>
-    The circulation of poor images thus creates “visual bonds,” as Dziga Vertov once called them.<sup><a href="#footnote15" id="reference15">15</a></sup>
-    This “visual bond” was, according to Vertov, supposed to link the workers of the world with each other.<sup><a href="#footnote16" id="reference16">16</a></sup>
+    The circulation of poor images thus creates “visual bonds,” as Dziga Vertov once called them.
+    <span>
+        <input type="checkbox" id="fn16" class="in-note-toggle">
+        <label for="fn16" class="in-note-label"><sup>16</sup></label>
+        <span class="in-note-content">
+            Dziga Vertov, “Kinopravda and Radiopravda,” in <em>Kino-eye: The Writings of Dziga Vertov</em>, ed. Annette Michelson (Berkeley: University of California Press, 1995), 52.
+        </span>
+    </span>
+    This “visual bond” was, according to Vertov, supposed to link the workers of the world with each other.
+    <span>
+        <input type="checkbox" id="fn17" class="in-note-toggle">
+        <label for="fn17" class="in-note-label"><sup>17</sup></label>
+        <span class="in-note-content">
+            Vertov, “Kinopravda and Radiopravda,” 52.
+        </span>
+    </span>
     He imagined a sort of communist, visual, Adamic language that could not only inform or entertain, but also organize its viewers. In a sense, his dream has come true, if mostly under the rule of a global information capitalism 
     whose audiences are linked almost in a physical sense by mutual excitement, affective attunement, and anxiety.
     </p>
@@ -237,7 +394,14 @@
 
     <h2>6. Now!</h2>
     <p>
-    The poor image embodies the afterlife of many former masterpieces of cinema and video art. It has been expelled from the sheltered paradise that cinema seems to have once been.<sup><a href="#footnote17" id="reference17">17</a></sup>
+    The poor image embodies the afterlife of many former masterpieces of cinema and video art. It has been expelled from the sheltered paradise that cinema seems to have once been.
+    <span>
+        <input type="checkbox" id="fn18" class="in-note-toggle">
+        <label for="fn18" class="in-note-label"><sup>18</sup></label>
+        <span class="in-note-content">
+            At least from the perspective of nostalgic delusion.
+        </span>
+    </span>
     After being kicked out of the protected and often protectionist arena of national culture, discarded from commercial circulation, these works have become travelers in a digital no-man's land, 
     constantly shifting their resolution and format, speed and media, sometimes even losing names and credits along the way.
     </p>
@@ -251,31 +415,6 @@
     <p>
     In short: it is about reality.
     </p><br>
-
-    <h2>
-    Notes:
-    </h2>
-    <ol>
-    <li id="footnote1"><em>Deconstructing Harry</em>, directed by Woody Allen (1997).<a href="#reference1">↩</a></li>
-    <li id="footnote2">“Wer Gemälde wirklich sehen will, geht ja schließlich auch ins Museum,” <em>Frankfurter Allgemeine Zeitung</em>, June 14, 2007. Conversation between Harun Farocki and Alexander Horwath.<a href="#reference2">↩</a></li>
-    <li id="footnote3">Sven Lütticken's excellent text "<a href="https://www.e-flux.com/journal/08/61380/viewing-copies-on-the-mobility-of-moving-images/" target="_blank">Viewing Copies: On the Mobility of Moving Images</a>,” in <em>e-flux journal</em>, no. 8 (May 2009), drew my attention to this aspect of poor images.<a href="#reference3">↩</a></li>
-    <li id="footnote4">Thanks to Kodwo Eshun for pointing this out. <a href="#reference4">↩</a></li>
-    <li id="footnote5">Of course in some cases images with low resolution also appear in mainstream media environments (mainly news), where they are associated with urgency, immediacy, and catastrophe—and are extremely valuable. 
-        See Hito Steyerl, “Documentary Uncertainty,” <em>A Prior</em> 15 (2007). <a href="#reference5">↩</a></li>
-    <li id="footnote6">Hito Steyerl, "<a href="http://eipcp.net/transversal/0608/steyerl/en" target="_blank">Politics of the Archive: Translations in Film</a>,” <em>Transversal</em> (March 2008). <a href="#reference6">↩</a></li>
-    <li id="footnote7">From correspondence with the author via e-mail.<a href="#reference7">↩</a></li>
-    <li id="footnote8">See Paolo Virno, <em>A Grammar of the Multitude: For an Analysis of Contemporary Forms of Life</em> (Cambridge, MA: MIT Press, 2004).<a href="#reference8">↩</a></li>
-    <li id="footnote9">See Alex Alberro, <em>Conceptual Art and the Politics of Publicity</em> (Cambridge, MA: MIT Press, 2003).<a href="#reference9">↩</a></li>
-    <li id="footnote10">See Félix Guattari, “Capital as the Integral of Power Formations,” in <em>Soft Subversions</em> (New York: Semiotext(e), 1996), 202.<a href="#reference10">↩</a></li>
-    <li id="footnote11">All these developments are discussed in detail in an excellent text by Simon Sheikh, “<a href="http://www.artandresearch.org.uk/v2n2/sheikh.html">Objects of Study or Commodification of Knowledge? Remarks on Artistic Research</a>,” <em>Art and Research</em> 2, no. 2 (Spring 2009).<a href="#reference11">↩</a></li>
-    <li id="footnote12">See also Alan Sekula, “Reading an Archive: Photography between Labour and Capital,” in <em>Visual Culture: The Reader</em>, ed. Stuart Hall and Jessica Evans (London/New York: Routledge 1999), 181–192.<a href="#reference12">↩</a></li>
-    <li id="footnote13">See Alberro <em>Conceptual Art and the Politics of Publicity</em>.<a href="#reference13">↩</a></li>
-    <li id="footnote14">The Pirate Bay even seems to have tried acquiring the extraterritorial oil platform of Sealand in order to install its servers there. See Jan Libbenga, "<a href="https://www.theregister.com/2007/01/12/pirate_bay_buys_island">The Pirate Bay plans to buy Sealand</a>," The Register, January 12, 2007.<a href="#reference14">↩</a></li>
-    <li id="footnote15">Dziga Vertov, “Kinopravda and Radiopravda,” in <em>Kino-eye: The Writings of Dziga Vertov</em>, ed. Annette Michelson (Berkeley: University of California Press, 1995), 52.<a href="#reference15">↩</a></li>
-    <li id="footnote16">Vertov, “Kinopravda and Radiopravda,” 52.<a href="#reference16">↩</a></li>
-    <li id="footnote17">At least from the perspective of nostalgic delusion.<a href="#reference17">↩</a></li>
-    </ol><br>
-
 
     <p>
     An earlier version of this text was improvised in a response at the “Essayfilm—Ästhetik und Aktualität” conference in Lüneburg, Germany, organized by Thomas Tode and Sven Kramer in 2007. 

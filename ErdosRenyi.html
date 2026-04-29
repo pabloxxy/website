@@ -152,20 +152,20 @@
 
     <p>
       Here, we simulate a <em>monotone coupling</em>: a uniform
-      random variable \(U_{ij} \sim \mathrm{Uniform}(0,1)\) is drawn
-      once per edge \(\{i,j\}\), and the edge is present whenever
+      random variable \(U_{ij} \sim \mathrm{Uniform}(0,1)\) is sampled
+      per every possible edge \(\{i,j\}\), and the edge is present whenever
       \(U_{ij} \leq p\). This way, increasing \(p\) can only
       add edges, never remove them. 
     </p>
     <p>
-      In other words, this way of simulating/coupling allows to say that if \(p \leq p' \) 
-      then we have
+      In other words, this way of simulating/coupling allows to say that if 
+      \(p \leq p' \) then we have
       \[ G(n,p) \subseteq G(n,p')\]
       where containment means subgraph containment.
     </p>
     <p>
-    For this reason, it is a standard tool in the field. In particular it implies that any monotone graph property,
-    e.g. being connected, has a probability that is non-decreasing in \(p\).
+    For this reason, it is a standard tool in the field. In particular it implies that any 
+    monotone graph property, e.g. being connected, has a probability that is non-decreasing in \(p\).
     </p>
 
     <p>
