@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spectral radius and matrix norms</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    #notation-menu {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #f9f9f9;
+      border: 5px solid #f9f9f9;
+      padding: 0.35rem 0.75rem;
+      max-width: 260px;
+      font-size: 0.9rem;
+    }
+    #notation-menu summary { cursor: pointer; font-weight: bold; }
+  </style>
+
+</head>
+
+
+<body>
+
+    <br><h1 align="center">Spectral radius and matrix norms</h1>
+    <p>
+      In early 2026, Prof. Gourab Ray and I were studying a problem about Lipschitz functions on trees
+      and we wanted to see if a map was a contraction in a certain space. It is a classical result that to
+      see if a map is a contraction it is enough to check the norm of the derivative. This lead me to learn
+      about beautiful mathematics that I want to write about here. Even if this can 
+      be stated in many levels of abstraction, I'll just work in \(\mathbb{R}^n\) as a concrete example.
+    </p><br>
+
+    <blockquote>
+    <p>  
+      <b>Theorem</b> Let \( U\subseteq \mathbb{R}^n \) be an open and convex set, and \(F : U\rightarrow \mathbb{R}^n \) a differentiable map. 
+      If there exists a constant \(\lambda < 1 \) such that for every \( x\in U\) 
+      \( \vert\vert DF(x) \vert\vert_{op} \leq \lambda\), then \(F \) is a contraction, i.e. for every \(x,y \in U\)
+      \[ \vert\vert F(x) - F(y) \vert\vert \leq \lambda \vert\vert x-y \vert\vert . \]
+    </p> 
+    <p>
+      <b>Proof.</b> Let \(x,y \in U \). Since \( U \) is convex then the line \(\gamma(t) = tx + (1-t)y \in U\) for every \(t \in [0,1] \). 
+      Therefore \(\gamma(t)\) is well defined.<br>
+      Define \(g(t) = F(\gamma(t)) \). By the chain rule \(g'(t) = DF(\gamma(t)) \gamma'(t) = DF(\gamma(t)) (x-y) \).<br>
+
+      If we integrate \(g'(t) \) from 0 to 1, by the fundamental theorem of calculus we get
+      \[
+        \int_0^1 DF(\gamma(t)) (x-y) dt = g(1)-g(0) = F(\gamma(1))-F(\gamma(0)) = F(x)-F(y).
+      \]
+      Taking <b>any vector norm</b> in both sides of the previous equation, and then applying the triangle inequality of the integral yields
+      \[
+        \vert\vert F(x) - F(y) \vert\vert \leq \int_0^1 \vert\vert DF(\gamma(t)) (x-y) \vert\vert dt.
+      \]
+      From the definition of the operator norm we also have that
+       \( \vert\vert DF(\gamma(t)) (x-y) \vert\vert \leq \vert\vert DF(\gamma(t)) \vert\vert_{op} ||x-y||\). Therefore,
+       \[
+         \vert\vert F(x) - F(y) \vert\vert \leq \int_0^1 \vert\vert DF(\gamma(t)) \vert\vert_{op} ||x-y|| dt.
+       \]
+
+       If we know the operator norm is bounded by \(\lambda \) for every vector in \(U\) then we can conclude
+       \[
+         \vert\vert F(x) - F(y) \vert\vert \leq \int_0^1 \lambda ||x-y|| dt = \lambda ||x-y||. \hspace{100px} \square
+       \]
+    </p>
+    </blockquote>
+    <br>
+
+    <p>
+      Notice the part where we used that this works for <b>any vector norm</b>? If we want to show something is a contraction, we might as well 
+      choose the vector norm that gives us the smallest operator norm of the derivative. 
+    </p><br>
+
+    <h2>Which vector norm minimizes the operator norm?</h2>
+    <p>
+      Turns out, incredibly, that the best vector norm that we choose cannot make the operator norm smaller than its spectral radius (the biggest eigenvalue of the matrix). 
+      Furthermore, this bound can be acheived. In other words, there is a way to find a vector norm such that the induced operator norm equals the largest eigenvalue and 
+      that is the smallest we can go.
+    </p>
+    <p>
+      We can quickly conclude an inequality between the spectral radius and the operator norm which is true for any vector norm used to define the operator norm:
+    </p>
+    <blockquote>
+      <p>
+      <b>Theorem.</b> Let \(\rho(M) \) be the spectral radius of the matrix \(M \), then 
+      \[
+      \rho(M) \leq \vert\vert M \vert\vert_{op} 
+      \] 
+      where the operator
+      norm is defined by any vector norm \(\vert\vert\cdot\vert\vert \). 
+      </p>
+      <p>
+        <b>Proof.</b> Let \(x\in\mathbb{R}^n\setminus\{0\}\) be such that \(Mx = \lambda x \) and without loss of generality assume \(\vert\vert x \vert\vert = 1 \). 
+        From the definition of the operator norm we know that \( \vert\vert Mx \vert\vert \leq \vert\vert M \vert\vert_{op} \).<br>
+        Also, from the properties of the vector norm \(\vert\vert\cdot\vert\vert\),
+        \[
+        \vert\vert Mx \vert\vert = \vert\vert \lambda x \vert\vert = \vert \lambda \vert \vert\vert x  = \vert \lambda \vert.
+        \]
+        Since this is true for every eigenvalue \(\lambda \), we can conclude \(\rho(M) \leq  \vert\vert M \vert\vert_{op}. \hspace{430px} \square \)
+      </p>
+    </blockquote>
+    <br>
+
+    <p>
+      Figuring out how to find a norm that makes the other inequality true is the more interesting part; and it is a beautiful application of Schur's decomposition.
+    </p>
+    <blockquote>
+      <p>
+        <b>Theorem.</b> Let \(\varepsilon > 0 \). There exists a matrix norm \( \vert\vert\vert \cdot\vert\vert\vert \) induced by the vector norm \(\vert\vert \cdot \vert\vert \) such that
+        \[
+        \vert\vert\vert M \vert\vert\vert \leq \rho(M) + \varepsilon.
+        \]
+      </p>
+
+        <b>Proof.</b> By Schur's decomposition we can find a unitary matrix \(U\) such that \(U^*MU=\Delta\) where \(\Delta=(d_{ij})\) is an upper triangular matrix 
+        with the eigenvalues of \(M\) in its diagonal.<br>
+        Let \(t>0 \) and \(D_t\) be a diagonal matrix defined like
+        \[
+        D_t = \begin{pmatrix}t & 0   & \cdots & 0\\
+                           0 & t^2 & \cdots & 0\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & t^n \end{pmatrix}.
+        \] 
+       After some tedious (but fun) calculations we get
+
+       \begin{align*}
+       D_t\Delta D_t^{-1} & = \begin{pmatrix}t & 0   & \cdots & 0\\
+                           0 & t^2 & \cdots & 0\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & t^n \end{pmatrix}
+
+                           \begin{pmatrix}\lambda_1 & d_{12}   & \cdots & d_{1n}\\
+                           0 & \lambda_2 & \cdots & d_{2n}\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & \lambda_n \end{pmatrix}
+
+                           \begin{pmatrix}t^{-1} & 0   & \cdots & 0\\
+                           0 & t^{-2} & \cdots & 0\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & t^{-n} \end{pmatrix} \\[18px]
+
+
+                        & = \begin{pmatrix}\lambda_1 t & d_{12} t   & \cdots & d_{1n}t\\
+                           0 & \lambda_2 t^2 & \cdots & d_{2n}t^2\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & \lambda_nt^n \end{pmatrix}
+
+                           \begin{pmatrix}t^{-1} & 0   & \cdots & 0\\
+                           0 & t^{-2} & \cdots & 0\\ 
+                           \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & \cdots & t^{-n} \end{pmatrix} \\[18px]
+                  
+       
+                       & = \begin{pmatrix} \lambda_1 & d_{12}t^{-1} & d_{13}t^{-2} & \cdots & d_{1n}t^{-n+1}\\
+                           0 & \lambda_2 & d_{23}t^{-1} & \cdots & d_{2n}t^{-n+1}\\ 
+                           0 & 0 & \lambda_3 & \cdots & d_{3n}t^{-n+3}\\
+                           \vdots & \vdots & \vdots & \ddots & \vdots \\
+                           0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}.
+       \end{align*}
+       If we make \(t\) large enough we can make every row sum arbitrarily close to its respective eigenvalue. It is a good exercise to prove that the maximum of the row sums
+       is the operator norm induced by the \(l_{\infty}\) norm in \(\mathbb{R}^n\). Let's now consider this operator norm and denote it by three vertical lines \(\vert\vert\vert\cdot\vert\vert\vert_\infty \). Therefore we have that for a large enough \(t\),
+       \[
+       \vert\vert\vert D_tU^*MUD_t^{-1} \vert\vert\vert_\infty = \vert\vert\vert \left(D_tU^*\right)M\left(D_tU^*\right)^{-1} \vert\vert\vert_\infty \leq \rho(M)+\varepsilon.
+       \]
+       The final step of the proof is checking that if we consider \(\vert\vert\cdot\vert\vert_\infty\), the \(l_\infty\) norm in \(\mathbb{R}^n\), then
+       \(x \mapsto \vert\vert D_tU^*Mx \vert\vert_\infty\) is the vector norm we are looking for, in the sense that it induces the operator norm
+       \(M \mapsto \vert\vert\vert \left(D_tU^*\right)M\left(D_tU^*\right)^{-1} \vert\vert\vert_\infty. \hspace{650px} \square \)
+    </blockquote>
+
+  
+
+</body>
+
+
+<details id="notation-menu">
+  <summary align="right">Notation and definitions</summary>
+  <ul>
+    <li>\(\|M\|_{op}\) — operator norm induced by the vector norm \(\|\cdot\|\):
+      \[sup_{x\in U} \frac{\vert \vert Mx \vert\vert}{\vert\vert x \vert\vert}\]
+    </li><br>
+    <li>\(DF(x)\) — Jacobian matrix of \(F\) at \(x\)</li><br>
+    <li>\(\rho(M)\) — spectral radius: \(\max_i |\lambda_i|\)</li><br>
+    <li>\(U \subseteq \mathbb{R}^n\) — open convex domain</li>
+  </ul>
+</details>
+</html>
