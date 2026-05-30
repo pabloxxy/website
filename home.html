@@ -3,17 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Pablo de la Fuente - Home</title>
+    <style>
+        /* Bouncing photo */
+        .outer-marquee {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            animation: scrollVertical 10s linear infinite alternate;
+        }
+ 
+        .inner-marquee {
+            display: inline-block;
+            animation: scrollHorizontal 11s linear infinite alternate;
+        }
+ 
+        @keyframes scrollHorizontal {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw - 133px)); }
+        }
+ 
+        @keyframes scrollVertical {
+            0%   { transform: translateY(0); }
+            100% { transform: translateY(calc(100vh - 200px)); }
+        }
+ 
+        .bouncing-photo {
+            width: 133px;
+            height: 200px;
+            display: block;
+            pointer-events: auto;  
+        }
+
+        /* Pause animation when hovering */
+        .inner-marquee:has(.bouncing-photo:hover) {
+            animation-play-state: paused;
+        }
+        .outer-marquee:has(.bouncing-photo:hover) {
+            animation-play-state: paused;
+        }
+ 
+    </style>
 </head>
+
 <body>
+
+    <!-- Bouncing photo -->
+    <div class="outer-marquee">
+        <div class="inner-marquee">
+            <img class="bouncing-photo" src="images/pablo-small.webp" alt="Bouncing photo of Pablo">
+        </div>
+    </div>
 
     <!-- Header section -->
     <header>
         <h3> Pablo de la Fuente is currently pursuing his MSc in Mathematics at the University of Victoria, under the supervision of Prof. Gourab Ray.
              He previously obtained his BSc in Mathematics, with honours, at UNAM under the supervision of Prof. Laura Eslava. 
              As a mathematician, his main interests lie somewhere between probability and combinatorics.
-             He also enjoys reading and writing poetry, and photography. Admittedly, he writes in third person when necessary.</h4>
+             He also enjoys reading and writing poetry, and photography. Admittedly, he writes in third person when necessary.</h3>
 
-        <h2> In this website you can learn more about </h3>
+        <h3> In this website you can learn more about </h3>
     </header>
 
     <!-- Menu -->
