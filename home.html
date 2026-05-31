@@ -11,12 +11,12 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            animation: scrollVertical 10s linear infinite alternate;
+            animation: scrollVertical 5s linear infinite alternate;
         }
  
         .inner-marquee {
             display: inline-block;
-            animation: scrollHorizontal 11s linear infinite alternate;
+            animation: scrollHorizontal 9s linear infinite alternate;
         }
  
         @keyframes scrollHorizontal {
@@ -39,9 +39,11 @@
         /* Pause animation when hovering */
         .inner-marquee:has(.bouncing-photo:hover) {
             animation-play-state: paused;
+            cursor: none;
         }
         .outer-marquee:has(.bouncing-photo:hover) {
             animation-play-state: paused;
+            cursor: none;
         }
  
     </style>
