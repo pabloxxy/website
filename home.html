@@ -12,12 +12,14 @@
             width: 100vw;
             height: 100vh;
             animation: scrollVertical 5s linear infinite alternate;
+            /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
             pointer-events: none;
         }
  
         .inner-marquee {
             display: inline-block;
             animation: scrollHorizontal 9s linear infinite alternate;
+            /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
             pointer-events: none;
         }
  
@@ -35,6 +37,7 @@
             width: 133px;
             height: 200px;
             display: block;
+            /* Re-enable pointer events on the photo so hover still works on it */
             pointer-events: auto;  
         }
 
@@ -73,12 +76,12 @@
     <!-- Menu -->
     <nav>
         <ul style="list-style-type: none;">
-            <li><a href="contact"> <h2>Pablo,</h2> </a></li>
-            <li><a href="#"> <h2>the spectra of random matrices,</h2> </a></li>
-            <li><a href="probability"> <h2>probability,</h2> </a></li>
-            <li><a href="#"> <h2>photography,</h2> </a></li>
-            <li><a href="poesía"> <h2>(concrete) poetry,</h2> </a></li>
-            <li><a href="#"> <h2>etc.</h2> </a></li>
+            <li><a href="contact" style="text-decoration: none;"> <h2>Pablo,</h2> </a></li>
+            <li><a href="#" style="text-decoration: none;"> <h2>the spectra of random matrices,</h2> </a></li>
+            <li><a href="probability" style="text-decoration: none;"> <h2>probability,</h2> </a></li>
+            <li><a href="#" style="text-decoration: none;"> <h2>photography,</h2> </a></li>
+            <li><a href="poesía" style="text-decoration: none;"> <h2>(concrete) poetry,</h2> </a></li>
+            <li><a href="#" style="text-decoration: none;"> <h2>etc.</h2> </a></li>
         </ul>
     </nav>
 
