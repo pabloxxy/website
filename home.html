@@ -11,31 +11,31 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            animation: scrollVertical 5s linear infinite alternate;
+            animation: scrollVertical 5s linear -2.5s infinite alternate; /* Negative delay so it starts in the middle of the screen */
             /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
             pointer-events: none;
         }
  
         .inner-marquee {
             display: inline-block;
-            animation: scrollHorizontal 9s linear infinite alternate;
+            animation: scrollHorizontal 9s linear -4.5s infinite alternate; /* Negative delay so it starts in the middle of the screen */
             /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
             pointer-events: none;
         }
  
         @keyframes scrollHorizontal {
             0%   { transform: translateX(0); }
-            100% { transform: translateX(calc(100vw - 133px)); }
+            100% { transform: translateX(calc(100vw - 200px)); }
         }
  
         @keyframes scrollVertical {
             0%   { transform: translateY(0); }
-            100% { transform: translateY(calc(100vh - 200px)); }
+            100% { transform: translateY(calc(100vh - 300px)); }
         }
  
         .bouncing-photo {
-            width: 133px;
-            height: 200px;
+            width: 200px;
+            height: 300px;
             display: block;
             /* Re-enable pointer events on the photo so hover still works on it */
             pointer-events: auto;  
