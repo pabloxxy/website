@@ -20,8 +20,9 @@
     </nav>
       
     <h2 align="center">You can always contact me by e-mail at the following address</h2>
-    <h1 align="center" id="email" style="cursor: copy;">pablodelafuente[at]uvic.ca</h1>
-    <p align="center">If you are not a robot and you do not wish to destroy my brain and my inbox with spam replace "[at]" by @.</p>
+    <h1 align="center" style="cursor: copy;"><span id="email"></span></h1>
+    <p align="center">If you are not a robot and you do not wish to destroy my brain and my inbox with spam, replace "[at]" by @,</p>
+    <p align="center">or just click to copy it to the clipboard.</p>
 
     <!-- Notification when email is copied -->
     <div id="notification" style="
@@ -37,26 +38,25 @@
     </div>
 
  
-    <!-- Copy email to clipboard and show notification -->
+    <!-- Assemble email direction to obfuscate scrapers, copy email to clipboard, and show notification -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const emailElement = document.getElementById('email');
-        const notification = document.getElementById('notification');
-
-        emailElement.addEventListener('click', function() {
-          // Replace [at] with @ and copy to clipboard
-          const emailText = emailElement.innerText.replace('[at]', '@');
-          navigator.clipboard.writeText(emailText).then(() => {
-            // Show notification
+      (function() {
+        var user = 'pablodelafuente';
+        var domain = 'uvic.ca';
+        var addr = user + '@' + domain;
+        var element = document.getElementById('email');
+        element.textContent = user + '[at]' + domain;
+ 
+        element.parentElement.addEventListener('click', function() {
+          navigator.clipboard.writeText(addr).then(() => {
+            var notification = document.getElementById('notification');
             notification.style.display = 'block';
-            
-            // Hide after 2 seconds
             setTimeout(() => {
               notification.style.display = 'none';
             }, 2000);
           });
         });
-      });
+      })();
     </script>
 
 </body>
