@@ -93,11 +93,11 @@
       norm is defined by any vector norm \(\vert\vert\cdot\vert\vert \). 
       </p>
       <p>
-        <b>Proof.</b> Let \(x\in\mathbb{R}^n\setminus\{0\}\) be such that \(Mx = \lambda x \) and without loss of generality assume \(\vert\vert x \vert\vert = 1 \). 
-        From the definition of the operator norm we know that \( \vert\vert Mx \vert\vert \leq \vert\vert M \vert\vert_{op} \).<br>
+        <b>Proof.</b> Let \(x\in\mathbb{R}^n\setminus\{0\}\) be such that \(Mx = \lambda x \) and without loss of generality assume \(\vert\vert x \vert\vert = 1. \) 
+        From the definition of the operator norm we know that \( \vert\vert Mx \vert\vert \leq \vert\vert M \vert\vert_{op}. \)<br>
         Also, from the properties of the vector norm \(\vert\vert\cdot\vert\vert\),
         \[
-        \vert\vert Mx \vert\vert = \vert\vert \lambda x \vert\vert = \vert \lambda \vert \vert\vert x  = \vert \lambda \vert.
+        \vert\vert Mx \vert\vert = \vert\vert \lambda x \vert\vert = \vert \lambda \vert \; \vert\vert x \vert\vert = \vert \lambda \vert.
         \]
         Since this is true for every eigenvalue \(\lambda \), we can conclude \(\rho(M) \leq  \vert\vert M \vert\vert_{op}. \hspace{430px} \square \)
       </p>
@@ -109,9 +109,9 @@
     </p>
     <blockquote>
       <p>
-        <b>Theorem.</b> Let \(\varepsilon > 0 \). There exists a matrix norm \( \vert\vert\vert \cdot\vert\vert\vert \) induced by the vector norm \(\vert\vert \cdot \vert\vert \) such that
+        <b>Theorem.</b> Let \(\varepsilon > 0. \) There exists an operator norm \( \vert\vert \cdot\vert\vert_{op} \) induced by the vector norm \(\vert\vert \cdot \vert\vert \) such that
         \[
-        \vert\vert\vert M \vert\vert\vert \leq \rho(M) + \varepsilon.
+        \vert\vert M \vert\vert_{op} \leq \rho(M) + \varepsilon.
         \]
       </p>
 
@@ -160,8 +160,14 @@
                            \vdots & \vdots & \vdots & \ddots & \vdots \\
                            0 & 0 & 0 & \cdots & \lambda_n \end{pmatrix}.
        \end{align*}
-       If we make \(t\) large enough we can make every row sum arbitrarily close to its respective eigenvalue. It is a good exercise to prove that the maximum of the row sums
-       is the operator norm induced by the \(l_{\infty}\) norm in \(\mathbb{R}^n\). Let's now consider this operator norm and denote it by three vertical lines \(\vert\vert\vert\cdot\vert\vert\vert_\infty \). Therefore we have that for a large enough \(t\),
+       If we make \(t\) large enough we can make every row sum arbitrarily close to its respective eigenvalue.<br> 
+       This is useful because we can relate the row sums of a matrix to a particular operator norm.
+       One can prove, and it is a nice exercise, that the maximum of the row sums
+       is the operator norm induced by the \(l_{\infty}\) norm in \(\mathbb{R}^n.\) 
+       We will denote the operator norm induced by the \(l_\infty \) norm in \(\mathbb{R}^n \) by three vertical lines, 
+       \(\vert\vert\vert\cdot\vert\vert\vert_\infty \), to remind ourselves this is the matrix norm and not the vector norm.<br> 
+       Therefore our remark on making the row sums arbitrarily close to the eigenvalues translates as the following inequality: 
+       for every \(\varepsilon >0 \) there is a large enough \(t\) such that
        \[
        \vert\vert\vert D_tU^*MUD_t^{-1} \vert\vert\vert_\infty = \vert\vert\vert \left(D_tU^*\right)M\left(D_tU^*\right)^{-1} \vert\vert\vert_\infty \leq \rho(M)+\varepsilon.
        \]
