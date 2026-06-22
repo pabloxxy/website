@@ -163,15 +163,15 @@
        If we make \(t\) large enough we can make every row sum arbitrarily close to its respective eigenvalue.<br> 
        This is useful because we can relate the row sums of a matrix to a particular operator norm.
        One can prove, and it is a nice exercise, that the maximum of the row sums
-       is the operator norm induced by the \(l_{\infty}\) norm in \(\mathbb{R}^n.\) 
-       We will denote the operator norm induced by the \(l_\infty \) norm in \(\mathbb{R}^n \) by three vertical lines, 
+       is the operator norm induced by the \(\ell^{\infty}\) norm in \(\mathbb{R}^n.\) 
+       We will denote the operator norm induced by the \(\ell^\infty \) norm in \(\mathbb{R}^n \) by three vertical lines, 
        \(\vert\vert\vert\cdot\vert\vert\vert_\infty \), to remind ourselves this is the matrix norm and not the vector norm.<br> 
        Therefore our remark on making the row sums arbitrarily close to the eigenvalues translates as the following inequality: 
        for every \(\varepsilon >0 \) there is a large enough \(t\) such that
        \[
        \vert\vert\vert D_tU^*MUD_t^{-1} \vert\vert\vert_\infty = \vert\vert\vert \left(D_tU^*\right)M\left(D_tU^*\right)^{-1} \vert\vert\vert_\infty \leq \rho(M)+\varepsilon.
        \]
-       The final step of the proof is checking that if we consider \(\vert\vert\cdot\vert\vert_\infty\), the \(l_\infty\) norm in \(\mathbb{R}^n\), then
+       The final step of the proof is checking that if we consider \(\vert\vert\cdot\vert\vert_\infty\), the \(\ell^\infty\) norm in \(\mathbb{R}^n\), then
        \(x \mapsto \vert\vert D_tU^*Mx \vert\vert_\infty\) is the vector norm we are looking for, in the sense that it induces the operator norm
        \(M \mapsto \vert\vert\vert \left(D_tU^*\right)M\left(D_tU^*\right)^{-1} \vert\vert\vert_\infty. \hspace{650px} \square \)
     </blockquote>
@@ -190,7 +190,7 @@
         \[\sup_{x\in U} \frac{\vert \vert Mx \vert\vert}{\vert\vert x \vert\vert}.\]
     </li><br>
     <li>\(\rho(M)\) — spectral radius: \(\max_i |\lambda_i|\).</li><br>
-    <li>If \(x \in \mathbb{R}^n\) then 
+    <li>\(||\cdot ||_\infty \) — \( \ell^\infty \) vector norm. For \(x \in \mathbb{R}^n\) this is defined as 
         \[ ||x||_\infty = \sup_i |x_i|. \]</li><br>
   </ul>
 </details>
