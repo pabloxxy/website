@@ -5,7 +5,8 @@
     <title>Pablo de la Fuente - Home</title>
 
     <link rel="canonical" href="https://pablodelafuente.xyz/home">
-    
+    <link rel="preload" href="images/pablo-small.webp" as="image">
+
     <style>
         /* Bouncing photo */
         .outer-marquee {
@@ -62,7 +63,7 @@
     <!-- Bouncing photo -->
     <div class="outer-marquee">
         <div class="inner-marquee">
-            <img class="bouncing-photo" src="images/pablo-small.webp" alt="Bouncing photo of Pablo" title="This is a photo of Pablo in Tucson, Arizona c. April 2025">
+            <img class="bouncing-photo" src="images/pablo-small.webp" fetchpriority="high" loading="eager" title="This is a photo of Pablo in Tucson, Arizona c. April 2025" alt="Bouncing photo of Pablo">
         </div>
     </div>
 
