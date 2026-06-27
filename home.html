@@ -38,8 +38,8 @@
         }
 
         .bouncing-photo {
-            width: 13vw;
-            height: 19.5vw;
+            width: 20vh;
+            height: 30vh;
             display: block;
             /* Re-enable pointer events on the photo so hover still works on it */
             pointer-events: auto;  
@@ -47,17 +47,14 @@
  
         @keyframes scrollHorizontal {
             0%   { transform: translateX(0); }
-            100% { transform: translateX(87vw); } /* 100 - 13 */
+            100% { transform: translateX(calc(100vw - 20vh)); } 
         }
  
         @keyframes scrollVertical {
             0%   { transform: translateY(0); }
-            100% { transform: translateY(calc(100vh - 19.5vw)); }
-        }
-       
-        @keyframes scrollVertical {
-            100% { transform: translateY(calc(100vh - 19.5vw)); }
-        }
+            100% { transform: translateY(70vh); } /* 100 - 30 */
+        } 
+    
 
         /* Pause animation when hovering */
         .inner-marquee:has(.bouncing-photo:hover) {
