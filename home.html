@@ -59,13 +59,17 @@
         /* Pause animation when hovering */
         .inner-marquee:has(.bouncing-photo:hover) {
             animation-play-state: paused;
-            cursor: none;
+            cursor: grab;
         }
         .outer-marquee:has(.bouncing-photo:hover) {
             animation-play-state: paused;
-            cursor: none;
         }
- 
+        
+        /* Change cursour to grabbing when clicking the photo */
+        .inner-marquee:has(.bouncing-photo:active) {
+            cursor: grabbing;
+        }
+        
     </style>
 </head>
 
