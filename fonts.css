@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/lora-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/lora-latin-400-italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/lora-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/lora-latin-700-italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/alegreya-sans-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/alegreya-sans-latin-400-italic.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/alegreya-sans-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/alegreya-sans-latin-700-italic.woff2') format('woff2');
+}
+
+:root {
+    --font-serif: 'Lora', serif;
+    --font-sans: 'Alegreya Sans', sans-serif;
+}
+
+/* Sitewide default. Override on individual elements/pages with
+   var(--font-serif) where you want the serif instead. */
+body {
+    font-family: var(--font-sans);
+}
