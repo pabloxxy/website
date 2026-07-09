@@ -68,7 +68,7 @@
 }
 
 /* Sitewide default. Override on individual elements/pages with
-   var(--font-serif) where you want the serif instead. */
+   var(--font-serif) where wanting the serif instead. */
 body {
     font-family: var(--font-sans);
 }
