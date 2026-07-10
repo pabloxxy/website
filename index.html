@@ -50,13 +50,13 @@
     const container = document.getElementById('animation-link');
     
     if (isMobile) {
-      container.innerHTML = '<img src="images/triblob12bnw.apng" fetchpriority="high" alt="Looping animation of the expected pdf of the spectra of a random matrix. Click to enter site.">';
+      container.innerHTML = '<img src="images/triblob12bnw.apng" fetchpriority="high" title="This is an animation related to the eigenvalue distribution of random matrices. Click on it to go my home page." alt="Looping animation of the expected pdf of the spectra of a random matrix. Click to enter site.">';
     } else {
       // - autoplay: starts immediately (muted required by browsers)
       // - muted: ensures autoplay works in every browser
       // - loop: infinite playback
       // - playsinline: keeps video inside the page on iOS, no fullscreen takeover
-      container.innerHTML = '<video autoplay muted loop playsinline preload="auto" aria-label="Looping animation of the expected pdf of the spectra of a random matrix. Click to enter site."><source src="images/triblob12bnw.mp4" type="video/mp4"></video>';
+      container.innerHTML = '<video autoplay muted loop playsinline preload="auto" title="This is an animation related to the eigenvalue distribution of random matrices. Click on it to go to my home page." aria-label="Looping animation of the expected pdf of the spectra of a random matrix. Click to enter site."><source src="images/triblob12bnw.mp4" type="video/mp4"></video>';
     }
   </script>
 
