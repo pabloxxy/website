@@ -84,17 +84,49 @@
     <!-- Bouncing photo -->
     <div class="outer-marquee">
         <div class="inner-marquee">
-            <img class="bouncing-photo" src="images/pablo-small.webp" fetchpriority="high" loading="eager" title="This is a photo of Pablo in Tucson, Arizona c. April 2025" alt="Bouncing photo of Pablo">
+            <img id="bouncing-img" class="bouncing-photo" src="images/pablo-small.webp" fetchpriority="high" loading="eager" alt="Bouncing photo of Pablo">
         </div>
     </div>
 
-    <!-- This selects a random initial direction for the bouncing photo -->
+
     <script>
+    // This selects a random initial direction for the bouncing photo
         document.querySelector('.outer-marquee').style.animationDirection =
             Math.random() < 0.5 ? 'alternate' : 'alternate-reverse';
         document.querySelector('.inner-marquee').style.animationDirection =
             Math.random() < 0.5 ? 'alternate' : 'alternate-reverse';
+
+
+    // This switches to a random photo when clicking
+    const bouncingImg = document.getElementById('bouncing-img');
+
+    const photos = [
+        { src: 'images/pablo-small.webp',  title: 'Pablo in Tucson, Arizona c. April 2025. Shot by Giana Leal.' },
+        { src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom c. June 2026. Shot by Dirk Slot.' }
+    ];
+
+    let currentIndex = 0; // matches the photo currently loaded 
+
+    function setPhoto(index) {
+        currentIndex = index;
+        bouncingImg.src = photos[index].src;
+        bouncingImg.title = photos[index].title;
+    }
+
+    // Set the title on load to match the initial src
+    setPhoto(currentIndex);
+
+    bouncingImg.addEventListener('click', () => {
+        let nextIndex;
+        do {
+            nextIndex = Math.floor(Math.random() * photos.length);
+        } while (nextIndex === currentIndex && photos.length > 1);
+
+        setPhoto(nextIndex);
+    });
+
     </script>
+
 
     <main> <!-- Main tag is mostly for screen readers and SEO -->
         <!-- Header section -->
