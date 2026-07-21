@@ -35,7 +35,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/fonts/Chivo-Regular.ttf') format('ttf');
+    src: url('/fonts/Chivo-Regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -43,7 +43,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url('/fonts/Chivo-Italic.ttf') format('ttf');
+    src: url('/fonts/Chivo-Italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -51,7 +51,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/fonts/Chivo-Bold.ttf') format('ttf');
+    src: url('/fonts/Chivo-Bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -59,7 +59,7 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: url('/fonts/Chivo-BoldItalic.ttf') format('ttf');
+    src: url('/fonts/Chivo-BoldItalic.woff2') format('woff2');
 }
 
 :root {
