@@ -31,40 +31,40 @@
 }
 
 @font-face {
-    font-family: 'Alegreya Sans';
+    font-family: 'Chivo';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url('/fonts/alegreya-sans-latin-400-normal.woff2') format('woff2');
+    src: url('/fonts/Chivo-Regular.ttf') format('ttf');
 }
 
 @font-face {
-    font-family: 'Alegreya Sans';
+    font-family: 'Chivo';
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url('/fonts/alegreya-sans-latin-400-italic.woff2') format('woff2');
+    src: url('/fonts/Chivo-Italic.ttf') format('ttf');
 }
 
 @font-face {
-    font-family: 'Alegreya Sans';
+    font-family: 'Chivo';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/fonts/alegreya-sans-latin-700-normal.woff2') format('woff2');
+    src: url('/fonts/Chivo-Bold.ttf') format('ttf');
 }
 
 @font-face {
-    font-family: 'Alegreya Sans';
+    font-family: 'Chivo';
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: url('/fonts/alegreya-sans-latin-700-italic.woff2') format('woff2');
+    src: url('/fonts/Chivo-BoldItalic.ttf') format('ttf');
 }
 
 :root {
     --font-serif: 'Lora', serif;
-    --font-sans: 'Alegreya Sans', sans-serif;
+    --font-sans: 'Chivo', sans-serif;
 }
 
 /* Sitewide default. Override on individual elements/pages with
