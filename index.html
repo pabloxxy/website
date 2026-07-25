@@ -46,7 +46,8 @@
 
   <!-- This finds out if the user is in mobile to load a .apng (which autoplays in every browser (even mobile) but is larger) or a .mp4 which works better in desktop browsers. -->
   <script>
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // Second part of || is to see if it is an iPad because it tends to glitch otherwise 
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     const container = document.getElementById('animation-link');
     
     if (isMobile) {
