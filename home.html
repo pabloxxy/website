@@ -67,17 +67,19 @@
             0%   { transform: translateY(0); }
             100% { transform: translateY(70vh); } /* 100 - 30 */
         } 
-        /* Pause animation when hovering */
-        .inner-marquee:has(.bouncing-photo:hover) {
-            animation-play-state: paused;
-            cursor: grab;
-        }
-        .outer-marquee:has(.bouncing-photo:hover) {
-            animation-play-state: paused;
-        }   
-        /* Change cursour to grabbing when clicking the photo */
-        .inner-marquee:has(.bouncing-photo:active) {
-            cursor: grabbing;
+        /* Pause animation when hovering — only on devices with real hover (not touch) */
+        @media (hover: hover) and (pointer: fine) {
+            .inner-marquee:has(.bouncing-photo:hover) {
+                animation-play-state: paused;
+                cursor: grab;
+            }
+            .outer-marquee:has(.bouncing-photo:hover) {
+                animation-play-state: paused;
+            }   
+            /* Change cursor to grabbing when clicking the photo */
+            .inner-marquee:has(.bouncing-photo:active) {
+                cursor: grabbing;
+            }
         }
 
          /* Nav menu */
