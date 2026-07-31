@@ -13,11 +13,15 @@
         body, h1 {
             font-family: var(--font-serif);
         }
-        nav, h2 {
+        nav {
            font-family: var(--font-sans);
         }
         nav a{
           text-decoration: none;
+        }
+        h2 {
+          font-family: var(--font-sans);
+          font-size: large;
         }
         /* h3 should be reserved for nav menu */
         h3 {
@@ -28,6 +32,7 @@
         a:visited{
             color: blue;
         }
+
     </style>
 
 </head>
@@ -49,11 +54,10 @@
       <hr>
     </nav>
       
-    <h2 align="center">You can always contact me by e-mail at the following address</h2>
+    <h2 align="center" style="margin-top: 5%;">You can always contact me by e-mail at the following address</h2>
     <!-- clamp(min, preferred, max) adjusts the size -->
     <h1 align="center" style="cursor: copy; font-size: clamp(1.5rem, 6vw, 2.5rem);"><span id="email"></span></h1>
-    <p align="center">If you are not a robot and you do not wish to destroy my brain and my inbox with spam, replace "[at]" by @,<br>
-                      or just click to copy it to the clipboard.</p>
+    <p align="center">If you are not a robot and you do not wish to destroy my brain and my inbox with spam, replace "[at]" by @, or just <b>click to copy it to the clipboard</b>.</p>
 
     <!-- Notification when email is copied -->
     <div id="notification" style="
