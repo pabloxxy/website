@@ -46,12 +46,19 @@
         header p + p {
             margin-top: 1.5em;
         }
+
         /* Visited hyperlinks don't turn purple */
         a:visited{
             color: blue;
         }
 
-
+        /* This is for removing unnecessary scroll because body has a tiny default margin  */
+        body {
+            margin: 0;
+        }
+        html, body {
+            overscroll-behavior-y: none;
+        }
 
         /* Nav menu */
         nav ul {
