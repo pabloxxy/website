@@ -65,12 +65,13 @@
             list-style-type: none;
             padding-left: 0;
         }
+        nav ul li {
+            margin: 0.5em 0em; /* Adjust vertical space in menu items */
+        }
         nav ul li a {
             text-decoration: none;
-            display: inline-block;
-        }
-        nav ul li a h2 {
-            margin: 0.4em 0em; /* Adjust vertical space in menu items */
+            font-family: 'Chivo', sans-serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
         }
 
 
@@ -139,7 +140,7 @@
     <!-- Bouncing photo -->
     <div class="outer-marquee">
         <div class="inner-marquee">
-            <img id="bouncing-img" class="bouncing-photo" src="images/pablo-small.webp" fetchpriority="high" loading="eager" alt="Bouncing photo of Pablo">
+            <img id="bouncing-img" class="bouncing-photo" src="images/pablo-small1.webp" fetchpriority="high" loading="eager" alt="Bouncing photo of Pablo">
         </div>
     </div>
 
@@ -156,7 +157,7 @@
     const bouncingImg = document.getElementById('bouncing-img');
 
     const photos = [
-        { src: 'images/pablo-small.webp',  title: 'Pablo in Tucson, Arizona. Shot by Giana Leal c. April 2025.' },
+        { src: 'images/pablo-small1.webp',  title: 'Pablo in Tucson, Arizona. Shot by Giana Leal c. April 2025.' },
         { src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom. Shot by Dirk Slot c. June 2026.' }
     ];
 
@@ -183,7 +184,7 @@
     </script>
 
 
-    <main> <!-- Main tag is mostly for screen readers and SEO -->
+    <main> 
         <!-- Header section -->
         <header>
             <p> Pablo de la Fuente is currently pursuing his MSc in Mathematics at the University of Victoria, under the supervision of 
@@ -199,11 +200,11 @@
         <!-- Menu -->
         <nav>
             <ul>
-                <li><a href="/Pablo/contact"> <h2>Pablo,</h2> </a></li>
-                <li><a href="/probability"> <h2>probability,</h2> </a></li>
-                <li><a href="#"> <h2>photography,</h2> </a></li>
-                <li><a href="/poesía/1"> <h2>(concrete) poetry,</h2> </a></li>
-                <li><a href="#"> <h2>etc.</h2> </a></li>
+                <li><a href="/Pablo/contact"> Pablo, </a></li>
+                <li><a href="/probability"> probability, </a></li>
+                <li><a href="#"> photography, </a></li>
+                <li><a href="/poesía/1"> (concrete) poetry, </a></li>
+                <li><a href="#"> etc. </a></li>
             </ul>
         </nav>
     </main>
