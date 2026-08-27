@@ -17,7 +17,7 @@
     <link rel="canonical" href="https://pablodelafuente.xyz/home">
 
     <!-- Preloading first image -->
-    <link rel="preload" href="images/pablo-small.webp" as="image">
+    <link rel="preload" href="images/pablo-small1.webp" as="image">
 
     <!-- Fonts -->
     <link rel="preload" href="/fonts/lora-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -34,7 +34,7 @@
             padding-inline: clamp(1rem, 4vw, 2.5rem); /* Gives dynamical padding to the left and right */
         }
         header {
-            max-width: 48rem;
+            max-width: 50rem;
         }
         header p {
             font-family: 'Lora', serif;
@@ -171,7 +171,7 @@
 
     // Set the title on load to match the initial src
     setPhoto(currentIndex);
-
+   
     bouncingImg.addEventListener('click', () => {
         let nextIndex;
         do {
@@ -180,6 +180,19 @@
 
         setPhoto(nextIndex);
     });
+
+
+     // Preload the other photos when hovering over bouncing photo
+    function preloadOtherPhotos() {
+        photos.forEach((photo, index) => {
+            if (index !== currentIndex) {
+                const img = new Image();
+                img.src = photo.src;
+            }
+        });
+    }
+    bouncingImg.addEventListener('mouseenter', preloadOtherPhotos);
+    bouncingImg.addEventListener('pointerdown', preloadOtherPhotos);
 
     </script>
 
