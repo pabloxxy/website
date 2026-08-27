@@ -96,11 +96,13 @@
             height: 100vh;
             animation: scrollVertical 5s linear -2.5s infinite alternate; /* Negative delay so it starts in the middle of the screen */
             pointer-events: none; /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
+            will-change: transform; /* Try to fix the bug where photo moves horizontally while loading new page */
         }
         .inner-marquee {
             display: inline-block;
-            animation: scrollHorizontal 9s linear -4.5s infinite alternate; /* Negative delay so it starts in the middle of the screen */
-            pointer-events: none; /* Prevent the full-viewport overlay from blocking clicks on the content beneath */
+            animation: scrollHorizontal 9s linear -4.5s infinite alternate;
+            pointer-events: none;
+            will-change: transform;
         }
         .bouncing-photo {
             width: 20vh;
