@@ -14,7 +14,13 @@ Things to do:
 
 - Guestbook (maybe using formspree)
 
-Photography:
+- convert png to web in photography
+
+- adjust caption font size in photography
+
+
+
+Photography websites:
 
 - https://sophiaschweizer.com/photo
 
