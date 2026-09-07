@@ -2,6 +2,8 @@
 
 Things to do:
 
+- in home, random permutation of bouncing photos, then go through the list. Instead of choosing a random next photo every time.
+
 - splash page looks pixelated on iPad. Bouncing photo goes out of bounds in the bottom, iPad too.
 
 - vertically center email
