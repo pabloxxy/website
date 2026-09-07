@@ -13,3 +13,13 @@ Things to do:
 - Favicon
 
 - Guestbook (maybe using formspree)
+
+Photography:
+
+- https://sophiaschweizer.com/photo
+
+- https://jannatew.com/
+
+- https://www.gregoryhalpern.com/
+
+- https://www.bryanschutmaat.co/work/living-dry/Users/pablodelafuente/Desktop/00.png
