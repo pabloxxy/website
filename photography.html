@@ -14,22 +14,34 @@
   <link rel="stylesheet" href="/fonts.css">
 
   <style>
+    body {
+      margin: 0;
+    }
+
     img {
+      display: block;
       max-width: 90vw;
       max-height: 70vh;
     }
 
     figure {
-      display: table;
+      width: fit-content;
+      max-width: 100%;
       margin: 0 0 30vh;
     }
 
+    /* Margin on top of the first image */
+    figure:first-child {
+      margin-top: 10vh;
+    }
+
     figcaption {
-      display: table-caption;
-      caption-side: bottom;
-      font-family: 'Chivo', sans-serif;;
+      font-family: 'Chivo', sans-serif;
+      overflow-wrap: anywhere;
     }
   </style>
+
+  
 </head>
 
 <body>
@@ -569,5 +581,73 @@
 
     </div>
   </main>
+
+
+
+  <!-- Random horizontal translating -->
+  <script>
+    // Get every <figure> on the page.
+    const figures = document.querySelectorAll('figure');
+
+    // This loop runs only once, when the page loads.
+    figures.forEach(figure => {
+
+      // Give this figure a random horizontal position between 0 and 1.
+      figure.randomX = Math.floor(Math.random() * 1001) / 1000;
+
+
+      // Because the images are lazy-loaded, their width may not be known when the page first loads.
+      // Therefore, when this image finishes loading, position its figure again using the same random number.
+      figure.querySelector('img').addEventListener('load', () => {
+        placeFigure(figure);
+      });
+    });
+
+    // Position one particular figure.
+    function placeFigure(figure) {
+
+      // Width of the usable browser viewport.
+      const screenWidth = document.documentElement.clientWidth;
+
+      // Width of the entire figure:
+      // image + caption.
+      //
+      // translateX does not change this width, so we can safely
+      // measure it even if the figure has already been translated.
+      const figureWidth = figure.getBoundingClientRect().width;
+
+
+      // Horizontal space in which the figure is allowed to move.
+      // Math.max prevents freeSpace from becoming negative in case a figure somehow becomes wider than the screen.
+      const freeSpace = Math.max(0, screenWidth - figureWidth);
+
+      // Convert the stored random number into an actual pixel position.
+      const x = figure.randomX * freeSpace;
+
+      // Move the entire figure, including its caption.
+      figure.style.transform = `translateX(${x}px)`;
+    }
+
+    // Position every figure.
+    function placeFigures() {
+      figures.forEach(figure => {
+        placeFigure(figure);
+      });
+    }
+
+    // Position everything once when the script first runs.
+    placeFigures();
+
+
+    // Whenever the window changes size, calculate the available space again.
+    window.addEventListener('resize', placeFigures);
+
+    // The Chivo font can slightly change the width of captions when it finishes loading.
+    // Recalculate the positions once after the font is ready.
+    document.fonts.ready.then(placeFigures);
+  </script>
+
+
+
 </body>
 </html>
