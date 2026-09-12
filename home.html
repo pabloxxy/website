@@ -146,54 +146,76 @@
 
 
     <script>
-    // This selects a random initial direction for the bouncing photo
+        // Select a random initial direction for the bouncing photo
         document.querySelector('.outer-marquee').style.animationDirection =
             Math.random() < 0.5 ? 'alternate' : 'alternate-reverse';
+
         document.querySelector('.inner-marquee').style.animationDirection =
             Math.random() < 0.5 ? 'alternate' : 'alternate-reverse';
 
 
-    // This switches to a random photo when clicking
-    const bouncingImg = document.getElementById('bouncing-img');
+        // Photos
+        const bouncingImg = document.getElementById('bouncing-img');
 
-    const photos = [
-        { src: 'images/pablo-small1.webp',  title: 'Pablo in Tucson, Arizona. Shot by Giana Leal c. April 2025.' },
-        { src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom. Shot by Dirk Slot c. June 2026.' },
-        { src: 'images/pablo-small3.webp', title: 'Pablo in Max Cetto\'s house. Shot by Giana Leal September 2026.'}
-    ];
-
-    let currentIndex = 0; // matches the photo currently loaded 
-
-    function setPhoto(index) {
-        currentIndex = index;
-        bouncingImg.src = photos[index].src;
-        bouncingImg.title = photos[index].title;
-    }
-
-    // Set the title on load to match the initial src
-    setPhoto(currentIndex);
-   
-    bouncingImg.addEventListener('click', () => {
-        let nextIndex;
-        do {
-            nextIndex = Math.floor(Math.random() * photos.length);
-        } while (nextIndex === currentIndex && photos.length > 1);
-
-        setPhoto(nextIndex);
-    });
+        const photos = [
+            {src: 'images/pablo-small1.webp', title: 'Pablo in Tucson, Arizona. Shot by Giana Leal, c. April 2025.'},
+            {src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom. Shot by Dirk Slot, c. June 2026.'},
+            {src: 'images/pablo-small3.webp', title: 'Pablo in Max Cetto\'s house. Shot by Giana Leal, September 2026.'},
+            {src: 'images/pablo-small4.webp', title: 'Pablo in Mexico City. Shot by Giana Leal, September 2026.'},
+            {src: 'images/pablo-small5.webp', title: 'Pablo in Mexico City\'s Anthropology and History Museum. Shot by Giana Leal, September 2026.'},
+            {src: 'images/pablo-small6.webp', title: 'Pablo in Mexico City\'s Anthropology and History Museum. Shot by Giana Leal, September 2026.'}
+        ];
 
 
-     // Preload the other photos when hovering over bouncing photo
-    function preloadOtherPhotos() {
-        photos.forEach((photo, index) => {
-            if (index !== currentIndex) {
-                const img = new Image();
-                img.src = photo.src;
+        // Change the displayed photo
+        let currentIndex = 0;
+
+        function setPhoto(index) {
+            currentIndex = index;
+            bouncingImg.src = photos[index].src;
+            bouncingImg.title = photos[index].title;
+        }
+
+        // Set the title on load to match the initial photo
+        setPhoto(currentIndex);
+
+
+        // Generate a uniform random permutation with photo 1 always first
+        function shuffledOrder() {
+            const order = photos.map((_, i) => i);
+
+            // Fisher-Yates shuffle, leaving photo 1 (index 0) fixed
+            for (let i = order.length - 1; i > 1; i--) {
+                const j = Math.floor(Math.random() * i) + 1;
+                [order[i], order[j]] = [order[j], order[i]];
             }
+
+            return order;
+        }
+
+        // Generate the order once when the page loads
+        const order = shuffledOrder();
+        let orderIndex = 1; // Photo 1 is already displayed
+
+        // Go through the same permutation repeatedly
+        bouncingImg.addEventListener('click', () => {
+            setPhoto(order[orderIndex]);
+            orderIndex = (orderIndex + 1) % order.length;
         });
-    }
-    bouncingImg.addEventListener('mouseenter', preloadOtherPhotos);
-    bouncingImg.addEventListener('pointerdown', preloadOtherPhotos);
+
+
+        // Preload the other photos when hovering over or pressing the bouncing photo
+        function preloadOtherPhotos() {
+            photos.forEach((photo, index) => {
+                if (index !== currentIndex) {
+                    const img = new Image();
+                    img.src = photo.src;
+                }
+            });
+        }
+
+        bouncingImg.addEventListener('mouseenter', preloadOtherPhotos);
+        bouncingImg.addEventListener('pointerdown', preloadOtherPhotos);
 
     </script>
 

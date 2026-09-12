@@ -1,3 +1,6 @@
+<!-- I want this page to be essentially just a simple layout of images. Each image needs to be displayed on its own so one can appreciate them slowly, one by one. -->
+<!-- Every line of code that follows is just here to make that in the best way that I can. -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +41,19 @@
     figcaption {
       font-family: 'Chivo', sans-serif;
       overflow-wrap: anywhere;
+    }
+
+    /* Back to the top button */
+    html {
+      scroll-behavior: smooth;
+    }
+    .back-to-top {
+      display: block;
+      color: blue;
+      width: fit-content;
+      margin: 10vh auto 5vh;
+      font-family: 'Chivo', sans-serif;
+      text-decoration: none;
     }
   </style>
 
@@ -115,7 +131,7 @@
           alt="Description of the photograph"
           loading="lazy"
         >
-        <figcaption>Palacio de Correos (?), Centro Histórico, CDMX,</figcaption>
+        <figcaption>Edificio del Banco de México, Centro Histórico, CDMX,</figcaption>
         <figcaption>Kodak Portra 400 en Olympus OM1,</figcaption>
         <figcaption>octubre de 2025.</figcaption>
       </figure>
@@ -682,6 +698,8 @@
         <figcaption>abril de 2025.</figcaption>
       </figure>
 
+      <!-- Back to top button -->
+      <a class="back-to-top" href="#">↑ Back to top</a>
 
     </div>
   </main>
