@@ -28,7 +28,6 @@
       height: auto;
       max-width: 90vw;
       max-height: 70vh;
-      margin-inline: auto; /* Center photo horizontally when the caption is as wide as the screen (common in mobile) */
     }
 
     figure {
@@ -46,6 +45,10 @@
       font-family: 'Chivo', sans-serif;
       color:grey;
       overflow-wrap: anywhere;
+
+      /* Wrap caption to the width of the photo */
+      width: 0;
+      min-width: 100%; 
     }
 
     /* Back to the top button */
@@ -188,7 +191,7 @@
           width="2075"
           height="3130"
         >
-        <figcaption>Statue of Queen Victoria in front of BC Parliament Buildings,</figcaption>
+        <figcaption>Statue of Queen Victoria at BC Parliament Buildings,</figcaption>
         <figcaption>Kodak Ultramax on Olympus Accura,</figcaption>
         <figcaption>July 1st, 2026 (Canada Day).</figcaption>
       </figure>
