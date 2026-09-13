@@ -16,8 +16,24 @@
 
     <link rel="canonical" href="https://pablodelafuente.xyz/home">
 
-    <!-- Preloading first image -->
-    <link rel="preload" href="images/pablo-small1.webp" as="image">
+
+    <!-- Randomize photo order and preload the first one -->
+    <script>
+        const photoOrder = [0, 1, 2, 3, 4, 5];
+
+        // Fisher-Yates shuffle
+        for (let i = photoOrder.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [photoOrder[i], photoOrder[j]] = [photoOrder[j], photoOrder[i]];
+        }
+
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = `images/pablo-small${photoOrder[0] + 1}.webp`;
+        document.head.appendChild(preload);
+    </script>
+
 
     <!-- Fonts -->
     <link rel="preload" href="/fonts/lora-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -144,7 +160,6 @@
         </div>
     </div>
 
-
     <script>
         // Select a random initial direction for the bouncing photo
         document.querySelector('.outer-marquee').style.animationDirection =
@@ -154,13 +169,13 @@
             Math.random() < 0.5 ? 'alternate' : 'alternate-reverse';
 
 
-        // Photos
+        // Bouncing photos
         const bouncingImg = document.getElementById('bouncing-img');
 
         const photos = [
-            {src: 'images/pablo-small1.webp', title: 'Pablo in Tucson, Arizona. Shot by Giana Leal, c. April 2025.'},
-            {src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom. Shot by Dirk Slot, c. June 2026.'},
-            {src: 'images/pablo-small3.webp', title: 'Pablo in Max Cetto\'s house. Shot by Giana Leal, September 2026.'},
+            {src: 'images/pablo-small1.webp', title: 'Pablo in Tucson, Arizona. Shot by Giana Leal c. April 2025.'},
+            {src: 'images/pablo-small2.webp', title: 'Pablo in UVic photoclub\'s darkroom. Shot by Dirk Slot c. June 2026.'},
+            {src: 'images/pablo-small3.webp', title: 'Pablo in Max Cetto\'s house. Shot by Giana Leal September 2026.'},
             {src: 'images/pablo-small4.webp', title: 'Pablo in Mexico City. Shot by Giana Leal, September 2026.'},
             {src: 'images/pablo-small5.webp', title: 'Pablo in Mexico City\'s Anthropology and History Museum. Shot by Giana Leal, September 2026.'},
             {src: 'images/pablo-small6.webp', title: 'Pablo in Mexico City\'s Anthropology and History Museum. Shot by Giana Leal, September 2026.'}
@@ -176,31 +191,17 @@
             bouncingImg.title = photos[index].title;
         }
 
-        // Set the title on load to match the initial photo
-        setPhoto(currentIndex);
+
+        // Show the first photo in the random order
+        let orderIndex = 0;
+        setPhoto(photoOrder[orderIndex]);
+        orderIndex++;
 
 
-        // Generate a uniform random permutation with photo 1 always first
-        function shuffledOrder() {
-            const order = photos.map((_, i) => i);
-
-            // Fisher-Yates shuffle, leaving photo 1 (index 0) fixed
-            for (let i = order.length - 1; i > 1; i--) {
-                const j = Math.floor(Math.random() * i) + 1;
-                [order[i], order[j]] = [order[j], order[i]];
-            }
-
-            return order;
-        }
-
-        // Generate the order once when the page loads
-        const order = shuffledOrder();
-        let orderIndex = 1; // Photo 1 is already displayed
-
-        // Go through the same permutation repeatedly
+        // Go through the same random order repeatedly
         bouncingImg.addEventListener('click', () => {
-            setPhoto(order[orderIndex]);
-            orderIndex = (orderIndex + 1) % order.length;
+            setPhoto(photoOrder[orderIndex]);
+            orderIndex = (orderIndex + 1) % photoOrder.length;
         });
 
 
