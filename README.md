@@ -2,13 +2,15 @@
 
 Things to do:
 
-- in home, random permutation of bouncing photos, then go through the list. Instead of choosing a random next photo every time.
+- Photography: adjust caption font and size in photography. 
 
-- splash page looks pixelated on iPad. Bouncing photo goes out of bounds in the bottom, iPad too.
+- Photography: caption should not be wider than photo. Making caption size 0 does not work because before loading captions looks vertical and it is horrible.
+
+- splash page looks very pixelated on iPad and a little pixelated on mobile. Bouncing photo goes out of bounds in the bottom, iPad too.
 
 - vertically center email
 
-- Missing pages: spectra, photography, poesía2, "etc."
+- Missing pages: spectra, poesía2, "etc."
 
 - Add canonical link to every page
 
@@ -16,9 +18,7 @@ Things to do:
 
 - Guestbook (maybe using formspree)
 
-- convert png to web in photography
 
-- adjust caption font size in photography
 
 
 
