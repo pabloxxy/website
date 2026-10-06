@@ -6,6 +6,8 @@ Things to do:
 
 - Photography: caption should not be wider than photo. Making caption size 0 does not work because before loading captions looks vertical and it is horrible.
 
+- Photography: add magnifying glass.
+
 - splash page looks very pixelated on iPad and a little pixelated on mobile. Bouncing photo goes out of bounds in the bottom, iPad too.
 
 - vertically center email

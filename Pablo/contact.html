@@ -10,37 +10,67 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="../fonts.css">
     <style>
-        body, h1 {
-            font-family: var(--font-serif);
-        }
-        nav {
-           font-family: var(--font-sans);
-        }
-        nav a{
-          text-decoration: none;
-        }
-        h2 {
-          font-family: var(--font-sans);
-          font-size: large;
-        }
-        /* h3 should be reserved for nav menu */
-        h3 {
-           margin-top: 0; 
-           margin-bottom: 0;
-        }
-        /* Visited hyperlinks don't turn purple */
-        a:visited{
-            color: blue;
-        }
+      body {
+          min-height: 100dvh; /* Make the body at least as tall as the visible screen */
+          margin: 0; 
+          display: flex; 
+          flex-direction: column; /* Stack the back link, nav, and main content vertically */
+      }
 
+      main {
+          flex: 1; /* Make main take up all the remaining vertical space below the menu */
+          display: flex;
+          flex-direction: column; /* Keep the paragraphs stacked vertically */
+          justify-content: center; /* Center the group of paragraphs vertically inside main */
+          max-width: 42rem; /* Keep the text from becoming too wide, like on the home page */
+          padding-inline: clamp(1rem, 4vw, 2.5rem); /* Responsive left and right padding */
+          
+          /* Move main up to 10rem to the right.
+          calc(100vw - 47rem) is the available extra horizontal space:
+          42rem max-width + 2.5rem left padding + 2.5rem right padding = 47rem.
+          clamp keeps the margin between 0rem and 10rem, so on narrow screens
+          the shift gets smaller instead of pushing the content off the right side. */
+          margin-left: clamp(0rem, calc(100vw - 47rem), 10rem);
+      }
+
+      main p {
+        margin-bottom: 0.5em;
+    }
+
+
+      .email {
+          color: blue;
+          font-family: var(--font-sans);
+          font-size: clamp(2rem, 6vw, 2.5rem);
+          cursor: copy;
+          margin-top: 0; /* Remove the default space above the email */
+      }
+
+      /* Navigation menu */
+      nav {
+          font-family: var(--font-sans);
+      }
+      nav a{
+        text-decoration: none;
+      }
+      /* h3 should be reserved for nav menu */
+      h3 {
+          margin-top: 0; 
+          margin-bottom: 0;
+      }
+      /* Visited hyperlinks don't turn purple */
+      a:visited{
+          color: blue;
+      }
     </style>
 
 </head>
 
 <body>
 
+    <!-- Menu -->
     <h3><a href="../home" style="text-decoration: none;"> ← Back to Home</a></h3>
-    
+  
     <nav>
       <hr>
       <table width="100%" align="center">
@@ -53,11 +83,20 @@
       </table>
       <hr>
     </nav>
-      
-    <h2 align="center" style="margin-top: 5%;">You can always contact me by e-mail at the following address</h2>
-    <!-- clamp(min, preferred, max) adjusts the size -->
-    <h1 align="center" style="cursor: copy; font-size: clamp(1.5rem, 6vw, 2.5rem);"><span id="email"></span></h1>
-    <p align="center">If you are not a robot and you do not wish to destroy my brain and my inbox with spam, replace "[at]" by @, or just <b>click to copy it to the clipboard</b>.</p>
+    
+
+    <!-- Main content: e-mail, etc. -->
+    <main>
+     <p>You can always contact me by e-mail at the following address:</p>
+
+     <p class="email"><span id="email"></span></p>
+
+     <p>
+        If you are not a robot and you do not wish to destroy my brain and my inbox
+        with spam, replace "[at]" by @, or just <b>click to copy it to the clipboard</b>.
+     </p>
+    </main>
+
 
     <!-- Notification when email is copied -->
     <div id="notification" style="
