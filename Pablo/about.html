@@ -9,20 +9,42 @@
     <link rel="stylesheet" href="../fonts.css">
     <style>
         body {
+            min-height: 100dvh; /* Make the body at least as tall as the visible screen */
+            margin: 0; 
+            display: flex; 
+            flex-direction: column; /* Stack the back link, nav, and main content vertically */
             font-family: var(--font-serif);
         }
+
+        main {
+          margin: 8px;
+        }
+          
+        /* Back to home button */
+        .back {
+            font-family: var(--font-sans);
+            font-weight: bold;
+            text-decoration: none;
+            margin: 1rem 1rem 0.5rem;
+        }
+
+        /* Navigation menu */
         nav {
             font-family: var(--font-sans);
         }
-        nav a{
+
+        .menu {
+            display: flex;
+            justify-content: space-around; /* Handles the space around each button. */
+            font-weight: bold;
+            margin: 0.75rem 0;
+        }
+
+        .menu a {
           text-decoration: none;
         }
-        /* h3 should be reserved for nav menu */
-        h3 {
-           margin-top: 0; 
-           margin-bottom: 0;
-        }
-        /* Visited hyperlinks don't turn purple */
+
+        /* Visited hyperlinks don't turn purple. */
         a:visited{
             color: blue;
         }
@@ -32,20 +54,21 @@
 
 <body>
 
-    <h3><a href="../home" style="text-decoration: none;"> ← Back to Home</a></h3>
-    
+    <!-- Menu -->
+    <a class="back" href="../home">← Back to Home</a>
+  
     <nav>
-      <hr>
-      <table width="100%" align="center">
-        <tr>
-          <td align="center"><h3><a href="../Pablo/contact">[Contact]</a></h3></td>
-          <td align="center"><h3><a href="../Pablo/cv">[CV]</a></h3></td>
-          <td align="center"><h3>[About this site]</h3></td>
-          <td align="center"><h3><a href="../Pablo/links">[Links]</a></h3></td>
-        </tr>
-      </table>
-      <hr>
+    <hr>
+        <div class="menu">
+            <a href="../Pablo/contact">[Contact]</a>  
+            <a href="../Pablo/cv">[CV]</a>
+            <span>[About this site]</span> <!-- I use span so the flex works properly. This makes this element a container instead of just a text node. -->
+            <a href="../Pablo/links">[Links]</a>
+        </div>
+    <hr>
     </nav>
+
+    <main>
 
     <h1 align="center">This site is always under construction</h1>
     <p>
@@ -91,6 +114,8 @@
     <a style="font-family: var(--font-sans); text-decoration: none;" href="https://fonts.google.com/specimen/Chivo" target="_blank">Chivo</a> 
     for the sans serif. Both are available for free at Google Fonts.
     </p>
+
+    </main>
 
 </body>
 </html>

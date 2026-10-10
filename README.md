@@ -10,8 +10,6 @@ Things to do:
 
 - splash page looks very pixelated on iPad and a little pixelated on mobile. Bouncing photo goes out of bounds in the bottom, iPad too.
 
-- vertically center email
-
 - Missing pages: spectra, poesía2, "etc."
 
 - Add canonical link to every page
