@@ -12,11 +12,19 @@ Things to do:
 
 - Missing pages: spectra, poesía2, "etc."
 
+- Poesía2: microedición crítica, textos de sala, flyers, etc.
+
 - Add canonical link to every page
 
 - Favicon
 
 - Guestbook (maybe using formspree)
+
+- Links page can look like many windows inspired by My Boyfriend Came Back from the War
+
+- Metadata
+
+- Add a site map? https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap?sjid=1419936015672650813-NC&visit_id=638858613004960642-1071377712&rd=1
 
 
 
